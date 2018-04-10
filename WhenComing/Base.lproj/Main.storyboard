@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--List Not Set View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WhenComing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ListNotSetViewController" customModule="WhenComing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Txy-qc-STP"/>
                         <viewControllerLayoutGuide type="bottom" id="NGO-Q1-Qsf"/>
@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="1086" y="-564"/>
         </scene>
-        <!--View Controller-->
+        <!--List Set View Controller-->
         <scene sceneID="eUU-F4-qH2">
             <objects>
-                <viewController id="nWS-vr-fez" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListSetViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nWS-vr-fez" customClass="ListSetViewController" customModule="WhenComing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dVB-6D-ofN"/>
                         <viewControllerLayoutGuide type="bottom" id="3w6-EX-SKL"/>
@@ -93,7 +93,7 @@
                                 <rect key="frame" x="16" y="80" width="343" height="114"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="moi-qA-3iy">
-                                        <rect key="frame" x="1" y="1" width="155" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="155" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lH8-GY-AoR">
                                                 <rect key="frame" x="16" y="14" width="24.5" height="17"/>
@@ -118,30 +118,39 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원자력병원공릉동삼익2차아파트" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dD-GC-182">
-                                        <rect key="frame" x="17" y="60" width="215" height="21"/>
+                                        <rect key="frame" x="17" y="59" width="215" height="21"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <color key="textColor" red="0.047058823530000002" green="0.1215686275" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="묵1동주민센터입구.먹골역 방면" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4V-ZC-F4K">
-                                        <rect key="frame" x="17" y="83" width="157.5" height="16"/>
+                                        <rect key="frame" x="17" y="82" width="157.5" height="16"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="13"/>
                                         <color key="textColor" red="0.047058823530000002" green="0.1215686275" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sCO-Au-Vb9">
-                                        <rect key="frame" x="264" y="8" width="49" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPc-68-gAF">
+                                        <rect key="frame" x="323" y="14" width="3" height="22"/>
+                                        <state key="normal" image="setting_icon"/>
+                                    </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sCO-Au-Vb9">
+                                        <rect key="frame" x="255" y="10" width="51" height="31"/>
                                         <color key="onTintColor" red="0.20392156862745098" green="0.29411764705882354" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="moi-qA-3iy" firstAttribute="leading" secondItem="OLY-y7-V04" secondAttribute="leading" id="1HE-Lu-6Ci"/>
                                     <constraint firstItem="k4V-ZC-F4K" firstAttribute="leading" secondItem="1dD-GC-182" secondAttribute="leading" id="GSo-bU-Gnw"/>
+                                    <constraint firstItem="nPc-68-gAF" firstAttribute="top" secondItem="OLY-y7-V04" secondAttribute="top" constant="14" id="S4n-nJ-feI"/>
                                     <constraint firstItem="1dD-GC-182" firstAttribute="top" secondItem="moi-qA-3iy" secondAttribute="bottom" constant="15" id="SJj-vn-ok6"/>
-                                    <constraint firstItem="moi-qA-3iy" firstAttribute="leading" secondItem="OLY-y7-V04" secondAttribute="leading" constant="1" id="VSY-9W-N6T"/>
+                                    <constraint firstAttribute="trailing" secondItem="nPc-68-gAF" secondAttribute="trailing" constant="17" id="SMQ-Xo-2qg"/>
+                                    <constraint firstItem="moi-qA-3iy" firstAttribute="top" secondItem="OLY-y7-V04" secondAttribute="top" id="Stv-Fi-vfI"/>
+                                    <constraint firstItem="sCO-Au-Vb9" firstAttribute="top" secondItem="OLY-y7-V04" secondAttribute="top" constant="10" id="VJD-Q8-sYS"/>
                                     <constraint firstItem="moi-qA-3iy" firstAttribute="width" secondItem="OLY-y7-V04" secondAttribute="width" multiplier="451.895:1000" id="WbL-Zp-SEA"/>
-                                    <constraint firstItem="moi-qA-3iy" firstAttribute="top" secondItem="OLY-y7-V04" secondAttribute="top" constant="1" id="kCs-YE-K2W"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1dD-GC-182" secondAttribute="trailing" constant="20" symbolic="YES" id="ZAm-wQ-mJ4"/>
+                                    <constraint firstItem="nPc-68-gAF" firstAttribute="leading" secondItem="sCO-Au-Vb9" secondAttribute="trailing" constant="19" id="d2J-Tr-Uhu"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="k4V-ZC-F4K" secondAttribute="trailing" constant="20" symbolic="YES" id="ki8-Wv-DOu"/>
                                     <constraint firstItem="1dD-GC-182" firstAttribute="leading" secondItem="OLY-y7-V04" secondAttribute="leading" constant="17" id="mVc-GJ-Fgm"/>
                                     <constraint firstItem="moi-qA-3iy" firstAttribute="height" secondItem="OLY-y7-V04" secondAttribute="height" multiplier="385.964:1000" id="qdR-a7-EZw"/>
                                     <constraint firstItem="k4V-ZC-F4K" firstAttribute="top" secondItem="1dD-GC-182" secondAttribute="bottom" constant="2" id="wZF-QR-gdt"/>
@@ -172,10 +181,13 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="listView" destination="OLY-y7-V04" id="8OF-wA-Xh4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="utH-cr-G2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892" y="-564"/>
+            <point key="canvasLocation" x="1892" y="-564.46776611694156"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uv8-7z-Lhs">
@@ -200,5 +212,6 @@
         <image name="list_logo" width="97" height="111"/>
         <image name="nav_logo" width="72" height="23"/>
         <image name="nav_plus" width="20" height="20"/>
+        <image name="setting_icon" width="3" height="19"/>
     </resources>
 </document>

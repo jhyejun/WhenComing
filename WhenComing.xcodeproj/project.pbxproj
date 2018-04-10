@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		CB68E03A2075C42B00A0E2C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */; };
-		CB68E03C2075C42B00A0E2C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68E03B2075C42B00A0E2C1 /* ViewController.swift */; };
 		CB68E03F2075C42B00A0E2C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB68E03D2075C42B00A0E2C1 /* Main.storyboard */; };
 		CB68E0412075C42C00A0E2C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB68E0402075C42C00A0E2C1 /* Assets.xcassets */; };
 		CB68E0442075C42C00A0E2C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB68E0422075C42C00A0E2C1 /* LaunchScreen.storyboard */; };
+		CB68E04D207CC15500A0E2C1 /* ListNotSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68E04C207CC15500A0E2C1 /* ListNotSetViewController.swift */; };
+		CB68E04F207CC16E00A0E2C1 /* ListSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68E04E207CC16E00A0E2C1 /* ListSetViewController.swift */; };
+		CB68E054207CCAB300A0E2C1 /* AlarmListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68E052207CCAB300A0E2C1 /* AlarmListCell.swift */; };
+		CB68E055207CCAB300A0E2C1 /* AlarmListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB68E053207CCAB300A0E2C1 /* AlarmListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CB68E0362075C42B00A0E2C1 /* WhenComing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhenComing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB68E03B2075C42B00A0E2C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CB68E03E2075C42B00A0E2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB68E0402075C42C00A0E2C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB68E0432075C42C00A0E2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB68E0452075C42C00A0E2C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB68E04C207CC15500A0E2C1 /* ListNotSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotSetViewController.swift; sourceTree = "<group>"; };
+		CB68E04E207CC16E00A0E2C1 /* ListSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSetViewController.swift; sourceTree = "<group>"; };
+		CB68E052207CCAB300A0E2C1 /* AlarmListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListCell.swift; sourceTree = "<group>"; };
+		CB68E053207CCAB300A0E2C1 /* AlarmListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */,
-				CB68E03B2075C42B00A0E2C1 /* ViewController.swift */,
+				CB68E0452075C42C00A0E2C1 /* Info.plist */,
 				CB68E03D2075C42B00A0E2C1 /* Main.storyboard */,
 				CB68E0402075C42C00A0E2C1 /* Assets.xcassets */,
 				CB68E0422075C42C00A0E2C1 /* LaunchScreen.storyboard */,
-				CB68E0452075C42C00A0E2C1 /* Info.plist */,
+				CB68E04E207CC16E00A0E2C1 /* ListSetViewController.swift */,
+				CB68E04C207CC15500A0E2C1 /* ListNotSetViewController.swift */,
+				CB68E052207CCAB300A0E2C1 /* AlarmListCell.swift */,
+				CB68E053207CCAB300A0E2C1 /* AlarmListCell.xib */,
 			);
 			path = WhenComing;
 			sourceTree = "<group>";
@@ -126,6 +135,7 @@
 				CB68E0442075C42C00A0E2C1 /* LaunchScreen.storyboard in Resources */,
 				CB68E0412075C42C00A0E2C1 /* Assets.xcassets in Resources */,
 				CB68E03F2075C42B00A0E2C1 /* Main.storyboard in Resources */,
+				CB68E055207CCAB300A0E2C1 /* AlarmListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,8 +163,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB68E03C2075C42B00A0E2C1 /* ViewController.swift in Sources */,
+				CB68E04D207CC15500A0E2C1 /* ListNotSetViewController.swift in Sources */,
+				CB68E04F207CC16E00A0E2C1 /* ListSetViewController.swift in Sources */,
 				CB68E03A2075C42B00A0E2C1 /* AppDelegate.swift in Sources */,
+				CB68E054207CCAB300A0E2C1 /* AlarmListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
