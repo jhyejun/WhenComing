@@ -174,11 +174,84 @@
                         <outlet property="selectBusBtn" destination="LSS-T7-0L9" id="v4Z-rk-9Eh"/>
                         <outlet property="selectRegionBtn" destination="j5V-jo-1mO" id="VgO-5w-ffu"/>
                         <outlet property="selectStopBtn" destination="vnQ-Rh-L3S" id="3Zb-Qq-CcU"/>
+                        <segue destination="iG3-lR-AaZ" kind="show" id="rk7-7Q-0xK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEE-fa-bKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984.8" y="-564.46776611694156"/>
+            <point key="canvasLocation" x="1910" y="-564"/>
+        </scene>
+        <!--알람설정-->
+        <scene sceneID="h4F-7h-DSc">
+            <objects>
+                <viewController id="iG3-lR-AaZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M8Q-62-ULc"/>
+                        <viewControllerLayoutGuide type="bottom" id="N7d-FJ-aUv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mHv-K2-PG1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMY-Zo-zne">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.047058823529411764" green="0.12156862745098039" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <state key="normal" title="적용하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUV-gm-WQl">
+                                <rect key="frame" x="16" y="80" width="343" height="48"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gg8-yk-dh1">
+                                        <rect key="frame" x="0.0" y="0.0" width="57" height="48"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stationIconBlue" translatesAutoresizingMaskIntoConstraints="NO" id="JVu-YA-dc5">
+                                                <rect key="frame" x="20" y="14" width="17" height="18"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="JVu-YA-dc5" firstAttribute="top" secondItem="Gg8-yk-dh1" secondAttribute="top" constant="14" id="Tfl-3C-2b4"/>
+                                            <constraint firstItem="JVu-YA-dc5" firstAttribute="leading" secondItem="Gg8-yk-dh1" secondAttribute="leading" constant="20" id="rcF-Uz-Eis"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Gg8-yk-dh1" firstAttribute="leading" secondItem="RUV-gm-WQl" secondAttribute="leading" id="6JC-Em-AL2"/>
+                                    <constraint firstItem="Gg8-yk-dh1" firstAttribute="top" secondItem="RUV-gm-WQl" secondAttribute="top" id="I9R-qt-0oM"/>
+                                    <constraint firstItem="Gg8-yk-dh1" firstAttribute="height" secondItem="RUV-gm-WQl" secondAttribute="height" id="kpC-6o-fr2"/>
+                                    <constraint firstItem="Gg8-yk-dh1" firstAttribute="width" secondItem="RUV-gm-WQl" secondAttribute="width" multiplier="166.18:1000" id="mmN-y3-5f6"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BnL-cj-A2M">
+                                <rect key="frame" x="16" y="128" width="343" height="479"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="BnL-cj-A2M" firstAttribute="leading" secondItem="RUV-gm-WQl" secondAttribute="leading" id="14e-wT-BAX"/>
+                            <constraint firstAttribute="trailing" secondItem="RUV-gm-WQl" secondAttribute="trailing" constant="16" id="76Q-oN-5b1"/>
+                            <constraint firstItem="RUV-gm-WQl" firstAttribute="leading" secondItem="mHv-K2-PG1" secondAttribute="leading" constant="16" id="BTF-EH-LtO"/>
+                            <constraint firstItem="MMY-Zo-zne" firstAttribute="leading" secondItem="mHv-K2-PG1" secondAttribute="leading" id="HiV-Jw-Pj5"/>
+                            <constraint firstItem="RUV-gm-WQl" firstAttribute="height" secondItem="mHv-K2-PG1" secondAttribute="height" multiplier="71.964:1000" id="InT-Nz-p6p"/>
+                            <constraint firstAttribute="trailing" secondItem="MMY-Zo-zne" secondAttribute="trailing" id="KMH-2D-sB3"/>
+                            <constraint firstItem="N7d-FJ-aUv" firstAttribute="top" secondItem="MMY-Zo-zne" secondAttribute="bottom" id="RoV-df-hd4"/>
+                            <constraint firstItem="MMY-Zo-zne" firstAttribute="height" secondItem="mHv-K2-PG1" secondAttribute="height" multiplier="89.955:1000" id="Uw6-8Q-y1F"/>
+                            <constraint firstItem="MMY-Zo-zne" firstAttribute="top" secondItem="BnL-cj-A2M" secondAttribute="bottom" id="VeF-BX-FuW"/>
+                            <constraint firstItem="BnL-cj-A2M" firstAttribute="top" secondItem="RUV-gm-WQl" secondAttribute="bottom" id="ewX-AC-2Kg"/>
+                            <constraint firstItem="RUV-gm-WQl" firstAttribute="top" secondItem="M8Q-62-ULc" secondAttribute="bottom" constant="16" id="v6w-x9-XaY"/>
+                            <constraint firstItem="BnL-cj-A2M" firstAttribute="trailing" secondItem="RUV-gm-WQl" secondAttribute="trailing" id="yHx-aJ-Y9Z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="알람설정" id="It0-3U-nGR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3FV-9B-0Yp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2733.5999999999999" y="-564.46776611694156"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uv8-7z-Lhs">
@@ -208,5 +281,6 @@
         <image name="nav_logo" width="72" height="23"/>
         <image name="nav_plus" width="20" height="20"/>
         <image name="search_icon" width="22" height="22"/>
+        <image name="stationIconBlue" width="17" height="18"/>
     </resources>
 </document>
