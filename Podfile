@@ -7,5 +7,9 @@ target 'WhenComing' do
 
   # Pods for WhenComing
   pod 'Then'
+  pod 'Alamofire'
+  pod 'ObjectMapper'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 end

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Then
 
 class AlarmListTableViewCell: UITableViewCell {
     
@@ -19,14 +20,21 @@ class AlarmListTableViewCell: UITableViewCell {
     @IBOutlet weak var busStopLabel: UILabel!
     @IBOutlet weak var busDirectionLabel: UILabel!
     
-    var dateArr : [String] = ["월", "화", "금", "목", "금"]
+    var dateArr : [String] = ["월", "화", "수", "목", "금"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        //stackView 셋팅
+        alarmTimeView.backgroundColor = alarmSwitch.isOn ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : UIColor(red: 187, green: 187, blue: 187, alpha: 1)
+        
+        // stackView 셋팅
         dateArr.forEach { (value) in
-            label.text = value
+            let label = UILabel().then {
+                $0.font = UIFont(name: "AppleSDGothicNeo-Light", size: 13)
+                $0.text = value
+                $0.textColor = UIColor(red: 12/255, green: 31/255, blue: 120/255, alpha: 1)
+            }
+            
             self.dayStackView?.addArrangedSubview(label)
         }
     }

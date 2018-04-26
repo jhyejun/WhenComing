@@ -12,11 +12,22 @@ class AlarmListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func touchedAddBtn(_ sender: UIButton) {
+        performSegue(withIdentifier: "goSetAlarmViewController", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.tableView.separatorStyle = .none
         
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "nav_back")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "nav_back")
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
+    
 }
 
 extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {

@@ -17,6 +17,8 @@
 		CB68E0412075C42C00A0E2C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB68E0402075C42C00A0E2C1 /* Assets.xcassets */; };
 		CB68E0442075C42C00A0E2C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB68E0422075C42C00A0E2C1 /* LaunchScreen.storyboard */; };
 		CB68E04F207CC16E00A0E2C1 /* AlarmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68E04E207CC16E00A0E2C1 /* AlarmListViewController.swift */; };
+		CB9A15412091AABC009CA25F /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A15402091AABC009CA25F /* SetAlarmViewController.swift */; };
+		CBA84A3A209177850010F8F0 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA84A39209177850010F8F0 /* Extension.swift */; };
 		CBCEACD42088C59F0036C7A2 /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCEACD32088C59F0036C7A2 /* Bus.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		CB68E0432075C42C00A0E2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB68E0452075C42C00A0E2C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB68E04E207CC16E00A0E2C1 /* AlarmListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListViewController.swift; sourceTree = "<group>"; };
+		CB9A15402091AABC009CA25F /* SetAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
+		CBA84A39209177850010F8F0 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		CBCEACD32088C59F0036C7A2 /* Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				CB68E04E207CC16E00A0E2C1 /* AlarmListViewController.swift */,
+				CB9A15402091AABC009CA25F /* SetAlarmViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 				CB35511B2086F0BB003E0017 /* View */,
 				CB35511C2086F0C4003E0017 /* Controller */,
 				CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */,
+				CBA84A39209177850010F8F0 /* Extension.swift */,
 				CB68E0452075C42C00A0E2C1 /* Info.plist */,
 				CB68E03D2075C42B00A0E2C1 /* Main.storyboard */,
 				CB68E0402075C42C00A0E2C1 /* Assets.xcassets */,
@@ -140,6 +146,7 @@
 				CB68E0342075C42B00A0E2C1 /* Resources */,
 				CB68E04B2075C49300A0E2C1 /* Run Script */,
 				B456AA1E055D4446D4637565 /* [CP] Embed Pods Frameworks */,
+				CB9A15422091C078009CA25F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -224,10 +231,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WhenComing/Pods-WhenComing-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +260,19 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
 		};
+		CB9A15422091C078009CA25F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" a486f53c4b40fd1d45a1d3c70a54705258d3be6e a90a43b616dda6a308fcd2ba9eec940e80bd6d6eafb50a30dfb053f49a89b0ee";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -259,6 +283,8 @@
 				CB68E04F207CC16E00A0E2C1 /* AlarmListViewController.swift in Sources */,
 				CB68E03A2075C42B00A0E2C1 /* AppDelegate.swift in Sources */,
 				CB3551152086ED3D003E0017 /* AlarmListTableViewCell.swift in Sources */,
+				CBA84A3A209177850010F8F0 /* Extension.swift in Sources */,
+				CB9A15412091AABC009CA25F /* SetAlarmViewController.swift in Sources */,
 				CB3551192086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift in Sources */,
 				CBCEACD42088C59F0036C7A2 /* Bus.swift in Sources */,
 			);
@@ -409,7 +435,10 @@
 				DEVELOPMENT_TEAM = 7XZYKQ99YK;
 				INFOPLIST_FILE = WhenComing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = jhyejun.WhenComing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -426,7 +455,10 @@
 				DEVELOPMENT_TEAM = 7XZYKQ99YK;
 				INFOPLIST_FILE = WhenComing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = jhyejun.WhenComing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
