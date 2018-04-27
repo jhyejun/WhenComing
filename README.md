@@ -3,5 +3,5 @@
 ![Language](https://img.shields.io/badge/Language-Swift-red.svg)
 
 ## Author :octocat:
-
-Hyejun Jang, hyejun417@gmail.com
+**Jang Hyejun**
+- hyejun417@gmail.com :email:
