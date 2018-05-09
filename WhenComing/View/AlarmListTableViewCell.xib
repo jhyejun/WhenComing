@@ -12,18 +12,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="114" id="KGk-i7-Jjw" customClass="AlarmListTableViewCell" customModule="WhenComing" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="343" height="114"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="215" id="KGk-i7-Jjw" customClass="AlarmListTableViewCell" customModule="WhenComing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="215"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="343" height="113.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="343" height="214.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7V-I0-oc0">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="113.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQQ-jM-Gco">
-                                <rect key="frame" x="0.0" y="0.0" width="155" height="44"/>
+                                <rect key="frame" x="1" y="1" width="155" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwr-Xp-hiV">
                                         <rect key="frame" x="16" y="14" width="24.5" height="17"/>
@@ -48,13 +48,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원자력병원공릉동삼익2차아파트" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBT-W5-aQf">
-                                <rect key="frame" x="17" y="59" width="215" height="21"/>
+                                <rect key="frame" x="17" y="60" width="215" height="21"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <color key="textColor" red="0.047058823530000002" green="0.1215686275" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="묵1동주민센터입구.먹골역 방면" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPL-Ed-2D7">
-                                <rect key="frame" x="17" y="82" width="157.5" height="16"/>
+                                <rect key="frame" x="17" y="83" width="157.5" height="16"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" red="0.047058823530000002" green="0.1215686275" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -66,9 +66,12 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="18C-UQ-kZc">
                                 <rect key="frame" x="255" y="10" width="51" height="31"/>
                                 <color key="onTintColor" red="0.20392156859999999" green="0.29411764709999999" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="touchedAlarmSwitch:" destination="KGk-i7-Jjw" eventType="valueChanged" id="aJl-HD-x0X"/>
+                                </connections>
                             </switch>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nga-7l-3Ay">
-                                <rect key="frame" x="165" y="15" width="80" height="16"/>
+                                <rect key="frame" x="165" y="16" width="81" height="16"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,32 +79,42 @@
                             <constraint firstItem="cgW-dU-rI9" firstAttribute="top" secondItem="Z7V-I0-oc0" secondAttribute="top" constant="14" id="2jb-1p-n7F"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PBT-W5-aQf" secondAttribute="trailing" constant="20" symbolic="YES" id="5IR-nC-l90"/>
                             <constraint firstItem="CPL-Ed-2D7" firstAttribute="top" secondItem="PBT-W5-aQf" secondAttribute="bottom" constant="2" id="5YT-bL-I9Y"/>
-                            <constraint firstItem="hQQ-jM-Gco" firstAttribute="top" secondItem="Z7V-I0-oc0" secondAttribute="top" id="9nj-9p-Qyt"/>
+                            <constraint firstItem="hQQ-jM-Gco" firstAttribute="top" secondItem="Z7V-I0-oc0" secondAttribute="top" constant="1" id="9nj-9p-Qyt"/>
                             <constraint firstItem="CPL-Ed-2D7" firstAttribute="leading" secondItem="PBT-W5-aQf" secondAttribute="leading" id="BpR-nE-fe6"/>
                             <constraint firstItem="PBT-W5-aQf" firstAttribute="top" secondItem="nga-7l-3Ay" secondAttribute="bottom" constant="28" id="G83-88-fzp"/>
                             <constraint firstItem="PBT-W5-aQf" firstAttribute="leading" secondItem="Z7V-I0-oc0" secondAttribute="leading" constant="17" id="Im8-9a-PKJ"/>
-                            <constraint firstItem="hQQ-jM-Gco" firstAttribute="leading" secondItem="Z7V-I0-oc0" secondAttribute="leading" id="Jbn-J5-M8E"/>
+                            <constraint firstItem="hQQ-jM-Gco" firstAttribute="leading" secondItem="Z7V-I0-oc0" secondAttribute="leading" constant="1" id="Jbn-J5-M8E"/>
                             <constraint firstAttribute="trailing" secondItem="cgW-dU-rI9" secondAttribute="trailing" constant="17" id="Q4f-SY-clv"/>
-                            <constraint firstItem="18C-UQ-kZc" firstAttribute="leading" secondItem="nga-7l-3Ay" secondAttribute="trailing" constant="10" id="QXF-b3-iLu"/>
+                            <constraint firstItem="18C-UQ-kZc" firstAttribute="leading" secondItem="nga-7l-3Ay" secondAttribute="trailing" constant="9" id="QXF-b3-iLu"/>
                             <constraint firstItem="hQQ-jM-Gco" firstAttribute="width" secondItem="Z7V-I0-oc0" secondAttribute="width" multiplier="451.895:1000" id="RIW-IB-d6h"/>
                             <constraint firstItem="18C-UQ-kZc" firstAttribute="top" secondItem="Z7V-I0-oc0" secondAttribute="top" constant="10" id="SYs-pC-0Ko"/>
-                            <constraint firstItem="nga-7l-3Ay" firstAttribute="leading" secondItem="hQQ-jM-Gco" secondAttribute="trailing" constant="10" id="WMj-BD-ymT"/>
-                            <constraint firstItem="nga-7l-3Ay" firstAttribute="top" secondItem="Z7V-I0-oc0" secondAttribute="top" constant="15" id="ZHO-BF-VaV"/>
+                            <constraint firstItem="nga-7l-3Ay" firstAttribute="leading" secondItem="hQQ-jM-Gco" secondAttribute="trailing" constant="9" id="WMj-BD-ymT"/>
+                            <constraint firstItem="nga-7l-3Ay" firstAttribute="top" secondItem="Z7V-I0-oc0" secondAttribute="top" constant="16" id="ZHO-BF-VaV"/>
                             <constraint firstItem="cgW-dU-rI9" firstAttribute="leading" secondItem="18C-UQ-kZc" secondAttribute="trailing" constant="19" id="aCV-mv-xnY"/>
+                            <constraint firstAttribute="height" constant="114" id="cyn-NC-sOe"/>
                             <constraint firstItem="hQQ-jM-Gco" firstAttribute="height" secondItem="Z7V-I0-oc0" secondAttribute="height" multiplier="385.964:1000" id="hXG-MW-gYA"/>
                             <constraint firstItem="PBT-W5-aQf" firstAttribute="top" secondItem="hQQ-jM-Gco" secondAttribute="bottom" constant="15" id="vGM-hr-F94"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CPL-Ed-2D7" secondAttribute="trailing" constant="20" symbolic="YES" id="w6O-Xm-mdC"/>
                         </constraints>
                     </view>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pZv-vS-Fn9">
+                        <rect key="frame" x="0.0" y="113.5" width="343" height="101"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tableView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Z7V-I0-oc0" secondAttribute="trailing" id="D7e-i7-tfl"/>
-                    <constraint firstAttribute="bottom" secondItem="Z7V-I0-oc0" secondAttribute="bottom" id="EIN-cK-rSB"/>
+                    <constraint firstAttribute="bottom" secondItem="pZv-vS-Fn9" secondAttribute="bottom" id="L1d-OP-pMO"/>
                     <constraint firstItem="Z7V-I0-oc0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="T5l-jI-4fp"/>
+                    <constraint firstItem="pZv-vS-Fn9" firstAttribute="top" secondItem="Z7V-I0-oc0" secondAttribute="bottom" id="XKe-Ba-qe6"/>
                     <constraint firstItem="Z7V-I0-oc0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XSX-Db-gbf"/>
+                    <constraint firstItem="pZv-vS-Fn9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="emA-h0-3Kt"/>
+                    <constraint firstAttribute="trailing" secondItem="pZv-vS-Fn9" secondAttribute="trailing" id="heC-Ao-ubb"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
+                <outlet property="alarmListView" destination="Z7V-I0-oc0" id="lnf-AU-tnk"/>
                 <outlet property="alarmSettingButton" destination="cgW-dU-rI9" id="qv6-d3-4tA"/>
                 <outlet property="alarmSwitch" destination="18C-UQ-kZc" id="xhT-Gh-juZ"/>
                 <outlet property="alarmTimeAPMLabel" destination="Iwr-Xp-hiV" id="C7b-Lk-4hc"/>
@@ -111,7 +124,7 @@
                 <outlet property="busStopLabel" destination="PBT-W5-aQf" id="gdB-Ql-njF"/>
                 <outlet property="dayStackView" destination="nga-7l-3Ay" id="bx0-u2-Ysw"/>
             </connections>
-            <point key="canvasLocation" x="138.5" y="89"/>
+            <point key="canvasLocation" x="138.5" y="139.5"/>
         </tableViewCell>
     </objects>
     <resources>
