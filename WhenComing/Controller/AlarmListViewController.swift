@@ -19,13 +19,13 @@ class AlarmListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.separatorStyle = .none
-        
         self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "nav_back")
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "nav_back")
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.separatorStyle = .none
     }
     
 }
@@ -37,7 +37,6 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // let cell = Bundle.main.loadNibNamed("AlarmListNotSetTableViewCell", owner: self, options: nil)?.first as! AlarmListNotSetTableViewCell
         let cell = Bundle.main.loadNibNamed("AlarmListTableViewCell", owner: self, options: nil)?.first as! AlarmListTableViewCell
         cell.selectionStyle = .none
         
@@ -45,7 +44,8 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        // return 120
+        return 305
     }
     
 }

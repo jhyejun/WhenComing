@@ -122,6 +122,7 @@
                 <outlet property="alarmTimeView" destination="hQQ-jM-Gco" id="PgR-rc-biB"/>
                 <outlet property="busDirectionLabel" destination="CPL-Ed-2D7" id="IjE-Ky-VY3"/>
                 <outlet property="busStopLabel" destination="PBT-W5-aQf" id="gdB-Ql-njF"/>
+                <outlet property="busTableView" destination="pZv-vS-Fn9" id="CmE-cM-Usg"/>
                 <outlet property="dayStackView" destination="nga-7l-3Ay" id="bx0-u2-Ysw"/>
             </connections>
             <point key="canvasLocation" x="138.5" y="139.5"/>

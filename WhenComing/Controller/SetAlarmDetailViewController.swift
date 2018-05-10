@@ -12,7 +12,6 @@ class SetAlarmDetailViewController: UIViewController {
 
     @IBOutlet weak var detailSearchView: UIView!
     @IBOutlet weak var detailImageVIew: UIImageView!
-    @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -20,6 +19,10 @@ class SetAlarmDetailViewController: UIViewController {
 
         self.detailSearchView.layer.borderWidth = 1
         self.detailSearchView.layer.borderColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1).cgColor
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.separatorStyle = .none
     }
 
 }
@@ -34,11 +37,13 @@ extension SetAlarmDetailViewController : UITableViewDelegate, UITableViewDataSou
         let cell = Bundle.main.loadNibNamed("SetAlarmDetailTableViewCell", owner: self, options: nil)?.first as! SetAlarmDetailTableViewCell
         cell.selectionStyle = .none
         
+        cell.backgroundColor = UIColor.clear
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 69
     }
     
 }

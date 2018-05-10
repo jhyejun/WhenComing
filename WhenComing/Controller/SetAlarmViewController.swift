@@ -11,11 +11,8 @@ import UIKit
 class SetAlarmViewController: UIViewController {
 
     @IBOutlet weak var regionView: UIView!
-    @IBOutlet weak var selectRegionBtn: UIButton!
     @IBOutlet weak var stopView: UIView!
-    @IBOutlet weak var selectStopBtn: UIButton!
     @IBOutlet weak var busView: UIView!
-    @IBOutlet weak var selectBusBtn: UIButton!
     @IBOutlet weak var timerPicker: UIDatePicker!
     @IBOutlet weak var dayStackView: UIStackView!
     
@@ -23,6 +20,10 @@ class SetAlarmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "nav_back")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "nav_back")
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
         self.regionView.layer.borderWidth = 1
         self.regionView.layer.borderColor = self.borderColor
@@ -33,6 +34,9 @@ class SetAlarmViewController: UIViewController {
         self.busView.layer.borderWidth = 1
         self.busView.layer.borderColor = self.borderColor
         
+        self.timerPicker.setValue(UIColor(red: 12, green: 31, blue: 120, alpha: 1), forKey: "textColor")
+        self.timerPicker.subviews[0].subviews[1].backgroundColor = UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        self.timerPicker.subviews[0].subviews[2].backgroundColor = UIColor(red: 54, green: 80, blue: 206, alpha: 1)
         self.timerPicker.layer.borderWidth = 1
         self.timerPicker.layer.borderColor = self.borderColor
         

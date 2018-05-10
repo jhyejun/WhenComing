@@ -94,6 +94,9 @@
                                         <state key="normal" title="지역을 선택하세요" image="search_icon">
                                             <color key="titleColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="iG3-lR-AaZ" kind="show" id="70J-wT-qv5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -314,21 +317,28 @@
                                             <constraint firstItem="JVu-YA-dc5" firstAttribute="leading" secondItem="Gg8-yk-dh1" secondAttribute="leading" constant="20" id="rcF-Uz-Eis"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정류장을 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rz4-Re-aJ3">
-                                        <rect key="frame" x="57" y="15.5" width="128" height="17"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="정류장을 입력해주세요." textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="yLF-l5-XnA">
+                                        <rect key="frame" x="57" y="15.5" width="230" height="17"/>
+                                        <color key="textColor" red="0.047058823529411764" green="0.12156862745098039" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
-                                        <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xai-Iw-nqx">
+                                        <rect key="frame" x="307" y="13" width="20" height="22"/>
+                                        <state key="normal" image="nav_plus"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="yLF-l5-XnA" firstAttribute="leading" secondItem="Gg8-yk-dh1" secondAttribute="trailing" id="64B-xQ-caZ"/>
                                     <constraint firstItem="Gg8-yk-dh1" firstAttribute="leading" secondItem="RUV-gm-WQl" secondAttribute="leading" id="6JC-Em-AL2"/>
-                                    <constraint firstItem="rz4-Re-aJ3" firstAttribute="centerY" secondItem="RUV-gm-WQl" secondAttribute="centerY" id="HM5-Aj-pZ8"/>
+                                    <constraint firstAttribute="trailing" secondItem="xai-Iw-nqx" secondAttribute="trailing" constant="16" id="84J-jV-2pi"/>
                                     <constraint firstItem="Gg8-yk-dh1" firstAttribute="top" secondItem="RUV-gm-WQl" secondAttribute="top" id="I9R-qt-0oM"/>
+                                    <constraint firstItem="yLF-l5-XnA" firstAttribute="centerY" secondItem="RUV-gm-WQl" secondAttribute="centerY" id="Rp5-uw-hHC"/>
+                                    <constraint firstItem="xai-Iw-nqx" firstAttribute="leading" secondItem="yLF-l5-XnA" secondAttribute="trailing" constant="20" id="aSV-sQ-Y9t"/>
                                     <constraint firstItem="Gg8-yk-dh1" firstAttribute="height" secondItem="RUV-gm-WQl" secondAttribute="height" id="kpC-6o-fr2"/>
                                     <constraint firstItem="Gg8-yk-dh1" firstAttribute="width" secondItem="RUV-gm-WQl" secondAttribute="width" multiplier="166.18:1000" id="mmN-y3-5f6"/>
-                                    <constraint firstItem="rz4-Re-aJ3" firstAttribute="leading" secondItem="Gg8-yk-dh1" secondAttribute="trailing" id="sbQ-MV-Umk"/>
+                                    <constraint firstItem="xai-Iw-nqx" firstAttribute="centerY" secondItem="RUV-gm-WQl" secondAttribute="centerY" id="ne2-0l-FR6"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BnL-cj-A2M">
@@ -363,7 +373,6 @@
                     <navigationItem key="navigationItem" title="알람설정" id="It0-3U-nGR"/>
                     <connections>
                         <outlet property="detailImageVIew" destination="JVu-YA-dc5" id="Sga-hV-oIi"/>
-                        <outlet property="detailLabel" destination="rz4-Re-aJ3" id="ybM-pf-9s3"/>
                         <outlet property="detailSearchView" destination="RUV-gm-WQl" id="Qaw-gK-ufM"/>
                         <outlet property="tableView" destination="BnL-cj-A2M" id="P3x-zP-RIn"/>
                     </connections>
@@ -402,4 +411,7 @@
         <image name="search_icon" width="22" height="22"/>
         <image name="stationIconBlue" width="17" height="18"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rk7-7Q-0xK"/>
+    </inferredMetricsTieBreakers>
 </document>

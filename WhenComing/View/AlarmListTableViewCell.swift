@@ -20,6 +20,7 @@ class AlarmListTableViewCell: UITableViewCell {
     @IBOutlet weak var alarmSettingButton: UIButton!
     @IBOutlet weak var busStopLabel: UILabel!
     @IBOutlet weak var busDirectionLabel: UILabel!
+    @IBOutlet weak var busTableView: UITableView!
     
     var offColor: UIColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1)
     var dateArr : [String] = ["월", "화", "수", "목", "금", "토"]
@@ -47,6 +48,10 @@ class AlarmListTableViewCell: UITableViewCell {
         self.alarmSwitch.tintColor = offColor
         self.alarmSwitch.layer.cornerRadius = self.alarmSwitch.frame.height / 2
         self.alarmSwitch.backgroundColor = offColor
+        
+        self.busTableView.delegate = self
+        self.busTableView.dataSource = self
+        self.busTableView.separatorStyle = .none
     }
     
     @IBAction func touchedAlarmSwitch(_ sender: UISwitch) {
@@ -55,6 +60,26 @@ class AlarmListTableViewCell: UITableViewCell {
     
     func setAlarmListCell(data: Bus) {
         self.alarmTimeLabel.text = data.time
+    }
+    
+}
+
+extension AlarmListTableViewCell: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = Bundle.main.loadNibNamed("AlarmListTableViewCell", owner: self, options: nil)?.first as! AlarmListTableViewCell
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // return 120
+        return 30
     }
     
 }
