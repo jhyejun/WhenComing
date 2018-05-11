@@ -7,8 +7,8 @@ target 'WhenComing' do
 
   # Pods for WhenComing
   pod 'Then'
-  pod 'Alamofire'
-  pod 'ObjectMapper'
+  pod 'Alamofire', :inhibit_warnings => true
+  pod 'ObjectMapper', :inhibit_warnings => true
   pod 'Fabric'
   pod 'Crashlytics'
 
