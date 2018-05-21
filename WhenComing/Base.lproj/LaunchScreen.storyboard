@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_text" translatesAutoresizingMaskIntoConstraints="NO" id="PqH-LL-43N">
-                                <rect key="frame" x="135" y="371" width="105" height="32"/>
+                                <rect key="frame" x="136" y="371" width="103" height="27"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_icon" translatesAutoresizingMaskIntoConstraints="NO" id="fZc-ft-G00">
                                 <rect key="frame" x="144" y="255" width="87" height="97"/>
@@ -31,10 +31,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.21176470588235294" green="0.31372549019607843" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PqH-LL-43N" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="47.976:1000" id="A1C-6Q-MhM"/>
                             <constraint firstItem="fZc-ft-G00" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="232:1000" id="CMB-V4-9el"/>
                             <constraint firstItem="PqH-LL-43N" firstAttribute="centerX" secondItem="fZc-ft-G00" secondAttribute="centerX" id="Ciu-zF-Tbi"/>
-                            <constraint firstItem="PqH-LL-43N" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="280:1000" id="LL3-uf-zsa"/>
                             <constraint firstItem="fZc-ft-G00" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="145.427:1000" id="Zjq-BC-b7Y"/>
                             <constraint firstItem="fZc-ft-G00" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cdT-vQ-RUG"/>
                             <constraint firstItem="fZc-ft-G00" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-30" id="sqe-er-iOT"/>
