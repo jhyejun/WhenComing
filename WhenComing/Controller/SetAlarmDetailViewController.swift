@@ -11,8 +11,10 @@ import UIKit
 class SetAlarmDetailViewController: UIViewController {
 
     @IBOutlet weak var detailSearchView: UIView!
-    @IBOutlet weak var detailImageVIew: UIImageView!
+    @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
+    var from: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,10 @@ class SetAlarmDetailViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .none
+        
+        if self.from != "stop" {
+            self.detailImageView.image = UIImage(named: "busIconBlueRenew")
+        }
     }
 
 }

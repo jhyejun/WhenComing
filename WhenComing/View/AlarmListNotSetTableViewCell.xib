@@ -21,11 +21,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04D-hr-TVN">
                         <rect key="frame" x="0.0" y="0.0" width="338" height="570.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_logo" translatesAutoresizingMaskIntoConstraints="NO" id="vK9-Gw-rW0">
-                                <rect key="frame" x="120.5" y="207" width="97" height="111"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIconBusBlue" translatesAutoresizingMaskIntoConstraints="NO" id="vK9-Gw-rW0">
+                                <rect key="frame" x="126.5" y="223" width="85" height="79"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알람 목록을 설정해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6s-4i-nNc">
-                                <rect key="frame" x="81.5" y="325" width="175" height="20"/>
+                                <rect key="frame" x="81.5" y="319" width="175" height="20"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <color key="textColor" red="0.047058823530000002" green="0.1215686275" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -34,7 +34,7 @@
                         <color key="backgroundColor" red="0.94901960780000005" green="0.95294117649999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="t6s-4i-nNc" firstAttribute="centerX" secondItem="vK9-Gw-rW0" secondAttribute="centerX" id="1Fa-Sg-hlc"/>
-                            <constraint firstItem="t6s-4i-nNc" firstAttribute="top" secondItem="vK9-Gw-rW0" secondAttribute="bottom" constant="7" id="4m1-7g-rrk"/>
+                            <constraint firstItem="t6s-4i-nNc" firstAttribute="top" secondItem="vK9-Gw-rW0" secondAttribute="bottom" constant="17" id="4m1-7g-rrk"/>
                             <constraint firstItem="vK9-Gw-rW0" firstAttribute="centerY" secondItem="04D-hr-TVN" secondAttribute="centerY" constant="-23" id="Qlx-aJ-Ayh"/>
                             <constraint firstItem="vK9-Gw-rW0" firstAttribute="centerX" secondItem="04D-hr-TVN" secondAttribute="centerX" id="kWf-AS-XnI"/>
                         </constraints>
@@ -51,6 +51,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="list_logo" width="97" height="111"/>
+        <image name="appIconBusBlue" width="85" height="79"/>
     </resources>
 </document>

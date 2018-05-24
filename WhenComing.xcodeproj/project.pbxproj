@@ -75,12 +75,12 @@
 		CB35511B2086F0BB003E0017 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CB3551172086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift */,
+				CB3551182086EDC6003E0017 /* AlarmListNotSetTableViewCell.xib */,
 				CB3551132086ED3D003E0017 /* AlarmListTableViewCell.swift */,
 				CB3551142086ED3D003E0017 /* AlarmListTableViewCell.xib */,
 				CB4C22F520A5789100B429B7 /* AlarmListBusTableViewCell.swift */,
 				CB4C22F620A5789100B429B7 /* AlarmListBusTableViewCell.xib */,
-				CB3551172086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift */,
-				CB3551182086EDC6003E0017 /* AlarmListNotSetTableViewCell.xib */,
 				CB35613620A219F8005BD367 /* SetAlarmDetailTableViewCell.swift */,
 				CB35613720A219F8005BD367 /* SetAlarmDetailTableViewCell.xib */,
 			);
@@ -131,8 +131,8 @@
 				CB35511C2086F0C4003E0017 /* Controller */,
 				CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */,
 				CBA84A39209177850010F8F0 /* Extension.swift */,
-				CB68E0452075C42C00A0E2C1 /* Info.plist */,
 				CB68E03D2075C42B00A0E2C1 /* Main.storyboard */,
+				CB68E0452075C42C00A0E2C1 /* Info.plist */,
 				CB68E0402075C42C00A0E2C1 /* Assets.xcassets */,
 				CB68E0422075C42C00A0E2C1 /* LaunchScreen.storyboard */,
 			);

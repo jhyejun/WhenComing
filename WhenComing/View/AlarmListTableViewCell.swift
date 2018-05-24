@@ -54,6 +54,12 @@ class AlarmListTableViewCell: UITableViewCell {
         self.busTableView.separatorStyle = .none
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.contentView.frame = UIEdgeInsetsInsetRect(self.contentView.frame, UIEdgeInsetsMake(0, 0, 16, 0))
+    }
+    
     @IBAction func touchedAlarmSwitch(_ sender: UISwitch) {
         
     }
