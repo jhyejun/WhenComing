@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2548DA73200ABD07CBCFEB04 /* Pods_WhenComing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */; };
+		CB2EA1F8212AB80F00F31904 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA1F7212AB80F00F31904 /* APIService.swift */; };
+		CB2EA1FA212AB84B00F31904 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA1F9212AB84B00F31904 /* APIManager.swift */; };
+		CB2EA1FC212AB94200F31904 /* BusStopDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA1FB212AB94200F31904 /* BusStopDataMapper.swift */; };
 		CB3551152086ED3D003E0017 /* AlarmListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3551132086ED3D003E0017 /* AlarmListTableViewCell.swift */; };
 		CB3551162086ED3D003E0017 /* AlarmListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB3551142086ED3D003E0017 /* AlarmListTableViewCell.xib */; };
 		CB3551192086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3551172086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift */; };
@@ -31,6 +34,9 @@
 		1464C53D45460507BB3BE01E /* Pods-WhenComing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhenComing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhenComing/Pods-WhenComing.debug.xcconfig"; sourceTree = "<group>"; };
 		7D8A9BD2035B69FCB8C4B068 /* Pods-WhenComing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhenComing.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhenComing/Pods-WhenComing.release.xcconfig"; sourceTree = "<group>"; };
 		AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhenComing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB2EA1F7212AB80F00F31904 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		CB2EA1F9212AB84B00F31904 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		CB2EA1FB212AB94200F31904 /* BusStopDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopDataMapper.swift; sourceTree = "<group>"; };
 		CB3551132086ED3D003E0017 /* AlarmListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListTableViewCell.swift; sourceTree = "<group>"; };
 		CB3551142086ED3D003E0017 /* AlarmListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmListTableViewCell.xib; sourceTree = "<group>"; };
 		CB3551172086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListNotSetTableViewCell.swift; sourceTree = "<group>"; };
@@ -72,6 +78,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CB2EA1F6212AB7F500F31904 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CB2EA1F7212AB80F00F31904 /* APIService.swift */,
+				CB2EA1F9212AB84B00F31904 /* APIManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		CB35511B2086F0BB003E0017 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				CBCEACD32088C59F0036C7A2 /* Bus.swift */,
+				CB2EA1FB212AB94200F31904 /* BusStopDataMapper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,6 +142,7 @@
 		CB68E0382075C42B00A0E2C1 /* WhenComing */ = {
 			isa = PBXGroup;
 			children = (
+				CB2EA1F6212AB7F500F31904 /* Network */,
 				CB35511D2086F0CB003E0017 /* Model */,
 				CB35511B2086F0BB003E0017 /* View */,
 				CB35511C2086F0C4003E0017 /* Controller */,
@@ -297,13 +314,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB2EA1FA212AB84B00F31904 /* APIManager.swift in Sources */,
 				CB4C22F720A5789100B429B7 /* AlarmListBusTableViewCell.swift in Sources */,
 				CB35613320A219AA005BD367 /* SetAlarmDetailViewController.swift in Sources */,
 				CB68E04F207CC16E00A0E2C1 /* AlarmListViewController.swift in Sources */,
 				CB68E03A2075C42B00A0E2C1 /* AppDelegate.swift in Sources */,
+				CB2EA1F8212AB80F00F31904 /* APIService.swift in Sources */,
 				CB3551152086ED3D003E0017 /* AlarmListTableViewCell.swift in Sources */,
 				CBA84A3A209177850010F8F0 /* Extension.swift in Sources */,
 				CB35613820A219F8005BD367 /* SetAlarmDetailTableViewCell.swift in Sources */,
+				CB2EA1FC212AB94200F31904 /* BusStopDataMapper.swift in Sources */,
 				CB9A15412091AABC009CA25F /* SetAlarmViewController.swift in Sources */,
 				CB3551192086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift in Sources */,
 				CBCEACD42088C59F0036C7A2 /* Bus.swift in Sources */,

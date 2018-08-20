@@ -8,16 +8,20 @@
 
 import Foundation
 import UIKit
+import ObjectMapper
 
-struct Bus {
-    var time: String
-    var type: BusType
-    var status: BusStatus
+struct Bus: Mappable {
+    var time: String?
+    var type: BusType?
+    var status: BusStatus?
     
-    init(data: Dictionary<String, Any>) {
-        time = data["time"] as! String
-        type = data["type"] as! BusType
-        status = data["status"] as! BusStatus
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        self.time <- map["time"]
+        self.type <- map["type"]
+        self.status <- map["status"]
     }
 }
 

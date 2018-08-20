@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uaO-Oj-vln">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uaO-Oj-vln">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -382,8 +382,8 @@
                                     <constraint firstItem="Gg8-yk-dh1" firstAttribute="leading" secondItem="RUV-gm-WQl" secondAttribute="leading" id="6JC-Em-AL2"/>
                                     <constraint firstAttribute="trailing" secondItem="xai-Iw-nqx" secondAttribute="trailing" constant="16" id="84J-jV-2pi"/>
                                     <constraint firstItem="Gg8-yk-dh1" firstAttribute="top" secondItem="RUV-gm-WQl" secondAttribute="top" id="I9R-qt-0oM"/>
-                                    <constraint firstItem="yLF-l5-XnA" firstAttribute="centerY" secondItem="RUV-gm-WQl" secondAttribute="centerY" id="Rp5-uw-hHC"/>
                                     <constraint firstItem="xai-Iw-nqx" firstAttribute="leading" secondItem="yLF-l5-XnA" secondAttribute="trailing" constant="10" id="aSV-sQ-Y9t"/>
+                                    <constraint firstItem="yLF-l5-XnA" firstAttribute="centerY" secondItem="JVu-YA-dc5" secondAttribute="centerY" id="fXk-8j-TYE"/>
                                     <constraint firstItem="Gg8-yk-dh1" firstAttribute="height" secondItem="RUV-gm-WQl" secondAttribute="height" id="kpC-6o-fr2"/>
                                     <constraint firstItem="Gg8-yk-dh1" firstAttribute="width" secondItem="RUV-gm-WQl" secondAttribute="width" multiplier="166.18:1000" id="mmN-y3-5f6"/>
                                     <constraint firstItem="xai-Iw-nqx" firstAttribute="centerY" secondItem="RUV-gm-WQl" secondAttribute="centerY" id="ne2-0l-FR6"/>
