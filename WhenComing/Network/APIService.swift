@@ -13,7 +13,7 @@ protocol APIService {
 extension APIService {
     
     static func url(_ path: String) -> String {
-        return "http://hyukjin.net" + path
+        return "http://hyukjin.net/api" + path
     }
     
 }

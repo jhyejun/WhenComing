@@ -57,7 +57,7 @@ class AlarmListTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.contentView.frame = UIEdgeInsetsInsetRect(self.contentView.frame, UIEdgeInsetsMake(0, 0, 16, 0))
+        self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets.init(top: 0, left: 0, bottom: 16, right: 0))
     }
     
     @IBAction func touchedAlarmSwitch(_ sender: UISwitch) {

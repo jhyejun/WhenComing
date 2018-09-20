@@ -10,8 +10,10 @@ import Alamofire
 
 struct APIManager: APIService {
     
-    static func getBusStop() {
+    static func getBusStop(text: String) {
+        let url = self.url("/seoul/" + text)
         
+        // Alamofire.request(url, method: .get, encoding: URLEncoding.default)
     }
     
     static func getBusList() {

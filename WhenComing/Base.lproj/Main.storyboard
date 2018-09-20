@@ -23,14 +23,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mwu-er-0Lj">
-                                <rect key="frame" x="16" y="80" width="343" height="587"/>
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NGO-Q1-Qsf" firstAttribute="top" secondItem="Mwu-er-0Lj" secondAttribute="bottom" id="9IT-Jk-UMg"/>
-                            <constraint firstItem="Mwu-er-0Lj" firstAttribute="top" secondItem="Txy-qc-STP" secondAttribute="bottom" constant="16" id="Xcu-Zk-bGc"/>
+                            <constraint firstItem="Mwu-er-0Lj" firstAttribute="top" secondItem="Txy-qc-STP" secondAttribute="bottom" id="Xcu-Zk-bGc"/>
                             <constraint firstAttribute="trailing" secondItem="Mwu-er-0Lj" secondAttribute="trailing" constant="16" id="blV-gm-RsO"/>
                             <constraint firstItem="Mwu-er-0Lj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="zE1-CJ-rT1"/>
                         </constraints>
@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086" y="-564"/>
+            <point key="canvasLocation" x="1085.5999999999999" y="-564.46776611694156"/>
         </scene>
         <!--알람설정-->
         <scene sceneID="3N9-xi-3y7">
