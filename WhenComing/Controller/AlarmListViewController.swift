@@ -26,6 +26,10 @@ class AlarmListViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .none
+        
+        APIManager.getBusStop(query: "강남역하나은행") { (response) in
+            
+        }
     }
     
 }
