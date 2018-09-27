@@ -26,7 +26,7 @@ class AlarmListViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .none
-        self.tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
+        self.tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
     }
     
 }

@@ -37,7 +37,7 @@ class SetAlarmDetailViewController: UIViewController {
         
         APIManager.getBusStop(query: "강남역하나은행") { (resp) in
             guard let value = resp.value?.busStopList else {
-                print("")
+                print("Failed request in SetAlarmDetailViewController [getBusStop] : \(resp)")
                 return
             }
             
