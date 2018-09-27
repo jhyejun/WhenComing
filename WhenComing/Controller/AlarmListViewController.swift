@@ -26,10 +26,7 @@ class AlarmListViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .none
-        
-        APIManager.getBusStop(query: "강남역하나은행") { (response) in
-            
-        }
+        self.tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
     }
     
 }

@@ -18,7 +18,7 @@ class SetAlarmViewController: UIViewController {
     @IBOutlet weak var timerPicker: UIDatePicker!
     @IBOutlet weak var dayStackView: UIStackView!
     
-    var from: String = ""
+    var isBusStop: Bool = true
     var borderColor: CGColor = UIColor(red: 221, green: 221, blue: 221, alpha: 1).cgColor
     
     override func viewDidLoad() {
@@ -46,12 +46,12 @@ class SetAlarmViewController: UIViewController {
     }
     
     @IBAction func touchedStopBtn(_ sender: UIButton) {
-        self.from = "stop"
+        self.isBusStop = true
         performSegue(withIdentifier: "goSetAlarmDetail", sender: nil)
     }
     
     @IBAction func touchedBusBtn(_ sender: UIButton) {
-        self.from = "bus"
+        self.isBusStop = false
         performSegue(withIdentifier: "goSetAlarmDetail", sender: nil)
     }
     
@@ -63,7 +63,7 @@ class SetAlarmViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goSetAlarmDetail" {
             if let vc = segue.destination as? SetAlarmDetailViewController {
-                vc.from = self.from
+                vc.isBusStop = self.isBusStop
             }
         }
     }

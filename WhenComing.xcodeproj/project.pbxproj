@@ -10,7 +10,7 @@
 		2548DA73200ABD07CBCFEB04 /* Pods_WhenComing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */; };
 		CB2EA1F8212AB80F00F31904 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA1F7212AB80F00F31904 /* APIService.swift */; };
 		CB2EA1FA212AB84B00F31904 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA1F9212AB84B00F31904 /* APIManager.swift */; };
-		CB2EA1FC212AB94200F31904 /* BusStopDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA1FB212AB94200F31904 /* BusStopDataMapper.swift */; };
+		CB2EA1FC212AB94200F31904 /* BusStopMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA1FB212AB94200F31904 /* BusStopMapper.swift */; };
 		CB3551152086ED3D003E0017 /* AlarmListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3551132086ED3D003E0017 /* AlarmListTableViewCell.swift */; };
 		CB3551162086ED3D003E0017 /* AlarmListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB3551142086ED3D003E0017 /* AlarmListTableViewCell.xib */; };
 		CB3551192086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3551172086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift */; };
@@ -36,7 +36,7 @@
 		AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhenComing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2EA1F7212AB80F00F31904 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		CB2EA1F9212AB84B00F31904 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		CB2EA1FB212AB94200F31904 /* BusStopDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopDataMapper.swift; sourceTree = "<group>"; };
+		CB2EA1FB212AB94200F31904 /* BusStopMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopMapper.swift; sourceTree = "<group>"; };
 		CB3551132086ED3D003E0017 /* AlarmListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListTableViewCell.swift; sourceTree = "<group>"; };
 		CB3551142086ED3D003E0017 /* AlarmListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmListTableViewCell.xib; sourceTree = "<group>"; };
 		CB3551172086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListNotSetTableViewCell.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				CBCEACD32088C59F0036C7A2 /* Bus.swift */,
-				CB2EA1FB212AB94200F31904 /* BusStopDataMapper.swift */,
+				CB2EA1FB212AB94200F31904 /* BusStopMapper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,12 +267,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WhenComing/Pods-WhenComing-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 			);
@@ -324,7 +326,7 @@
 				CB3551152086ED3D003E0017 /* AlarmListTableViewCell.swift in Sources */,
 				CBA84A3A209177850010F8F0 /* Extension.swift in Sources */,
 				CB35613820A219F8005BD367 /* SetAlarmDetailTableViewCell.swift in Sources */,
-				CB2EA1FC212AB94200F31904 /* BusStopDataMapper.swift in Sources */,
+				CB2EA1FC212AB94200F31904 /* BusStopMapper.swift in Sources */,
 				CB9A15412091AABC009CA25F /* SetAlarmViewController.swift in Sources */,
 				CB3551192086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift in Sources */,
 				CBCEACD42088C59F0036C7A2 /* Bus.swift in Sources */,
@@ -476,10 +478,7 @@
 				DEVELOPMENT_TEAM = 7XZYKQ99YK;
 				INFOPLIST_FILE = WhenComing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jhyejun.WhenComing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -496,10 +495,7 @@
 				DEVELOPMENT_TEAM = 7XZYKQ99YK;
 				INFOPLIST_FILE = WhenComing/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jhyejun.WhenComing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

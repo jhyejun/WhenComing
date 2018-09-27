@@ -10,6 +10,7 @@ target 'WhenComing' do
   pod 'Then'
   pod 'Alamofire'
   pod 'ObjectMapper'
+  pod 'AlamofireObjectMapper'
   pod 'Fabric'
   pod 'Crashlytics'
 

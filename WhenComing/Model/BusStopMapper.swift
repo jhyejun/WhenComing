@@ -10,6 +10,20 @@ import ObjectMapper
 
 struct BusStopData: Mappable {
     
+    var busStopList: [BusStop] = []
+    
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        self.busStopList <- map["data"]
+    }
+    
+}
+
+
+struct BusStop: Mappable {
+    
     var uniqueId: String?
     var id: String?
     var name: String?
@@ -22,13 +36,13 @@ struct BusStopData: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        self.uniqueId <- map["data"]["arsId"]
-        self.id <- map["data"]["stId"]
-        self.name <- map["data"]["stNm"]
-        self.posX <- map["data"]["posX"]
-        self.posY <- map["data"]["posY"]
-        self.tmX <- map["data"]["tmX"]
-        self.tmY <- map["data"]["tmY"]
+        self.uniqueId <- map["arsId"]
+        self.id <- map["stId"]
+        self.name <- map["stNm"]
+        self.posX <- map["posX"]
+        self.posY <- map["posY"]
+        self.tmX <- map["tmX"]
+        self.tmY <- map["tmY"]
     }
     
 }
