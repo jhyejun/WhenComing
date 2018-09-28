@@ -12,10 +12,6 @@ class AlarmListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func touchedAddBtn(_ sender: UIButton) {
-        performSegue(withIdentifier: "goSetAlarmViewController", sender: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +23,10 @@ class AlarmListViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .none
         self.tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
+    }
+    
+    @IBAction func touchedAddBtn(_ sender: UIButton) {
+        performSegue(withIdentifier: "goSetAlarmViewController", sender: nil)
     }
     
 }

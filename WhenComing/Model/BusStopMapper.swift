@@ -24,9 +24,9 @@ struct BusStopData: Mappable {
 
 struct BusStop: Mappable {
     
-    var uniqueId: String?
-    var id: String?
-    var name: String?
+    var arsId: String?
+    var stId: String?
+    var stNm: String?
     var posX: String?
     var posY: String?
     var tmX: String?
@@ -36,9 +36,9 @@ struct BusStop: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        self.uniqueId <- map["arsId"]
-        self.id <- map["stId"]
-        self.name <- map["stNm"]
+        self.arsId <- map["arsId"]
+        self.stId <- map["stId"]
+        self.stNm <- map["stNm"]
         self.posX <- map["posX"]
         self.posY <- map["posY"]
         self.tmX <- map["tmX"]

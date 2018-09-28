@@ -10,6 +10,8 @@ import UIKit
 import Fabric
 import Crashlytics
 
+let uuid = NSUUID().uuidString
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

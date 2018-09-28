@@ -18,8 +18,10 @@ class SetAlarmViewController: UIViewController {
     @IBOutlet weak var timerPicker: UIDatePicker!
     @IBOutlet weak var dayStackView: UIStackView!
     
-    var isBusStop: Bool = true
     var borderColor: CGColor = UIColor(red: 221, green: 221, blue: 221, alpha: 1).cgColor
+    
+    var isBusStop: Bool = true
+    var arsId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,12 @@ class SetAlarmViewController: UIViewController {
         
         self.dayStackView.layer.borderWidth = 1
         self.dayStackView.layer.borderColor = self.borderColor
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.busBtn.isEnabled = self.stopBtn.currentTitle != "정류장을 선택하세요" ? true : false
     }
     
     @IBAction func touchedStopBtn(_ sender: UIButton) {

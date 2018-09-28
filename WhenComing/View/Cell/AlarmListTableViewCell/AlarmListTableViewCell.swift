@@ -65,7 +65,7 @@ class AlarmListTableViewCell: UITableViewCell {
     }
     
     func setAlarmListCell(data: Bus) {
-        self.alarmTimeLabel.text = data.time
+        // self.alarmTimeLabel.text = data.time
     }
     
 }
