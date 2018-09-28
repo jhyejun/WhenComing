@@ -8,6 +8,9 @@
 
 import UIKit
 
+var arsId: String!
+var stName: String!
+
 class SetAlarmViewController: UIViewController {
 
     @IBOutlet weak var regionView: UIView!
@@ -19,9 +22,12 @@ class SetAlarmViewController: UIViewController {
     @IBOutlet weak var dayStackView: UIStackView!
     
     var borderColor: CGColor = UIColor(red: 221, green: 221, blue: 221, alpha: 1).cgColor
+    var textColor: UIColor = UIColor(red: 12, green: 31, blue: 120, alpha: 1)
+    var placeholderColor: UIColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1)
     
     var isBusStop: Bool = true
-    var arsId: String!
+    // var arsId: String!
+    // var stName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +55,19 @@ class SetAlarmViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        print(arsId)
+        print(stName)
+        
+        if let id = arsId, let name = stName {
+            self.stopBtn.setTitle(name, for: .normal)
+            self.stopBtn.setTitleColor(self.textColor, for: .normal)
+        }
+            
+        else {
+            self.stopBtn.setTitle("정류장을 선택하세요", for: .normal)
+            self.stopBtn.setTitleColor(self.placeholderColor, for: .normal)
+        }
         
         self.busBtn.isEnabled = self.stopBtn.currentTitle != "정류장을 선택하세요" ? true : false
     }

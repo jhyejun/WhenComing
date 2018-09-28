@@ -27,7 +27,34 @@ struct Bus: Mappable {
     
     var busRouteId: String?
     var busRouteNm: String?
-    var busRouteType: String?
+    var busRouteType: String? {
+        didSet {
+            switch busRouteType {
+            case "1":
+                busRouteType = "공항버스"
+            case "2":
+                busRouteType = "마을버스"
+            case "3":
+                busRouteType = "간선버스"
+            case "4":
+                busRouteType = "지선버스"
+            case "5":
+                busRouteType = "순환버스"
+            case "6":
+                busRouteType = "광역버스"
+            case "7":
+                busRouteType = "인천버스"
+            case "8":
+                busRouteType = "경기버스"
+            case "9":
+                busRouteType = "폐지"
+            case "0":
+                busRouteType = "공용"
+            default:
+                busRouteType = "버스"
+            }
+        }
+    }
     var firstBusTm: String?
     var firstBusTmLow: [String: String]?
     var lastBusTm: String?
@@ -59,43 +86,3 @@ struct Bus: Mappable {
     }
     
 }
-
-//enum BusType {
-//    case blueBus
-//    case greenBus
-//    case greenTownBus
-//    case yellowBus
-//    case redBus
-//
-//    var busTypeColor: UIColor {
-//        switch self {
-//        case .blueBus:
-//            return UIColor.blue
-//        case .greenBus:
-//            return UIColor.green
-//        case.greenTownBus:
-//            return UIColor.green
-//        case .yellowBus:
-//            return UIColor.yellow
-//        case.redBus:
-//            return UIColor.red
-//        }
-//    }
-//}
-//
-//enum BusStatus {
-//    case busy
-//    case normal
-//    case free
-//
-//    var busStatusImage: UIImage {
-//        switch self {
-//        case .busy:
-//            return UIImage(named: "")!
-//        case .normal:
-//            return UIImage(named: "")!
-//        case .free:
-//            return UIImage(named: "")!
-//        }
-//    }
-//}

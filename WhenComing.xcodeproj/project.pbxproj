@@ -135,12 +135,12 @@
 		CB68E0382075C42B00A0E2C1 /* WhenComing */ = {
 			isa = PBXGroup;
 			children = (
+				CBE17BA5215E8CB800357C2E /* Util */,
 				CB2EA1F6212AB7F500F31904 /* Network */,
 				CB35511D2086F0CB003E0017 /* Model */,
 				CB35511B2086F0BB003E0017 /* View */,
 				CB35511C2086F0C4003E0017 /* Controller */,
 				CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */,
-				CBA84A39209177850010F8F0 /* Extension.swift */,
 				CB68E03D2075C42B00A0E2C1 /* Main.storyboard */,
 				CB68E0452075C42C00A0E2C1 /* Info.plist */,
 				CB68E0402075C42C00A0E2C1 /* Assets.xcassets */,
@@ -194,6 +194,14 @@
 				CBE17BA1215E497100357C2E /* SetAlarmDetailTableViewCell */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		CBE17BA5215E8CB800357C2E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CBA84A39209177850010F8F0 /* Extension.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		F6EF812A0A91B622F3A7033B /* Pods */ = {

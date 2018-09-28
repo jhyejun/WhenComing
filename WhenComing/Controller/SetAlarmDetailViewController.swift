@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SendBackData {
+    
+}
+
 class SetAlarmDetailViewController: UIViewController {
 
     @IBOutlet weak var detailSearchView: UIView!
@@ -17,8 +21,8 @@ class SetAlarmDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var isBusStop: Bool = true
-    var arsId: String!
-    var stName: String!
+    // var arsId: String!
+    // var stName: String!
     
     var busStopList = [BusStop]()
     var busList = [Bus]()
@@ -39,8 +43,10 @@ class SetAlarmDetailViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .none
         
+        arsId = "23572"
+        
         if !self.isBusStop {
-            APIManager.getBusList(arsId: "23572") { (resp) in
+            APIManager.getBusList(arsId: arsId) { (resp) in
                 guard let value = resp.value?.busList else {
                     print("Failed request in SetAlarmDetailViewController [getBusList] : \(resp)")
                     return
@@ -85,7 +91,7 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
         
         cell.indicatorImageView.image = self.isBusStop ? UIImage(named: "stationIconGray") : UIImage(named: "busIconGrayRenew")
         cell.titleLabel.text = self.isBusStop ? self.busStopList[indexPath.row].stNm : self.busList[indexPath.row].busRouteNm
-        cell.descLabel.text = self.isBusStop ? self.busStopList[indexPath.row].arsId : self.busList[indexPath.row].busRouteType
+        cell.descLabel.text = self.isBusStop ? self.busStopList[indexPath.row].arsId ?? "오류" + " | " + "방면" : self.busList[indexPath.row].busRouteType
         cell.busAlarmSwitch.isHidden = self.isBusStop ? true : false
         
         return cell
@@ -97,8 +103,10 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isBusStop {
-            self.arsId = self.busStopList[indexPath.row].arsId
-            self.stName = self.busStopList[indexPath.row].stNm
+            arsId = self.busStopList[indexPath.row].arsId
+            stName = self.busStopList[indexPath.row].stNm
+            
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
