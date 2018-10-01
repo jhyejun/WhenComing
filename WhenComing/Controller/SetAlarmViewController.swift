@@ -8,10 +8,7 @@
 
 import UIKit
 
-var arsId: String!
-var stName: String!
-
-class SetAlarmViewController: UIViewController {
+class SetAlarmViewController: UIViewController, SendBackDelegate {
 
     @IBOutlet weak var regionView: UIView!
     @IBOutlet weak var stopView: UIView!
@@ -26,8 +23,8 @@ class SetAlarmViewController: UIViewController {
     var placeholderColor: UIColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1)
     
     var isBusStop: Bool = true
-    // var arsId: String!
-    // var stName: String!
+    var arsId: String!
+    var stName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,11 +53,8 @@ class SetAlarmViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print(arsId)
-        print(stName)
-        
-        if let id = arsId, let name = stName {
-            self.stopBtn.setTitle(name, for: .normal)
+        if let busStopName = self.stName {
+            self.stopBtn.setTitle(busStopName, for: .normal)
             self.stopBtn.setTitleColor(self.textColor, for: .normal)
         }
             
@@ -70,6 +64,20 @@ class SetAlarmViewController: UIViewController {
         }
         
         self.busBtn.isEnabled = self.stopBtn.currentTitle != "정류장을 선택하세요" ? true : false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goSetAlarmDetail" {
+            if let vc = segue.destination as? SetAlarmDetailViewController {
+                vc.delegate = self
+                vc.isBusStop = self.isBusStop
+                
+                if let id = self.arsId, let name = self.stName {
+                    vc.arsId = id
+                    vc.stName = name
+                }
+            }
+        }
     }
     
     @IBAction func touchedStopBtn(_ sender: UIButton) {
@@ -87,12 +95,9 @@ class SetAlarmViewController: UIViewController {
         sender.backgroundColor = sender.isSelected ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : UIColor.white
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goSetAlarmDetail" {
-            if let vc = segue.destination as? SetAlarmDetailViewController {
-                vc.isBusStop = self.isBusStop
-            }
-        }
+    func sendBackBusStopData(id: String, name: String) {
+        self.arsId = id
+        self.stName = name
     }
 
 }

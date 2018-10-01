@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol SendBackData {
-    
+protocol SendBackDelegate {
+    func sendBackBusStopData(id: String, name: String)
 }
 
 class SetAlarmDetailViewController: UIViewController {
@@ -19,13 +19,17 @@ class SetAlarmDetailViewController: UIViewController {
     @IBOutlet weak var detailSearchTF: UITextField!
     @IBOutlet weak var textfieldClearButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var completeButton: UIButton!
+    
+    var delegate: SendBackDelegate?
     
     var isBusStop: Bool = true
-    // var arsId: String!
-    // var stName: String!
-    
+    var arsId: String!
+    var stName: String!
     var busStopList = [BusStop]()
     var busList = [Bus]()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +41,20 @@ class SetAlarmDetailViewController: UIViewController {
         
         self.detailImageView.image = self.isBusStop ? UIImage(named: "stationIconBlue") : UIImage(named: "busIconBlueRenew")
         
+        self.detailSearchTF.textColor = UIColor(red: 12, green: 31, blue: 120, alpha: 1)
+        
         self.textfieldClearButton.isHidden = self.isBusStop ? false : true
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .none
         
-        arsId = "23572"
+        self.completeButton.isHidden = self.isBusStop ? true : false
         
         if !self.isBusStop {
-            APIManager.getBusList(arsId: arsId) { (resp) in
+            guard let id = self.arsId else { return }
+            
+            APIManager.getBusList(arsId: id) { (resp) in
                 guard let value = resp.value?.busList else {
                     print("Failed request in SetAlarmDetailViewController [getBusList] : \(resp)")
                     return
@@ -55,6 +63,17 @@ class SetAlarmDetailViewController: UIViewController {
                 self.busList = value
                 self.tableView.reloadData()
             }
+        }
+        
+        else {
+            if let busStopName = self.stName {
+                self.detailSearchTF.text = busStopName
+                self.detailSearchTF.isEnabled = false
+            }
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "valueChangedSwitch"), object: nil, queue: OperationQueue.main) { (noti) in
+            
         }
     }
     
@@ -71,8 +90,19 @@ class SetAlarmDetailViewController: UIViewController {
             }
             
             self.busStopList = value
+            self.busStopList = self.busStopList.filter { $0.arsId != "0" }
             self.tableView.reloadData()
         }
+    }
+    
+    @IBAction func touchedCleanButton(_ sender: UIButton) {
+        self.detailSearchTF.text = ""
+        self.busStopList.removeAll()
+        self.tableView.reloadData()
+    }
+    
+    @IBAction func touchedCompleteButton(_ sender: UIButton) {
+        
     }
     
 }
@@ -94,6 +124,7 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
         cell.descLabel.text = self.isBusStop ? self.busStopList[indexPath.row].arsId ?? "오류" + " | " + "방면" : self.busList[indexPath.row].busRouteType
         cell.busAlarmSwitch.isHidden = self.isBusStop ? true : false
         
+        
         return cell
     }
     
@@ -103,10 +134,12 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isBusStop {
-            arsId = self.busStopList[indexPath.row].arsId
-            stName = self.busStopList[indexPath.row].stNm
-            
+            delegate?.sendBackBusStopData(id: self.busStopList[indexPath.row].arsId!, name: self.busStopList[indexPath.row].stNm!)
             self.navigationController?.popViewController(animated: true)
+        }
+        
+        else {
+            
         }
     }
     
