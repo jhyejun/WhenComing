@@ -29,48 +29,12 @@ class SetAlarmDetailViewController: UIViewController {
     var busStopList = [BusStop]()
     var busList = [Bus]()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-
-        self.detailSearchView.layer.borderWidth = 1
-        self.detailSearchView.layer.borderColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1).cgColor
-        
-        self.detailImageView.image = self.isBusStop ? UIImage(named: "stationIconBlue") : UIImage(named: "busIconBlueRenew")
-        
-        self.detailSearchTF.textColor = UIColor(red: 12, green: 31, blue: 120, alpha: 1)
-        
-        self.textfieldClearButton.isHidden = self.isBusStop ? false : true
-        
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.separatorStyle = .none
-        
-        self.completeButton.isHidden = self.isBusStop ? true : false
-        
-        if !self.isBusStop {
-            guard let id = self.arsId else { return }
-            
-            APIManager.getBusList(arsId: id) { (resp) in
-                guard let value = resp.value?.busList else {
-                    print("Failed request in SetAlarmDetailViewController [getBusList] : \(resp)")
-                    return
-                }
-                
-                self.busList = value
-                self.tableView.reloadData()
-            }
-        }
-        
-        else {
-            if let busStopName = self.stName {
-                self.detailSearchTF.text = busStopName
-                self.detailSearchTF.isEnabled = false
-            }
-        }
+        self.prepareNavigation()
+        self.prepareView()
+        self.checkBusStop()
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "valueChangedSwitch"), object: nil, queue: OperationQueue.main) { (noti) in
             
@@ -102,7 +66,60 @@ class SetAlarmDetailViewController: UIViewController {
     }
     
     @IBAction func touchedCompleteButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func touchedBackButton() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func prepareNavigation() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_back"), style: .plain, target: self, action: #selector(touchedBackButton))
+    }
+    
+    func prepareView() {
+        self.detailSearchView.layer.borderWidth = 1
+        self.detailSearchView.layer.borderColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1).cgColor
         
+        self.detailImageView.image = self.isBusStop ? UIImage(named: "stationIconBlue") : UIImage(named: "busIconBlueRenew")
+        
+        if let name = self.stName {
+            self.detailSearchTF.text = name
+            self.detailSearchTF.isEnabled = false
+        }
+        self.detailSearchTF.textColor = UIColor(red: 12, green: 31, blue: 120, alpha: 1)
+        
+        self.textfieldClearButton.isHidden = self.isBusStop ? false : true
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.separatorStyle = .none
+        
+        self.completeButton.isHidden = self.isBusStop ? true : false
+    }
+    
+    func checkBusStop() {
+        if !self.isBusStop {
+            guard let id = self.arsId else { return }
+            
+            APIManager.getBusList(arsId: id) { (resp) in
+                guard let value = resp.value?.busList else {
+                    print("Failed request in SetAlarmDetailViewController [getBusList] : \(resp)")
+                    return
+                }
+                
+                self.busList = value
+                self.tableView.reloadData()
+            }
+        }
+            
+        else {
+            if let busStopName = self.stName {
+                self.detailSearchTF.text = busStopName
+                self.detailSearchTF.isEnabled = false
+            }
+        }
     }
     
 }
@@ -136,10 +153,6 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
         if isBusStop {
             delegate?.sendBackBusStopData(id: self.busStopList[indexPath.row].arsId!, name: self.busStopList[indexPath.row].stNm!)
             self.navigationController?.popViewController(animated: true)
-        }
-        
-        else {
-            
         }
     }
     

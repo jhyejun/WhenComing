@@ -15,18 +15,11 @@ class AlarmListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.prepareNavigation()
         self.prepareTableView()
     }
     
     @IBAction func touchedAddBtn(_ sender: UIButton) {
         performSegue(withIdentifier: "goSetAlarmViewController", sender: nil)
-    }
-    
-    func prepareNavigation() {
-        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "nav_back")
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "nav_back")
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     func prepareTableView() {

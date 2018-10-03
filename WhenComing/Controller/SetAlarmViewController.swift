@@ -29,25 +29,8 @@ class SetAlarmViewController: UIViewController, SendBackDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-
-        self.regionView.layer.borderWidth = 1
-        self.regionView.layer.borderColor = self.borderColor
-        
-        self.stopView.layer.borderWidth = 1
-        self.stopView.layer.borderColor = self.borderColor
-        
-        self.busView.layer.borderWidth = 1
-        self.busView.layer.borderColor = self.borderColor
-        
-        self.timerPicker.setValue(UIColor(red: 12, green: 31, blue: 120, alpha: 1), forKey: "textColor")
-        self.timerPicker.subviews[0].subviews[1].backgroundColor = UIColor(red: 54, green: 80, blue: 206, alpha: 1)
-        self.timerPicker.subviews[0].subviews[2].backgroundColor = UIColor(red: 54, green: 80, blue: 206, alpha: 1)
-        self.timerPicker.layer.borderWidth = 1
-        self.timerPicker.layer.borderColor = self.borderColor
-        
-        self.dayStackView.layer.borderWidth = 1
-        self.dayStackView.layer.borderColor = self.borderColor
+        self.prepareNavigation()
+        self.prepareView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,6 +76,35 @@ class SetAlarmViewController: UIViewController, SendBackDelegate {
     @IBAction func selectedDayBtn(_ sender: UIButton) {
         sender.isSelected = sender.isSelected ? false : true
         sender.backgroundColor = sender.isSelected ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : UIColor.white
+    }
+    
+    @objc func touchedBackButton() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func prepareNavigation() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_back"), style: .plain, target: self, action: #selector(touchedBackButton))
+    }
+    
+    func prepareView() {
+        self.regionView.layer.borderWidth = 1
+        self.regionView.layer.borderColor = self.borderColor
+        
+        self.stopView.layer.borderWidth = 1
+        self.stopView.layer.borderColor = self.borderColor
+        
+        self.busView.layer.borderWidth = 1
+        self.busView.layer.borderColor = self.borderColor
+        
+        self.timerPicker.setValue(UIColor(red: 12, green: 31, blue: 120, alpha: 1), forKey: "textColor")
+        self.timerPicker.subviews[0].subviews[1].backgroundColor = UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        self.timerPicker.subviews[0].subviews[2].backgroundColor = UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        self.timerPicker.layer.borderWidth = 1
+        self.timerPicker.layer.borderColor = self.borderColor
+        
+        self.dayStackView.layer.borderWidth = 1
+        self.dayStackView.layer.borderColor = self.borderColor
     }
     
     func sendBackBusStopData(id: String, name: String) {
