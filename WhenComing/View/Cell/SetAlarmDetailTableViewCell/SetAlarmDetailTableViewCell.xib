@@ -45,6 +45,9 @@
                         <rect key="frame" x="262" y="21" width="49" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="onTintColor" red="0.20392156862745098" green="0.29411764705882354" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="valueChangedAlarmSwitch:" destination="KGk-i7-Jjw" eventType="valueChanged" id="WQl-jR-7gc"/>
+                        </connections>
                     </switch>
                 </subviews>
                 <constraints>
@@ -61,6 +64,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="bottomView" destination="xTn-z3-dU8" id="Je4-4V-9vq"/>
                 <outlet property="busAlarmSwitch" destination="85c-BD-n7o" id="y4Z-TS-9nR"/>
                 <outlet property="descLabel" destination="dgA-6Y-aaH" id="LQ3-Qg-dJJ"/>
                 <outlet property="indicatorImageView" destination="c1A-1j-kd3" id="ZFL-pN-fEF"/>

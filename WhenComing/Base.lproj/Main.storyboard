@@ -456,6 +456,7 @@
                         <outlet property="detailSearchView" destination="RUV-gm-WQl" id="Qaw-gK-ufM"/>
                         <outlet property="tableView" destination="BnL-cj-A2M" id="P3x-zP-RIn"/>
                         <outlet property="textfieldClearButton" destination="xai-Iw-nqx" id="usJ-Qj-y2g"/>
+                        <segue destination="9bu-Hb-tTT" kind="show" id="36P-Ld-9en"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FV-9B-0Yp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -484,6 +485,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ft-4G-7MR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="261.60000000000002" y="-564.46776611694156"/>
+        </scene>
+        <!--Bus Detail View Controller-->
+        <scene sceneID="Id5-Wo-JTr">
+            <objects>
+                <viewController id="9bu-Hb-tTT" customClass="BusDetailViewController" customModule="WhenComing" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pDO-Tv-L71"/>
+                        <viewControllerLayoutGuide type="bottom" id="U7h-Qt-YeR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JAS-up-c5k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="se5-Wc-390" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3577" y="-564"/>
         </scene>
     </scenes>
     <resources>

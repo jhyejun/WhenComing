@@ -36,7 +36,7 @@ class SetAlarmDetailViewController: UIViewController {
         self.prepareView()
         self.checkBusStop()
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "valueChangedSwitch"), object: nil, queue: OperationQueue.main) { (noti) in
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "valueChangedAlarmSwitch"), object: nil, queue: OperationQueue.main) { (noti) in
             
         }
     }
@@ -86,7 +86,10 @@ class SetAlarmDetailViewController: UIViewController {
         
         if let name = self.stName {
             self.detailSearchTF.text = name
-            self.detailSearchTF.isEnabled = false
+            
+            if !self.isBusStop {
+                self.detailSearchTF.isEnabled = false
+            }
         }
         self.detailSearchTF.textColor = UIColor(red: 12, green: 31, blue: 120, alpha: 1)
         
@@ -113,12 +116,34 @@ class SetAlarmDetailViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-            
-        else {
-            if let busStopName = self.stName {
-                self.detailSearchTF.text = busStopName
-                self.detailSearchTF.isEnabled = false
-            }
+    }
+    
+    func getBusTextColor(busRouteType: String) -> UIColor {
+        switch busRouteType {
+        case "공항버스":
+            return UIColor(red: 255, green: 0, blue: 0, alpha: 1)
+        case "마을버스":
+            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        case "간선버스":
+            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        case "지선버스":
+            return UIColor(red: 86, green: 214, blue: 0, alpha: 1)
+        case "순환버스":
+            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        case "광역버스":
+            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        case "인천버스":
+            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        case "경기버스":
+            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        case "폐지":
+            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        case "공용":
+            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        case "버스":
+            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        default:
+            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
         }
     }
     
@@ -138,9 +163,21 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
         
         cell.indicatorImageView.image = self.isBusStop ? UIImage(named: "stationIconGray") : UIImage(named: "busIconGrayRenew")
         cell.titleLabel.text = self.isBusStop ? self.busStopList[indexPath.row].stNm : self.busList[indexPath.row].busRouteNm
+        cell.titleLabel.textColor = self.isBusStop ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : self.getBusTextColor(busRouteType: self.busList[indexPath.row].busRouteType ?? "버스")
         cell.descLabel.text = self.isBusStop ? self.busStopList[indexPath.row].arsId ?? "오류" + " | " + "방면" : self.busList[indexPath.row].busRouteType
         cell.busAlarmSwitch.isHidden = self.isBusStop ? true : false
         
+        /* if isBusStop {
+            if indexPath.row == self.busStopList.count - 1 {
+                cell.bottomView.isHidden = true
+            }
+        }
+        
+        else {
+            if indexPath.row == self.busList.count - 1 {
+                cell.bottomView.isHidden = true
+            }
+        } */
         
         return cell
     }
@@ -153,6 +190,10 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
         if isBusStop {
             delegate?.sendBackBusStopData(id: self.busStopList[indexPath.row].arsId!, name: self.busStopList[indexPath.row].stNm!)
             self.navigationController?.popViewController(animated: true)
+        }
+        
+        else {
+            
         }
     }
     

@@ -28,6 +28,7 @@
 		CB9A15412091AABC009CA25F /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A15402091AABC009CA25F /* SetAlarmViewController.swift */; };
 		CBA84A3A209177850010F8F0 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA84A39209177850010F8F0 /* Extension.swift */; };
 		CBCEACD42088C59F0036C7A2 /* BusMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCEACD32088C59F0036C7A2 /* BusMapper.swift */; };
+		CBE17BA82166477000357C2E /* BusDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE17BA72166477000357C2E /* BusDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		CB9A15402091AABC009CA25F /* SetAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
 		CBA84A39209177850010F8F0 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		CBCEACD32088C59F0036C7A2 /* BusMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusMapper.swift; sourceTree = "<group>"; };
+		CBE17BA72166477000357C2E /* BusDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				CB68E04E207CC16E00A0E2C1 /* AlarmListViewController.swift */,
 				CB9A15402091AABC009CA25F /* SetAlarmViewController.swift */,
 				CB35613220A219AA005BD367 /* SetAlarmDetailViewController.swift */,
+				CBE17BA72166477000357C2E /* BusDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			files = (
 				CB2EA1FA212AB84B00F31904 /* APIManager.swift in Sources */,
 				CB4C22F720A5789100B429B7 /* AlarmListBusTableViewCell.swift in Sources */,
+				CBE17BA82166477000357C2E /* BusDetailViewController.swift in Sources */,
 				CB35613320A219AA005BD367 /* SetAlarmDetailViewController.swift in Sources */,
 				CB68E04F207CC16E00A0E2C1 /* AlarmListViewController.swift in Sources */,
 				CB68E03A2075C42B00A0E2C1 /* AppDelegate.swift in Sources */,
