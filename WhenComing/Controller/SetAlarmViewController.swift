@@ -25,6 +25,8 @@ class SetAlarmViewController: UIViewController, SendBackDelegate {
     var isBusStop: Bool = true
     var arsId: String!
     var stName: String!
+    var busRouteIdList = [String]()
+    var busRouteNameList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

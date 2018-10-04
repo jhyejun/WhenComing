@@ -10,6 +10,7 @@ import UIKit
 
 protocol SendBackDelegate {
     func sendBackBusStopData(id: String, name: String)
+    // func sendBackBusData(id: String, name: String)
 }
 
 class SetAlarmDetailViewController: UIViewController {
@@ -121,29 +122,27 @@ class SetAlarmDetailViewController: UIViewController {
     func getBusTextColor(busRouteType: String) -> UIColor {
         switch busRouteType {
         case "공항버스":
-            return UIColor(red: 255, green: 0, blue: 0, alpha: 1)
+            return UIColor.blue
         case "마을버스":
-            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+            return UIColor.black
         case "간선버스":
             return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
         case "지선버스":
             return UIColor(red: 86, green: 214, blue: 0, alpha: 1)
         case "순환버스":
-            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+            return UIColor.black
         case "광역버스":
-            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+            return UIColor(red: 255, green: 0, blue: 0, alpha: 1)
         case "인천버스":
-            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+            return UIColor.blue
         case "경기버스":
-            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+            return UIColor.blue
         case "폐지":
-            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+            return UIColor.gray
         case "공용":
-            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
-        case "버스":
-            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
-        default:
-            return UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+            return UIColor.blue
+        default: // "버스"
+            return UIColor.blue
         }
     }
     
@@ -165,6 +164,7 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
         cell.titleLabel.text = self.isBusStop ? self.busStopList[indexPath.row].stNm : self.busList[indexPath.row].busRouteNm
         cell.titleLabel.textColor = self.isBusStop ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : self.getBusTextColor(busRouteType: self.busList[indexPath.row].busRouteType ?? "버스")
         cell.descLabel.text = self.isBusStop ? self.busStopList[indexPath.row].arsId ?? "오류" + " | " + "방면" : self.busList[indexPath.row].busRouteType
+        print(cell.busAlarmSwitch.isSelected)
         cell.busAlarmSwitch.isHidden = self.isBusStop ? true : false
         
         /* if isBusStop {
