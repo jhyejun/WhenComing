@@ -456,7 +456,7 @@
                         <outlet property="detailSearchView" destination="RUV-gm-WQl" id="Qaw-gK-ufM"/>
                         <outlet property="tableView" destination="BnL-cj-A2M" id="P3x-zP-RIn"/>
                         <outlet property="textfieldClearButton" destination="xai-Iw-nqx" id="usJ-Qj-y2g"/>
-                        <segue destination="9bu-Hb-tTT" kind="show" id="36P-Ld-9en"/>
+                        <segue destination="9bu-Hb-tTT" kind="show" identifier="goBusDetail" id="36P-Ld-9en"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FV-9B-0Yp" userLabel="First Responder" sceneMemberID="firstResponder"/>

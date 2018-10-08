@@ -193,7 +193,7 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
         }
         
         else {
-            
+            self.performSegue(withIdentifier: "goBusDetail", sender: self)
         }
     }
     
