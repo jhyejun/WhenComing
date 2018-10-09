@@ -306,6 +306,9 @@
                                 <state key="normal" title="적용하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchedCompleteBtn:" destination="gLh-0W-pey" eventType="touchUpInside" id="EML-kW-PMM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
@@ -346,7 +349,7 @@
                         <outlet property="regionView" destination="7c7-QK-dyA" id="axT-j5-LoS"/>
                         <outlet property="stopBtn" destination="bfz-7N-zhK" id="Idj-i5-KMb"/>
                         <outlet property="stopView" destination="f4c-mv-lV7" id="V7m-VF-gyP"/>
-                        <outlet property="timerPicker" destination="ncA-ef-L6A" id="9qa-JO-fUg"/>
+                        <outlet property="timePicker" destination="ncA-ef-L6A" id="E9N-04-pB1"/>
                         <segue destination="iG3-lR-AaZ" kind="show" identifier="goSetAlarmDetail" id="rk7-7Q-0xK"/>
                     </connections>
                 </viewController>

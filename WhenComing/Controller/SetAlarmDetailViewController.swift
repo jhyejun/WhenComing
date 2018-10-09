@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol SendBackDelegate {
-    func sendBackBusStopData(id: String, name: String)
-    // func sendBackBusData(id: String, name: String)
-}
-
 class SetAlarmDetailViewController: UIViewController {
 
     @IBOutlet weak var detailSearchView: UIView!
@@ -22,7 +17,7 @@ class SetAlarmDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var completeButton: UIButton!
     
-    var delegate: SendBackDelegate?
+    var delegate: SendBackDetailData?
     
     var isBusStop: Bool = true
     var arsId: String!
@@ -164,7 +159,6 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
         cell.titleLabel.text = self.isBusStop ? self.busStopList[indexPath.row].stNm : self.busList[indexPath.row].busRouteNm
         cell.titleLabel.textColor = self.isBusStop ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : self.getBusTextColor(busRouteType: self.busList[indexPath.row].busRouteType ?? "버스")
         cell.descLabel.text = self.isBusStop ? self.busStopList[indexPath.row].arsId ?? "오류" + " | " + "방면" : self.busList[indexPath.row].busRouteType
-        print(cell.busAlarmSwitch.isSelected)
         cell.busAlarmSwitch.isHidden = self.isBusStop ? true : false
         
         /* if isBusStop {

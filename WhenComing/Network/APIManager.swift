@@ -45,8 +45,19 @@ struct APIManager: APIService {
         }
     }
     
-    static func getArrivalInfo() {
+    static func getArrivalInfo(arsId: String, busRouteName:String, _ completion: @escaping (DataResponse<ArrivalInfo>) -> Void) {
+        let urlString: String = self.url("/seoul/\(arsId)/\(busRouteId)")
         
+        Alamofire.request(urlString, method: .get).validate(statusCode: 200 ..< 500).responseObject { (response: DataResponse<ArrivalInfo>) in
+            switch response.result {
+            case .success:
+                completion(response)
+                
+            case .failure(let error):
+                print("Failed Request [getArrivalInfo] : \(error)")
+                return
+            }
+        }
     }
     
 }

@@ -64,8 +64,6 @@ struct Bus: Mappable {
     var stBegin: String?
     var stEnd: String?
     var term: String?
-    // var type: BusType?
-    // var status: BusStatus?
     
     init?(map: Map) {
     }

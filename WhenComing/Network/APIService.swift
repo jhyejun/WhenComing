@@ -6,10 +6,6 @@
 //  Copyright © 2018년 장혜준. All rights reserved.
 //
 
-protocol APIService {
-    
-}
-
 extension APIService {
     
     static func url(_ path: String) -> String {

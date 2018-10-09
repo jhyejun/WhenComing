@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlarmListViewController: UIViewController {
+class AlarmListViewController: UIViewController, SendBackAlarmData {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,6 +27,18 @@ class AlarmListViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .none
         self.tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goSetAlarmViewController" {
+            if let vc = segue.destination as? SetAlarmViewController {
+                vc.delegate = self
+            }
+        }
+    }
+    
+    func sendBackAlarmData(arsId: Int, busId: Int, busName: String, alarmTime: Date, alarmDay: String) {
+        
     }
     
 }

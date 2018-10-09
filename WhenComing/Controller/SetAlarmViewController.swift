@@ -8,19 +8,21 @@
 
 import UIKit
 
-class SetAlarmViewController: UIViewController, SendBackDelegate {
+class SetAlarmViewController: UIViewController, SendBackDetailData {
 
     @IBOutlet weak var regionView: UIView!
     @IBOutlet weak var stopView: UIView!
     @IBOutlet weak var stopBtn: UIButton!
     @IBOutlet weak var busView: UIView!
     @IBOutlet weak var busBtn: UIButton!
-    @IBOutlet weak var timerPicker: UIDatePicker!
+    @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var dayStackView: UIStackView!
     
     var borderColor: CGColor = UIColor(red: 221, green: 221, blue: 221, alpha: 1).cgColor
     var textColor: UIColor = UIColor(red: 12, green: 31, blue: 120, alpha: 1)
     var placeholderColor: UIColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1)
+    
+    var delegate: SendBackAlarmData?
     
     var isBusStop: Bool = true
     var arsId: String!
@@ -80,6 +82,11 @@ class SetAlarmViewController: UIViewController, SendBackDelegate {
         sender.backgroundColor = sender.isSelected ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : UIColor.white
     }
     
+    @IBAction func touchedCompleteBtn(_ sender: UIButton) {
+        delegate?.sendBackAlarmData(arsId: "", busId: "", busName: "", alarmTime: Date(), alarmDay: "")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @objc func touchedBackButton() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -99,16 +106,17 @@ class SetAlarmViewController: UIViewController, SendBackDelegate {
         self.busView.layer.borderWidth = 1
         self.busView.layer.borderColor = self.borderColor
         
-        self.timerPicker.setValue(UIColor(red: 12, green: 31, blue: 120, alpha: 1), forKey: "textColor")
-        self.timerPicker.subviews[0].subviews[1].backgroundColor = UIColor(red: 54, green: 80, blue: 206, alpha: 1)
-        self.timerPicker.subviews[0].subviews[2].backgroundColor = UIColor(red: 54, green: 80, blue: 206, alpha: 1)
-        self.timerPicker.layer.borderWidth = 1
-        self.timerPicker.layer.borderColor = self.borderColor
+        self.timePicker.setValue(UIColor(red: 12, green: 31, blue: 120, alpha: 1), forKey: "textColor")
+        self.timePicker.subviews[0].subviews[1].backgroundColor = UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        self.timePicker.subviews[0].subviews[2].backgroundColor = UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+        self.timePicker.layer.borderWidth = 1
+        self.timePicker.layer.borderColor = self.borderColor
         
         self.dayStackView.layer.borderWidth = 1
         self.dayStackView.layer.borderColor = self.borderColor
     }
     
+    // SendBackDetailData Protocol Function
     func sendBackBusStopData(id: String, name: String) {
         self.arsId = id
         self.stName = name
