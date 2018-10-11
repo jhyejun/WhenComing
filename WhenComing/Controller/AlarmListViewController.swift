@@ -37,7 +37,7 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
         }
     }
     
-    func sendBackAlarmData(arsId: Int, busId: Int, busName: String, alarmTime: Date, alarmDay: String) {
+    func sendBackAlarmData(arsId: String, busId: String, busName: String, alarmTime: Date, alarmDay: String) {
         
     }
     
