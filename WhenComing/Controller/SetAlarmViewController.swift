@@ -30,6 +30,8 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     var busRouteIdList = [String]()
     var busRouteNameList = [String]()
     
+    var dayString: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,11 +82,53 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     @IBAction func selectedDayBtn(_ sender: UIButton) {
         sender.isSelected = sender.isSelected ? false : true
         sender.backgroundColor = sender.isSelected ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : UIColor.white
+        
+        switch sender.currentTitle {
+        case "월":
+            self.dayString += "1, "
+            
+        case "화":
+            self.dayString += "2, "
+            
+        case "수":
+            self.dayString += "3, "
+            
+        case "목":
+            self.dayString += "4, "
+            
+        case "금":
+            self.dayString += "5, "
+            
+        case "토":
+            self.dayString += "6, "
+            
+        case "일":
+            self.dayString += "7, "
+            
+        default:
+            break
+        }
     }
     
     @IBAction func touchedCompleteBtn(_ sender: UIButton) {
-        delegate?.sendBackAlarmData(arsId: "", busId: "", busName: "", alarmTime: Date(), alarmDay: "")
-        self.navigationController?.popViewController(animated: true)
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "HH:mm"
+        let selectTimeString = formatter.string(from: self.timePicker.date)
+        
+        guard let id = self.arsId else {
+            print("touchedCompleteBtn in SetAlarmViewController [self.arsId is 'nil']")
+            return
+        }
+        
+        if self.dayString != "" {
+            delegate?.sendBackAlarmData(arsId: id, busId: "100100029, 100100057", busName: "150, 360", alarmTime: selectTimeString, alarmDay: self.dayString)
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        else {
+            print("touchedCompleteBtn in SetAlarmViewController [self.dayString is Empty]")
+        }
     }
     
     @objc func touchedBackButton() {

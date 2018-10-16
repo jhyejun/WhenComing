@@ -37,8 +37,10 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
         }
     }
     
-    func sendBackAlarmData(arsId: String, busId: String, busName: String, alarmTime: Date, alarmDay: String) {
-        
+    func sendBackAlarmData(arsId: String, busId: String, busName: String, alarmTime: String, alarmDay: String) {
+        APIManager.registerAlarm(arsId: arsId, busRouteId: busId, busRouteName: busName, alarmTime: alarmTime, alarmDay: alarmDay) { (resp) in
+            print("알람 등록 성공")
+        }
     }
     
 }

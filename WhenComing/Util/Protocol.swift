@@ -18,5 +18,5 @@ protocol SendBackDetailData {
 }
 
 protocol SendBackAlarmData {
-    func sendBackAlarmData(arsId: String, busId: String, busName: String, alarmTime: Date, alarmDay: String)
+    func sendBackAlarmData(arsId: String, busId: String, busName: String, alarmTime: String, alarmDay: String)
 }

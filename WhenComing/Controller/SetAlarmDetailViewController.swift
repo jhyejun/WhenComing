@@ -109,6 +109,7 @@ class SetAlarmDetailViewController: UIViewController {
                 }
                 
                 self.busList = value
+                print(value)
                 self.tableView.reloadData()
             }
         }
