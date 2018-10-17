@@ -109,7 +109,6 @@ class SetAlarmDetailViewController: UIViewController {
                 }
                 
                 self.busList = value
-                print(value)
                 self.tableView.reloadData()
             }
         }
@@ -161,6 +160,7 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
         cell.titleLabel.textColor = self.isBusStop ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : self.getBusTextColor(busRouteType: self.busList[indexPath.row].busRouteType ?? "버스")
         cell.descLabel.text = self.isBusStop ? self.busStopList[indexPath.row].arsId ?? "오류" + " | " + "방면" : self.busList[indexPath.row].busRouteType
         cell.busAlarmSwitch.isHidden = self.isBusStop ? true : false
+        cell.busAlarmSwitch.tag = indexPath.row
         
         /* if isBusStop {
             if indexPath.row == self.busStopList.count - 1 {

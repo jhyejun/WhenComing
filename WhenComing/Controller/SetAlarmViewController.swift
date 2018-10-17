@@ -116,6 +116,7 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
         formatter.dateFormat = "HH:mm"
         let selectTimeString = formatter.string(from: self.timePicker.date)
         
+        self.arsId = "20011"
         guard let id = self.arsId else {
             print("touchedCompleteBtn in SetAlarmViewController [self.arsId is 'nil']")
             return

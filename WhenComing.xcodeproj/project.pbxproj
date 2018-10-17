@@ -352,7 +352,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+			shellScript = "#!/bin/bash\nbuildDay=$(/usr/libexec/PlistBuddy -c \"Print buildDate\" \"$INFOPLIST_FILE\")\nbuildCount=$(/usr/libexec/PlistBuddy -c \"Print buildCount\" \"$INFOPLIST_FILE\")\ntoday=$(date +%Y%m%d)\n\nif [ x$buildDay == x ]; then\n    buildDay=${today}\n    buildCount=1\n    buildNumber=${buildDay}${buildCount}\n    buildNumber=IF    \n\nelif [ $buildDay != $today ]; then\n    buildDay=${today}\n    buildCount=1\n    buildNumber=${buildDay}${buildCount}\n    buildNumber=ELIF\n\nelse\n    buildCount=$(($buildCount + 1))\n    buildNumber=${buildDay}${buildCount}\n    buildNumber=ELSE\n\nfi\n\n/usr/libexec/PlistBuddy -c \"Set :buildDay $buildDay\" \"$INFOPLIST_FILE\"\n/usr/libexec/PlistBuddy -c \"Set :buildCount $buildCount\" \"$INFOPLIST_FILE\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
 		CB9A15422091C078009CA25F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -365,7 +365,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" a486f53c4b40fd1d45a1d3c70a54705258d3be6e a90a43b616dda6a308fcd2ba9eec940e80bd6d6eafb50a30dfb053f49a89b0ee";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" a486f53c4b40fd1d45a1d3c70a54705258d3be6e a90a43b616dda6a308fcd2ba9eec940e80bd6d6eafb50a30dfb053f49a89b0ee\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

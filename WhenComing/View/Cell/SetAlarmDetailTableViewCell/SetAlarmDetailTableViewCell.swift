@@ -26,7 +26,8 @@ class SetAlarmDetailTableViewCell: UITableViewCell {
     }
     
     @IBAction func valueChangedAlarmSwitch(_ sender: UISwitch) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "valueChangedAlarmSwitch"), object: nil)
+        // NotificationCenter.default.post(name: NSNotification.Name(rawValue: "valueChangedAlarmSwitch"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "valueChangedAlarmSwitch"), object: nil, userInfo: ["indexPath" : sender.tag])
     }
     
 }

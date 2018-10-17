@@ -77,6 +77,7 @@ struct APIManager: APIService {
         ]
         
         Alamofire.request(urlString, method: .post, parameters: parameters).validate(statusCode: 200 ..< 500).responseJSON { resp in
+            print(parameters)
             switch resp.result {
             case .success:
                 completion(resp)
