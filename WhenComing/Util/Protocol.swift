@@ -14,7 +14,7 @@ protocol APIService {
 
 protocol SendBackDetailData {
     func sendBackBusStopData(id: String, name: String)
-    // func sendBackBusData(id: String, name: String)
+    func sendBackBusData(idList: [String], nameList: [String])
 }
 
 protocol SendBackAlarmData {

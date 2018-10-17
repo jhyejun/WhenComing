@@ -25,6 +25,7 @@ struct APIManager: APIService {
                 
             case .failure(let error):
                 print("Failed Request [getBusStopList] : \(error)")
+                print("Failed Request [getBusStopList URL] : \(urlString)")
                 return
             }
         }
@@ -40,6 +41,7 @@ struct APIManager: APIService {
                 
             case .failure(let error):
                 print("Failed Request [getBusList] : \(error)")
+                print("Failed Request [getBusList URL] : \(urlString)")
                 return
             }
         }
@@ -55,13 +57,10 @@ struct APIManager: APIService {
                 
             case .failure(let error):
                 print("Failed Request [getArrivalInfo] : \(error)")
+                print("Failed Request [getArrivalInfo URL] : \(urlString)")
                 return
             }
         }
-    }
-    
-    func sendBackAlarmData(arsId: String, busId: String, busName: String, alarmTime: String, alarmDay: String) {
-        
     }
     
     static func registerAlarm(arsId: String, busRouteId: String, busRouteName: String, alarmTime: String, alarmDay: String, _ completion: @escaping (DataResponse<Any>) -> Void) {
@@ -77,13 +76,13 @@ struct APIManager: APIService {
         ]
         
         Alamofire.request(urlString, method: .post, parameters: parameters).validate(statusCode: 200 ..< 500).responseJSON { resp in
-            print(parameters)
             switch resp.result {
             case .success:
                 completion(resp)
                 
             case .failure(let error):
                 print("Failed Request [registerAlarm] : \(error)")
+                print("Failed Request [registerAlarm Parameter] : \(parameters)")
                 return
             }
         }

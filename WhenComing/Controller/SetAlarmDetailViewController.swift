@@ -24,6 +24,10 @@ class SetAlarmDetailViewController: UIViewController {
     var stName: String!
     var busStopList = [BusStop]()
     var busList = [Bus]()
+    var busRouteIdList = [String]()
+    var busRouteNameList = [String]()
+    
+    var changedSwitchTag = [Int: Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,7 @@ class SetAlarmDetailViewController: UIViewController {
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "valueChangedAlarmSwitch"), object: nil, queue: OperationQueue.main) { (noti) in
             let tag: Int = noti.userInfo!["indexPath"] as! Int
+            self.changedSwitchTag[tag] = self.changedSwitchTag[tag] != nil ? !self.changedSwitchTag[tag]! : true
         }
     }
     
@@ -62,6 +67,14 @@ class SetAlarmDetailViewController: UIViewController {
     }
     
     @IBAction func touchedCompleteButton(_ sender: UIButton) {
+        for (key, val) in self.changedSwitchTag.sorted(by: { $0.0 < $1.0 }) {
+            if val == true {
+                self.busRouteIdList.append(self.busList[key].busRouteId!)
+                self.busRouteNameList.append(self.busList[key].busRouteNm!)
+            }
+        }
+        
+        delegate?.sendBackBusData(idList: self.busRouteIdList, nameList: self.busRouteNameList)
         self.navigationController?.popViewController(animated: true)
     }
     

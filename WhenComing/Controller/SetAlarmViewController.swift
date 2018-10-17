@@ -42,17 +42,8 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let busStopName = self.stName {
-            self.stopBtn.setTitle(busStopName, for: .normal)
-            self.stopBtn.setTitleColor(self.textColor, for: .normal)
-        }
-            
-        else {
-            self.stopBtn.setTitle("정류장을 선택하세요", for: .normal)
-            self.stopBtn.setTitleColor(self.placeholderColor, for: .normal)
-        }
-        
-        self.busBtn.isEnabled = self.stopBtn.currentTitle != "정류장을 선택하세요" ? true : false
+        prepareBusStop()
+        prepareBus()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -105,7 +96,10 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
         }
         
         if self.dayString != "" {
-            delegate?.sendBackAlarmData(arsId: id, busId: "100100029, 100100057", busName: "150, 360", alarmTime: selectTimeString, alarmDay: self.dayString)
+            let joinBusId = self.busRouteIdList.joined(separator: ", ")
+            let joinBusName = self.busRouteNameList.joined(separator: ", ")
+            
+            delegate?.sendBackAlarmData(arsId: id, busId: joinBusId, busName: joinBusName, alarmTime: selectTimeString, alarmDay: self.dayString)
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -147,6 +141,38 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     func sendBackBusStopData(id: String, name: String) {
         self.arsId = id
         self.stName = name
+    }
+    
+    func sendBackBusData(idList: [String], nameList: [String]) {
+        self.busRouteIdList = idList
+        self.busRouteNameList = nameList
+    }
+    
+    func prepareBusStop() {
+        if let busStopName = self.stName {
+            self.stopBtn.setTitle(busStopName, for: .normal)
+            self.stopBtn.setTitleColor(self.textColor, for: .normal)
+        }
+            
+        else {
+            self.stopBtn.setTitle("정류장을 선택하세요", for: .normal)
+            self.stopBtn.setTitleColor(self.placeholderColor, for: .normal)
+        }
+        
+        self.busBtn.isEnabled = self.stopBtn.currentTitle != "정류장을 선택하세요" ? true : false
+    }
+    
+    func prepareBus() {
+        if !self.busRouteNameList.isEmpty {
+            let joinText = self.busRouteNameList.joined(separator: " ")
+            self.busBtn.setTitle(joinText, for: .normal)
+            self.busBtn.setTitleColor(self.textColor, for: .normal)
+        }
+        
+        else {
+            self.busBtn.setTitle("버스를 선택하세요", for: .normal)
+            self.busBtn.setTitleColor(self.placeholderColor, for: .normal)
+        }
     }
 
 }
