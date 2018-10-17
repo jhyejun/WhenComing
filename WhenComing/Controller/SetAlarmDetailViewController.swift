@@ -33,7 +33,7 @@ class SetAlarmDetailViewController: UIViewController {
         self.checkBusStop()
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "valueChangedAlarmSwitch"), object: nil, queue: OperationQueue.main) { (noti) in
-            
+            let tag: Int = noti.userInfo!["indexPath"] as! Int
         }
     }
     

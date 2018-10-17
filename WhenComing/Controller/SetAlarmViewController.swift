@@ -82,32 +82,6 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     @IBAction func selectedDayBtn(_ sender: UIButton) {
         sender.isSelected = sender.isSelected ? false : true
         sender.backgroundColor = sender.isSelected ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : UIColor.white
-        
-        switch sender.currentTitle {
-        case "월":
-            self.dayString += "1, "
-            
-        case "화":
-            self.dayString += "2, "
-            
-        case "수":
-            self.dayString += "3, "
-            
-        case "목":
-            self.dayString += "4, "
-            
-        case "금":
-            self.dayString += "5, "
-            
-        case "토":
-            self.dayString += "6, "
-            
-        case "일":
-            self.dayString += "7, "
-            
-        default:
-            break
-        }
     }
     
     @IBAction func touchedCompleteBtn(_ sender: UIButton) {
@@ -115,6 +89,14 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "HH:mm"
         let selectTimeString = formatter.string(from: self.timePicker.date)
+        
+        let btnStackView = self.dayStackView.arrangedSubviews.map { $0 as! UIButton }
+        self.dayString = ""
+        for i in 0 ..< btnStackView.count {
+            if btnStackView[i].isSelected == true {
+                self.dayString += "\(i + 1), "
+            }
+        }
         
         self.arsId = "20011"
         guard let id = self.arsId else {
