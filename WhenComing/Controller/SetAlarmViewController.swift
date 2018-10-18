@@ -85,19 +85,18 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
         self.dayString = ""
         for i in 0 ..< btnStackView.count {
             if btnStackView[i].isSelected == true {
-                self.dayString += "\(i + 1), "
+                self.dayString += "\(i + 1),"
             }
         }
         
-        self.arsId = "20011"
         guard let id = self.arsId else {
             print("touchedCompleteBtn in SetAlarmViewController [self.arsId is 'nil']")
             return
         }
         
         if self.dayString != "" {
-            let joinBusId = self.busRouteIdList.joined(separator: ", ")
-            let joinBusName = self.busRouteNameList.joined(separator: ", ")
+            let joinBusId = self.busRouteIdList.joined(separator: ",")
+            let joinBusName = self.busRouteNameList.joined(separator: ",")
             
             delegate?.sendBackAlarmData(arsId: id, busId: joinBusId, busName: joinBusName, alarmTime: selectTimeString, alarmDay: self.dayString)
             self.navigationController?.popViewController(animated: true)
