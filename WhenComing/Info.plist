@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>201810191</string>
+	<string>201810231</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -61,6 +61,6 @@
 	<key>buildCount</key>
 	<string>1</string>
 	<key>buildDay</key>
-	<string>20181019</string>
+	<string>20181023</string>
 </dict>
 </plist>
