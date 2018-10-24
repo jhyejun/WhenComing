@@ -95,6 +95,7 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
         }
         
         if self.dayString != "" {
+            self.dayString.removeLast()
             let joinBusId = self.busRouteIdList.joined(separator: ",")
             let joinBusName = self.busRouteNameList.joined(separator: ",")
             

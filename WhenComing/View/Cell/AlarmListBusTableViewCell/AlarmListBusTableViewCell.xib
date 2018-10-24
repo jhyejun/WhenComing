@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -59,7 +59,7 @@
                         <rect key="frame" x="273" y="13.5" width="30" height="16"/>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHe-jM-pgB">
-                        <rect key="frame" x="167.5" y="32.5" width="95.5" height="16"/>
+                        <rect key="frame" x="167.5" y="33" width="95.5" height="16"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8분 2초" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GC-sW-e2O">
                                 <rect key="frame" x="0.0" y="0.0" width="40.5" height="16"/>
@@ -103,6 +103,17 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="busNameLabel" destination="2T3-gy-coT" id="tq1-wv-qWC"/>
+                <outlet property="firstBusCountLabel" destination="q5p-38-CiU" id="X3s-NV-z2S"/>
+                <outlet property="firstBusStackView" destination="XMC-OT-4EK" id="ea7-ST-bK9"/>
+                <outlet property="firstBusStatusImageView" destination="lxu-92-Jdx" id="9xb-1B-fLy"/>
+                <outlet property="fisrtBusTimeLabel" destination="gma-7D-b1d" id="sY3-qt-azK"/>
+                <outlet property="secondBusCountLabel" destination="gSi-MZ-h65" id="Mzc-32-ByU"/>
+                <outlet property="secondBusStackView" destination="KHe-jM-pgB" id="lBV-s6-tUp"/>
+                <outlet property="secondBusStatusImageView" destination="Yh0-Sk-fTy" id="qLT-Ky-EXe"/>
+                <outlet property="secondBusTimeLabel" destination="0GC-sW-e2O" id="KE2-DR-DCG"/>
+            </connections>
             <point key="canvasLocation" x="34" y="65.5"/>
         </tableViewCell>
     </objects>

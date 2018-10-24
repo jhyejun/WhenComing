@@ -10,6 +10,16 @@ import UIKit
 
 class AlarmListBusTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var busNameLabel: UILabel!
+    @IBOutlet weak var firstBusStackView: UIStackView!
+    @IBOutlet weak var fisrtBusTimeLabel: UILabel!
+    @IBOutlet weak var firstBusCountLabel: UILabel!
+    @IBOutlet weak var firstBusStatusImageView: UIImageView!
+    @IBOutlet weak var secondBusStackView: UIStackView!
+    @IBOutlet weak var secondBusTimeLabel: UILabel!
+    @IBOutlet weak var secondBusCountLabel: UILabel!
+    @IBOutlet weak var secondBusStatusImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
