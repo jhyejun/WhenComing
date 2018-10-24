@@ -47,7 +47,7 @@ struct APIManager: APIService {
         }
     }
     
-    static func getArrivalInfo(arsId: String, busRouteName:String, _ completion: @escaping (DataResponse<ArrivalInfo>) -> Void) {
+    static func getArrivalInfo(arsId: String, busRouteName: String, _ completion: @escaping (DataResponse<ArrivalInfo>) -> Void) {
         let urlString: String = self.url("/seoul/\(arsId)/\(busRouteName)")
         
         Alamofire.request(urlString, method: .get).validate(statusCode: 200 ..< 500).responseObject { (response: DataResponse<ArrivalInfo>) in
@@ -88,7 +88,7 @@ struct APIManager: APIService {
         }
     }
     
-    static func updateAlarm(arsId: String, busRouteName:String, _ completion: @escaping (DataResponse<ArrivalInfo>) -> Void) {
+    static func updateAlarm(arsId: String, busRouteName: String, _ completion: @escaping (DataResponse<ArrivalInfo>) -> Void) {
         let urlString: String = self.url("/seoul/\(arsId)/\(busRouteName)")
         
         Alamofire.request(urlString, method: .post).validate(statusCode: 200 ..< 500).responseObject { (response: DataResponse<ArrivalInfo>) in
@@ -103,7 +103,7 @@ struct APIManager: APIService {
         }
     }
     
-    static func deleteAlarm(arsId: String, busRouteName:String, _ completion: @escaping (DataResponse<ArrivalInfo>) -> Void) {
+    static func deleteAlarm(arsId: String, busRouteName: String, _ completion: @escaping (DataResponse<ArrivalInfo>) -> Void) {
         let urlString: String = self.url("/seoul/\(arsId)/\(busRouteName)")
         
         Alamofire.request(urlString, method: .delete).validate(statusCode: 200 ..< 500).responseObject { (response: DataResponse<ArrivalInfo>) in
@@ -118,10 +118,10 @@ struct APIManager: APIService {
         }
     }
     
-    static func getAlarm(arsId: String, busRouteName:String, _ completion: @escaping (DataResponse<ArrivalInfo>) -> Void) {
-        let urlString: String = self.url("/seoul/\(arsId)/\(busRouteName)")
+    static func getAlarm(deviceId: String, alarmId: String, _ completion: @escaping (DataResponse<AlarmData>) -> Void) {
+        let urlString: String = self.url("/alarm/\(deviceId)/\(alarmId)")
         
-        Alamofire.request(urlString, method: .get).validate(statusCode: 200 ..< 500).responseObject { (response: DataResponse<ArrivalInfo>) in
+        Alamofire.request(urlString, method: .get).validate(statusCode: 200 ..< 500).responseObject { (response: DataResponse<AlarmData>) in
             switch response.result {
             case .success:
                 completion(response)
@@ -133,10 +133,10 @@ struct APIManager: APIService {
         }
     }
     
-    static func getAllAlarm(arsId: String, busRouteName:String, _ completion: @escaping (DataResponse<ArrivalInfo>) -> Void) {
-        let urlString: String = self.url("/seoul/\(arsId)/\(busRouteName)")
+    static func getAllAlarm(deviceId: String, _ completion: @escaping (DataResponse<AlarmData>) -> Void) {
+        let urlString: String = self.url("/list/\(deviceId)")
         
-        Alamofire.request(urlString, method: .get).validate(statusCode: 200 ..< 500).responseObject { (response: DataResponse<ArrivalInfo>) in
+        Alamofire.request(urlString, method: .get).validate(statusCode: 200 ..< 500).responseObject { (response: DataResponse<AlarmData>) in
             switch response.result {
             case .success:
                 completion(response)

@@ -42,8 +42,8 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        prepareBusStop()
-        prepareBus()
+        self.prepareBusStop()
+        self.prepareBus()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -136,17 +136,6 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
         self.dayStackView.layer.borderColor = self.borderColor
     }
     
-    // SendBackDetailData Protocol Function
-    func sendBackBusStopData(id: String, name: String) {
-        self.arsId = id
-        self.stName = name
-    }
-    
-    func sendBackBusData(idList: [String], nameList: [String]) {
-        self.busRouteIdList = idList
-        self.busRouteNameList = nameList
-    }
-    
     func prepareBusStop() {
         if let busStopName = self.stName {
             self.stopBtn.setTitle(busStopName, for: .normal)
@@ -172,6 +161,17 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
             self.busBtn.setTitle("버스를 선택하세요", for: .normal)
             self.busBtn.setTitleColor(self.placeholderColor, for: .normal)
         }
+    }
+    
+    // SendBackDetailData Protocol Function
+    func sendBackBusStopData(id: String, name: String) {
+        self.arsId = id
+        self.stName = name
+    }
+    
+    func sendBackBusData(idList: [String], nameList: [String]) {
+        self.busRouteIdList = idList
+        self.busRouteNameList = nameList
     }
 
 }

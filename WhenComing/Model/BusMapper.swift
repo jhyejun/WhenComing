@@ -6,8 +6,6 @@
 //  Copyright © 2018년 장혜준. All rights reserved.
 //
 
-import Foundation
-import UIKit
 import ObjectMapper
 
 struct BusData: Mappable {

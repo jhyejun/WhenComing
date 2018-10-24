@@ -6,7 +6,6 @@
 //  Copyright © 2018 장혜준. All rights reserved.
 //
 
-import Foundation
 import ObjectMapper
 
 struct ArrivalInfo: Mappable {

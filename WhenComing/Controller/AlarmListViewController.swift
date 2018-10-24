@@ -12,6 +12,8 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var alarmList = [Alarm]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,19 +24,19 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
         performSegue(withIdentifier: "goSetAlarmViewController", sender: nil)
     }
     
-    func prepareTableView() {
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.separatorStyle = .none
-        self.tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goSetAlarmViewController" {
             if let vc = segue.destination as? SetAlarmViewController {
                 vc.delegate = self
             }
         }
+    }
+    
+    func prepareTableView() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.separatorStyle = .none
+        self.tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
     }
     
     func sendBackAlarmData(arsId: String, busId: String, busName: String, alarmTime: String, alarmDay: String) {
