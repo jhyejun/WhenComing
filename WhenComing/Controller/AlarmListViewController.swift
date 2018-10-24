@@ -50,18 +50,29 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
 extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        let row = alarmList.isEmpty ? 1 : alarmList.count
+        return row
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("AlarmListTableViewCell", owner: self, options: nil)?.first as! AlarmListTableViewCell
-        cell.selectionStyle = .none
+        if alarmList.isEmpty {
+            let cell = Bundle.main.loadNibNamed("AlarmListNotSetTableViewCell", owner: self, options: nil)?.first as! AlarmListNotSetTableViewCell
+            cell.selectionStyle = .none
+            
+            return cell
+        }
         
-        return cell
+        else {
+            let cell = Bundle.main.loadNibNamed("AlarmListTableViewCell", owner: self, options: nil)?.first as! AlarmListTableViewCell
+            cell.selectionStyle = .none
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 305
+        let height = alarmList.isEmpty ? tableView.frame.height : deviceSize.height * 0.4572
+        return height
     }
     
 }
