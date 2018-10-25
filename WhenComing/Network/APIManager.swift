@@ -11,6 +11,14 @@ import AlamofireObjectMapper
 
 struct APIManager: APIService {
     
+    static func cancelRequest() {
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionData, uploadData, downloadData) in
+            sessionData.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
+    }
+    
     static func getBusStopList(query: String, _ completion: @escaping (DataResponse<BusStopData>) -> Void) {
         guard let encodeString: String = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
             print("Failed Encode [getBusStopList] : \(query)")
