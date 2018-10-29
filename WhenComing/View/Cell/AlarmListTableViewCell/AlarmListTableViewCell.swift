@@ -34,17 +34,6 @@ class AlarmListTableViewCell: UITableViewCell {
         
         self.alarmTimeView.backgroundColor = alarmSwitch.isOn ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : self.offColor
         
-        // stackView 셋팅
-        self.dayList.forEach { (value) in
-            let label = UILabel().then {
-                $0.font = UIFont(name: "AppleSDGothicNeo-Light", size: 13)
-                $0.text = value
-                $0.textColor = UIColor(red: 12, green: 31, blue: 120, alpha: 1)
-            }
-            
-            self.dayStackView?.addArrangedSubview(label)
-        }
-        
         self.alarmSwitch.isOn = true
         self.alarmSwitch.tintColor = offColor
         self.alarmSwitch.layer.cornerRadius = self.alarmSwitch.frame.height / 2
@@ -59,9 +48,57 @@ class AlarmListTableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets.init(top: 0, left: 0, bottom: 16, right: 0))
+        
+        // stackView 셋팅
+        if self.dayList.count == 7 {
+            self.dayList.removeAll()
+            self.dayList.append("매일")
+        }
+        
+        self.dayList.forEach { (value) in
+            let label = UILabel().then {
+                $0.font = UIFont(name: "AppleSDGothicNeo-Light", size: 13)
+                $0.textColor = UIColor(red: 12, green: 31, blue: 120, alpha: 1)
+                
+                switch value {
+                case "1":
+                    $0.text = "월"
+                
+                case "2":
+                    $0.text = "화"
+                    
+                case "3":
+                    $0.text = "수"
+                    
+                case "4":
+                    $0.text = "목"
+                    
+                case "5":
+                    $0.text = "금"
+                    
+                case "6":
+                    $0.text = "토"
+                    
+                case "7":
+                    $0.text = "일"
+                    
+                default:
+                    $0.text = value
+                }
+            }
+            
+            self.dayStackView?.addArrangedSubview(label)
+        }
     }
     
     @IBAction func touchedAlarmSwitch(_ sender: UISwitch) {
+        let dayLabelList = self.dayStackView.arrangedSubviews.compactMap { $0 as? UILabel }
+        _ = dayLabelList.map { $0.textColor = self.alarmSwitch.isOn ? UIColor(red: 12, green: 31, blue: 120, alpha: 1) : self.offColor }
+        
+        self.alarmTimeView.backgroundColor = self.alarmSwitch.isOn ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : self.offColor
+        self.busStopLabel.textColor = self.alarmSwitch.isOn ? UIColor(red: 12, green: 31, blue: 120, alpha: 1) : self.offColor
+        self.busDirectionLabel.textColor = self.alarmSwitch.isOn ? UIColor(red: 12, green: 31, blue: 120, alpha: 1) : self.offColor
+        
         self.busTableView.isHidden = !self.busTableView.isHidden
     }
     

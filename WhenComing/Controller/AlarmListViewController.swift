@@ -49,10 +49,6 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
             
             self.alarmList = value
             self.tableView.reloadData()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-                self.tableView.reloadData()
-            })
         }
     }
     
@@ -83,8 +79,23 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
             let cell = Bundle.main.loadNibNamed("AlarmListTableViewCell", owner: self, options: nil)?.first as! AlarmListTableViewCell
             cell.selectionStyle = .none
             
-            cell.busStopLabel.text = self.alarmList[indexPath.row].arsId
-            cell.busDirectionLabel.text = ""
+            if let alarmTimePieces = self.alarmList[indexPath.row].alarm_time?.components(separatedBy: ":") {
+                var hour = Int(alarmTimePieces[0]) ?? 0
+                
+                if hour < 12 && hour >= 0 {
+                    cell.alarmTimeAPMLabel.text = "오전"
+                    cell.alarmTimeLabel.text = String(format: "%02d", hour) + ":" + alarmTimePieces[1]
+                }
+                
+                else {
+                    hour -= 12
+                    cell.alarmTimeAPMLabel.text = "오후"
+                    cell.alarmTimeLabel.text = String(format: "%02d", hour) + ":" + alarmTimePieces[1]
+                }
+            }
+            
+            cell.busStopLabel.text = "원자력병원공릉동삼익2차아파트"
+            cell.busDirectionLabel.text = "묵1동주민센터입구.먹골역 방면"
             cell.busList = self.alarmList[indexPath.row].bus?.components(separatedBy: ",") ?? [String]()
             cell.dayList = self.alarmList[indexPath.row].day?.components(separatedBy: ",") ?? [String]()
             
