@@ -16,6 +16,7 @@ class SetAlarmDetailViewController: UIViewController {
     @IBOutlet weak var textfieldClearButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButtonHeight: NSLayoutConstraint!
     
     var delegate: SendBackDetailData?
     
@@ -48,6 +49,7 @@ class SetAlarmDetailViewController: UIViewController {
             return
         }
         
+        APIManager.cancelRequest()
         APIManager.getBusStopList(query: query) { (resp) in
             guard let value = resp.value?.busStopList else {
                 print("Failed request in SetAlarmDetailViewController [getBusStopList] : \(resp)")
@@ -95,6 +97,7 @@ class SetAlarmDetailViewController: UIViewController {
         
         if let name = self.stName {
             self.detailSearchTF.text = name
+            self.textFieldDidChange(self.detailSearchTF)
             
             if !self.isBusStop {
                 self.detailSearchTF.isEnabled = false
@@ -109,6 +112,7 @@ class SetAlarmDetailViewController: UIViewController {
         self.tableView.separatorStyle = .none
         
         self.completeButton.isHidden = self.isBusStop ? true : false
+        self.completeButtonHeight.constant = self.isBusStop ? 0 : deviceSize.height * 0.0899
     }
     
     func checkBusStop() {
