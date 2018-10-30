@@ -110,6 +110,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
         }
         
         else {
+            // alarmListView Height (114) + busTableView Height (64 * busList count) + cell bottom insert (16)
             return CGFloat(114 + 62 * (self.alarmList[indexPath.row].bus?.components(separatedBy: ",").count ?? 0) + 16)
         }
     }

@@ -29,7 +29,9 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     var stName: String!
     var busRouteIdList = [String]()
     var busRouteNameList = [String]()
+    var busRouteTypeList = [String]()
     
+    var attributedString: NSMutableAttributedString = NSMutableAttributedString(string: "")
     var dayString: String = ""
     
     override func viewDidLoad() {
@@ -153,9 +155,15 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     
     func prepareBus() {
         if !self.busRouteNameList.isEmpty {
-            let joinText = self.busRouteNameList.joined(separator: " ")
-            self.busBtn.setTitle(joinText, for: .normal)
-            self.busBtn.setTitleColor(self.textColor, for: .normal)
+            self.attributedString = NSMutableAttributedString(string: "")
+            
+            for (key, val) in self.busRouteNameList.enumerated() {
+                let attribute = [NSMutableAttributedString.Key.foregroundColor : UIColor.getBusTextColor(busRouteType: self.busRouteTypeList[key])]
+                self.attributedString.append(NSMutableAttributedString(string: val, attributes: attribute))
+                self.attributedString.append(NSMutableAttributedString(string: " "))
+            }
+            
+            self.busBtn.setAttributedTitle(self.attributedString, for: .normal)
         }
         
         else {
@@ -170,9 +178,10 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
         self.stName = name
     }
     
-    func sendBackBusData(idList: [String], nameList: [String]) {
+    func sendBackBusData(idList: [String], nameList: [String], typeList: [String]) {
         self.busRouteIdList = idList
         self.busRouteNameList = nameList
+        self.busRouteTypeList = typeList
     }
 
 }

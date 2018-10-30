@@ -27,6 +27,7 @@ class SetAlarmDetailViewController: UIViewController {
     var busList = [Bus]()
     var busRouteIdList = [String]()
     var busRouteNameList = [String]()
+    var busRouteTypeList = [String]()
     
     var changedSwitchTag = [Int: Bool]()
     
@@ -73,10 +74,11 @@ class SetAlarmDetailViewController: UIViewController {
             if val == true {
                 self.busRouteIdList.append(self.busList[key].busRouteId!)
                 self.busRouteNameList.append(self.busList[key].busRouteNm!)
+                self.busRouteTypeList.append(self.busList[key].busRouteType!)
             }
         }
         
-        delegate?.sendBackBusData(idList: self.busRouteIdList, nameList: self.busRouteNameList)
+        delegate?.sendBackBusData(idList: self.busRouteIdList, nameList: self.busRouteNameList, typeList: self.busRouteTypeList)
         self.navigationController?.popViewController(animated: true)
     }
     
