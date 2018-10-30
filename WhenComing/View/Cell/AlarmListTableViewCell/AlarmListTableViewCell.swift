@@ -47,8 +47,6 @@ class AlarmListTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets.init(top: 0, left: 0, bottom: 16, right: 0))
-        
         // stackView 셋팅
         if self.dayList.count == 7 {
             self.dayList.removeAll()

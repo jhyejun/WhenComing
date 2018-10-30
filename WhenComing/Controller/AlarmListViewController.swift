@@ -79,6 +79,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
             let cell = Bundle.main.loadNibNamed("AlarmListTableViewCell", owner: self, options: nil)?.first as! AlarmListTableViewCell
             cell.selectionStyle = .none
             
+            
             if let alarmTimePieces = self.alarmList[indexPath.row].alarm_time?.components(separatedBy: ":") {
                 var hour = Int(alarmTimePieces[0]) ?? 0
                 
@@ -104,8 +105,13 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height = alarmList.isEmpty ? tableView.frame.height : 305
-        return height
+        if alarmList.isEmpty {
+            return tableView.frame.height
+        }
+        
+        else {
+            return CGFloat(114 + 62 * (self.alarmList[indexPath.row].bus?.components(separatedBy: ",").count ?? 0) + 16)
+        }
     }
     
 }
