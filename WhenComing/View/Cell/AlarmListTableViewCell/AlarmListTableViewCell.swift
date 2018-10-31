@@ -100,6 +100,10 @@ class AlarmListTableViewCell: UITableViewCell {
         self.busTableView.isHidden = !self.busTableView.isHidden
     }
     
+    @IBAction func touchedSettingButton(_ sender: UIButton) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "touchedSettingButton"), object: self.tag)
+    }
+    
     func setAlarmListCell(data: Bus) {
         // self.alarmTimeLabel.text = data.time
     }

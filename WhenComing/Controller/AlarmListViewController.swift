@@ -14,21 +14,56 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     
     var alarmList = [Alarm]()
     
+    var selectIndex: Int!
+    var isUpdate: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.prepareTableView()
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "touchedSettingButton"), object: nil, queue: OperationQueue.main) { noti in
+            self.selectIndex = noti.object as? Int
+            
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+            
+            alert.addAction(UIAlertAction(title: "수정", style: UIAlertAction.Style.default, handler: { (action) in
+                self.performSegue(withIdentifier: "goSetAlarmViewController", sender: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "삭제", style: UIAlertAction.Style.destructive, handler: { (action) in
+                APIManager.deleteAlarm(alarmId: self.alarmList[self.selectIndex].id ?? "", { (resp) in
+                    self.tableView.reloadData()
+                    print("알람 삭제 성공")
+                })
+            }))
+            alert.addAction(UIAlertAction(title: "취소", style: UIAlertAction.Style.cancel, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.prepareAlarmData()
     }
     
     @IBAction func touchedAddBtn(_ sender: UIButton) {
-        performSegue(withIdentifier: "goSetAlarmViewController", sender: nil)
+        self.selectIndex = nil
+        self.performSegue(withIdentifier: "goSetAlarmViewController", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goSetAlarmViewController" {
             if let vc = segue.destination as? SetAlarmViewController {
+                vc.isUpdate = self.isUpdate
                 vc.delegate = self
+                
+                if !self.alarmList.isEmpty && self.selectIndex != nil {
+                    vc.alarmId = self.alarmList[selectIndex].id
+                    vc.arsId = self.alarmList[selectIndex].arsId
+                    vc.stName = self.alarmList[selectIndex].arsId
+                    vc.busRouteIdList = self.alarmList[selectIndex].busRouteId?.components(separatedBy: ",") ?? [String]()
+                    vc.busRouteNameList = self.alarmList[selectIndex].bus?.components(separatedBy: ",") ?? [String]()
+                }
             }
         }
     }
@@ -52,9 +87,17 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
         }
     }
     
-    func sendBackAlarmData(arsId: String, busId: String, busName: String, alarmTime: String, alarmDay: String) {
-        APIManager.registerAlarm(arsId: arsId, busRouteId: busId, busRouteName: busName, alarmTime: alarmTime, alarmDay: alarmDay) { (resp) in
-            print("알람 등록 성공")
+    func sendBackAlarmData(alarmId: String?, arsId: String, busId: String, busName: String, alarmTime: String, alarmDay: String) {
+        if alarmId == nil {
+            APIManager.registerAlarm(arsId: arsId, busRouteId: busId, busRouteName: busName, alarmTime: alarmTime, alarmDay: alarmDay) { (resp) in
+                print("알람 등록 성공")
+            }
+        }
+        
+        else {
+            APIManager.updateAlarm(alarmId: alarmId!, arsId: arsId, busRouteId: busId, busRouteName: busName, alarmTime: alarmTime, alarmDay: alarmDay) { (resp) in
+                print("알람 업데이트 성공")
+            }
         }
     }
     
@@ -78,7 +121,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
         else {
             let cell = Bundle.main.loadNibNamed("AlarmListTableViewCell", owner: self, options: nil)?.first as! AlarmListTableViewCell
             cell.selectionStyle = .none
-            
+            cell.tag = indexPath.row
             
             if let alarmTimePieces = self.alarmList[indexPath.row].alarm_time?.components(separatedBy: ":") {
                 var hour = Int(alarmTimePieces[0]) ?? 0

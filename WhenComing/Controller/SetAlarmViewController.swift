@@ -22,9 +22,11 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     var textColor: UIColor = UIColor(red: 12, green: 31, blue: 120, alpha: 1)
     var placeholderColor: UIColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1)
     
+    var isUpdate: Bool = false
     var delegate: SendBackAlarmData?
     
     var isBusStop: Bool = true
+    var alarmId: String?
     var arsId: String!
     var stName: String!
     var busRouteIdList = [String]()
@@ -101,7 +103,7 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
             let joinBusId = self.busRouteIdList.joined(separator: ",")
             let joinBusName = self.busRouteNameList.joined(separator: ",")
             
-            delegate?.sendBackAlarmData(arsId: id, busId: joinBusId, busName: joinBusName, alarmTime: selectTimeString, alarmDay: self.dayString)
+            delegate?.sendBackAlarmData(alarmId: self.alarmId, arsId: id, busId: joinBusId, busName: joinBusName, alarmTime: selectTimeString, alarmDay: self.dayString)
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -154,7 +156,7 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     }
     
     func prepareBus() {
-        if !self.busRouteNameList.isEmpty {
+        if !self.busRouteNameList.isEmpty && !self.busRouteTypeList.isEmpty {
             self.attributedString = NSMutableAttributedString(string: "")
             
             for (key, val) in self.busRouteNameList.enumerated() {
@@ -164,6 +166,13 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
             }
             
             self.busBtn.setAttributedTitle(self.attributedString, for: .normal)
+        }
+            
+        else if !self.busRouteNameList.isEmpty && self.busRouteTypeList.isEmpty {
+            let joinText = self.busRouteNameList.joined(separator: " ")
+            
+            self.busBtn.setTitle(joinText, for: .normal)
+            self.busBtn.setTitleColor(self.textColor, for: .normal)
         }
         
         else {
