@@ -21,6 +21,7 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
         super.viewDidLoad()
         
         self.prepareTableView()
+        self.prepareAlarmData()
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "touchedSettingButton"), object: nil, queue: OperationQueue.main) { noti in
             self.selectIndex = noti.object as? Int
@@ -31,8 +32,8 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
                 self.performSegue(withIdentifier: "goSetAlarmViewController", sender: nil)
             }))
             alert.addAction(UIAlertAction(title: "삭제", style: UIAlertAction.Style.destructive, handler: { (action) in
-                APIManager.deleteAlarm(alarmId: self.alarmList[self.selectIndex].id ?? "", { (resp) in
-                    self.tableView.reloadData()
+                APIManager.deleteAlarm(alarmId: self.alarmList[self.selectIndex].id!, { (resp) in
+                    self.prepareAlarmData()
                     print("알람 삭제 성공")
                 })
             }))
@@ -40,10 +41,6 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
             
             self.present(alert, animated: true, completion: nil)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.prepareAlarmData()
     }
     
     @IBAction func touchedAddBtn(_ sender: UIButton) {
@@ -60,9 +57,12 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
                 if !self.alarmList.isEmpty && self.selectIndex != nil {
                     vc.alarmId = self.alarmList[selectIndex].id
                     vc.arsId = self.alarmList[selectIndex].arsId
-                    vc.stName = self.alarmList[selectIndex].arsId
+                    vc.stName = self.alarmList[selectIndex].ars_name
                     vc.busRouteIdList = self.alarmList[selectIndex].busRouteId?.components(separatedBy: ",") ?? [String]()
+                    vc.busRouteTypeList = self.alarmList[selectIndex].busRouteType?.components(separatedBy: ",") ?? [String]()
                     vc.busRouteNameList = self.alarmList[selectIndex].bus?.components(separatedBy: ",") ?? [String]()
+                    vc.alarmTime = self.alarmList[selectIndex].alarm_time
+                    vc.alarmDay = self.alarmList[selectIndex].day?.components(separatedBy: ",") ?? [String]()
                 }
             }
         }
@@ -83,19 +83,22 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
             }
             
             self.alarmList = value
+            print(self.alarmList)
             self.tableView.reloadData()
         }
     }
     
-    func sendBackAlarmData(alarmId: String?, arsId: String, busId: String, busName: String, alarmTime: String, alarmDay: String) {
+    func sendBackAlarmData(alarmId: Int?, arsId: String, ars_name: String, busId: String, busType: String, busName: String, alarmTime: String, alarmDay: String) {
         if alarmId == nil {
-            APIManager.registerAlarm(arsId: arsId, busRouteId: busId, busRouteName: busName, alarmTime: alarmTime, alarmDay: alarmDay) { (resp) in
+            APIManager.registerAlarm(arsId: arsId, ars_name: ars_name, busRouteId: busId, busRouteType: busType, busRouteName: busName, alarmTime: alarmTime, alarmDay: alarmDay) { (resp) in
+                self.prepareAlarmData()
                 print("알람 등록 성공")
             }
         }
         
         else {
-            APIManager.updateAlarm(alarmId: alarmId!, arsId: arsId, busRouteId: busId, busRouteName: busName, alarmTime: alarmTime, alarmDay: alarmDay) { (resp) in
+            APIManager.updateAlarm(alarmId: alarmId!, arsId: arsId, ars_name: ars_name, busRouteId: busId, busRouteType: busType, busRouteName: busName, alarmTime: alarmTime, alarmDay: alarmDay) { (resp) in
+                self.prepareAlarmData()
                 print("알람 업데이트 성공")
             }
         }
@@ -138,8 +141,10 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                 }
             }
             
-            cell.busStopLabel.text = "원자력병원공릉동삼익2차아파트"
-            cell.busDirectionLabel.text = "묵1동주민센터입구.먹골역 방면"
+            cell.busStopLabel.text = self.alarmList[indexPath.row].ars_name
+            cell.busDirectionLabel.text = ""
+            print(self.alarmList[indexPath.row].busRouteType?.components(separatedBy: ","))
+            cell.busTypeList = self.alarmList[indexPath.row].busRouteType?.components(separatedBy: ",") ?? [String]()
             cell.busList = self.alarmList[indexPath.row].bus?.components(separatedBy: ",") ?? [String]()
             cell.dayList = self.alarmList[indexPath.row].day?.components(separatedBy: ",") ?? [String]()
             

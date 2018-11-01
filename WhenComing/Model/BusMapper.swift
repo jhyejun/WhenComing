@@ -25,34 +25,7 @@ struct Bus: Mappable {
     
     var busRouteId: String?
     var busRouteNm: String?
-    var busRouteType: String? {
-        didSet {
-            switch busRouteType {
-            case "1":
-                busRouteType = "공항버스"
-            case "2":
-                busRouteType = "마을버스"
-            case "3":
-                busRouteType = "간선버스"
-            case "4":
-                busRouteType = "지선버스"
-            case "5":
-                busRouteType = "순환버스"
-            case "6":
-                busRouteType = "광역버스"
-            case "7":
-                busRouteType = "인천버스"
-            case "8":
-                busRouteType = "경기버스"
-            case "9":
-                busRouteType = "폐지"
-            case "0":
-                busRouteType = "공용"
-            default:
-                busRouteType = "버스"
-            }
-        }
-    }
+    var busRouteType: String?
     var firstBusTm: String?
     var firstBusTmLow: [String: String]?
     var lastBusTm: String?

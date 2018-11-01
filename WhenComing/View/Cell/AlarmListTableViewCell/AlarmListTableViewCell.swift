@@ -23,6 +23,8 @@ class AlarmListTableViewCell: UITableViewCell {
     @IBOutlet weak var busTableView: UITableView!
     
     var offColor: UIColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1)
+    
+    var busTypeList: [String] = [String]()
     var busList: [String] = [String]()
     var dayList: [String] = [String]()
     
@@ -121,6 +123,8 @@ extension AlarmListTableViewCell: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         
         cell.busNameLabel.text = self.busList[indexPath.row]
+        cell.busNameLabel.textColor = UIColor.getBusTextColor(busRouteType: self.busTypeList[indexPath.row])
+        cell.busNameLabel.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20)
         
         return cell
     }

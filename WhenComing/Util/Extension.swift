@@ -21,25 +21,25 @@ extension UIColor {
     
     class func getBusTextColor(busRouteType: String) -> UIColor {
         switch busRouteType {
-        case "공항버스":
+        case "1": // 공항버스
             return UIColor(red: 0, green: 160, blue: 233, alpha: 1)
-        case "마을버스":
+        case "2": // 마을버스
             return UIColor(red: 83, green: 179, blue: 50, alpha: 1)
-        case "간선버스":
+        case "3": // 간선버스
             return UIColor(red: 0, green: 104, blue: 183, alpha: 1)
-        case "지선버스":
+        case "4": // 지선버스
             return UIColor(red: 83, green: 179, blue: 50, alpha: 1)
-        case "순환버스":
+        case "5": // 순환버스
             return UIColor(red: 242, green: 183, blue: 10, alpha: 1)
-        case "광역버스":
+        case "6": // 광역버스
             return UIColor(red: 230, green: 0, blue: 18, alpha: 1)
-        case "인천버스":
+        case "7": // 인천버스
             return UIColor(red: 61, green: 91, blue: 171, alpha: 1)
-        case "경기버스":
+        case "8": // 경기버스
             return UIColor(red: 0, green: 158, blue: 150, alpha: 1)
-        case "폐지":
+        case "9": // 폐지
             return UIColor.gray
-        case "공용":
+        case "0": // 공용
             return UIColor(red: 0, green: 104, blue: 183, alpha: 1)
         default: // "버스"
             return UIColor(red: 0, green: 104, blue: 183, alpha: 1)

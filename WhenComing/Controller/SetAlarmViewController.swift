@@ -26,12 +26,14 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     var delegate: SendBackAlarmData?
     
     var isBusStop: Bool = true
-    var alarmId: String?
+    var alarmId: Int?
     var arsId: String!
     var stName: String!
     var busRouteIdList = [String]()
-    var busRouteNameList = [String]()
     var busRouteTypeList = [String]()
+    var busRouteNameList = [String]()
+    var alarmTime: String!
+    var alarmDay = [String]()
     
     var attributedString: NSMutableAttributedString = NSMutableAttributedString(string: "")
     var dayString: String = ""
@@ -41,6 +43,8 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
         
         self.prepareNavigation()
         self.prepareView()
+        self.prepareAlarmTime()
+        self.prepareAlarmDay()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +63,7 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
                 if let id = self.arsId, let name = self.stName {
                     vc.arsId = id
                     vc.stName = name
+                    vc.busRouteNameList = self.busRouteNameList
                 }
             }
         }
@@ -93,7 +98,7 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
             }
         }
         
-        guard let id = self.arsId else {
+        guard let id = self.arsId, let name = self.stName else {
             print("touchedCompleteBtn in SetAlarmViewController [self.arsId is 'nil']")
             return
         }
@@ -101,9 +106,10 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
         if self.dayString != "" {
             self.dayString.removeLast()
             let joinBusId = self.busRouteIdList.joined(separator: ",")
+            let joinBusType = self.busRouteTypeList.joined(separator: ",")
             let joinBusName = self.busRouteNameList.joined(separator: ",")
             
-            delegate?.sendBackAlarmData(alarmId: self.alarmId, arsId: id, busId: joinBusId, busName: joinBusName, alarmTime: selectTimeString, alarmDay: self.dayString)
+            delegate?.sendBackAlarmData(alarmId: self.alarmId, arsId: id, ars_name: name, busId: joinBusId, busType: joinBusType, busName: joinBusName, alarmTime: selectTimeString, alarmDay: self.dayString)
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -178,6 +184,25 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
         else {
             self.busBtn.setTitle("버스를 선택하세요", for: .normal)
             self.busBtn.setTitleColor(self.placeholderColor, for: .normal)
+        }
+    }
+    
+    func prepareAlarmTime() {
+        if let timeString = self.alarmTime {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            
+            self.timePicker.date = dateFormatter.date(from: timeString)!
+        }
+    }
+    
+    func prepareAlarmDay() {
+        if !self.alarmDay.isEmpty {
+            let btnStackView = self.dayStackView.arrangedSubviews.map { $0 as! UIButton }
+            
+            for i in 0 ..< self.alarmDay.count {
+                self.selectedDayBtn(btnStackView[Int(self.alarmDay[i])! - 1])
+            }
         }
     }
     

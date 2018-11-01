@@ -72,12 +72,14 @@ struct APIManager: APIService {
     }
     
     
-    static func registerAlarm(arsId: String, busRouteId: String, busRouteName: String, alarmTime: String, alarmDay: String, _ completion: @escaping (DataResponse<Any>) -> Void) {
+    static func registerAlarm(arsId: String, ars_name: String, busRouteId: String, busRouteType: String, busRouteName: String, alarmTime: String, alarmDay: String, _ completion: @escaping (DataResponse<Any>) -> Void) {
         let urlString: String = self.url("/alarm")
         
         let parameters: Parameters = [
             "arsId" : arsId,
+            "ars_name" : ars_name,
             "busRouteId" : busRouteId,
+            "busRouteType" : busRouteType,
             "bus" : busRouteName,
             "alarm_time" : alarmTime,
             "day" : alarmDay,
@@ -97,7 +99,7 @@ struct APIManager: APIService {
         }
     }
     
-    static func updateAlarm(alarmId: String, arsId: String, busRouteId: String, busRouteName: String, alarmTime: String, alarmDay: String, _ completion: @escaping (DataResponse<Any>) -> Void) {
+    static func updateAlarm(alarmId: Int, arsId: String, ars_name: String, busRouteId: String, busRouteType: String, busRouteName: String, alarmTime: String, alarmDay: String, _ completion: @escaping (DataResponse<Any>) -> Void) {
         let urlString: String = self.url("/update")
         
         let parameters: Parameters = [
@@ -123,10 +125,11 @@ struct APIManager: APIService {
         }
     }
     
-    static func deleteAlarm(alarmId: String, _ completion: @escaping (DataResponse<Any>) -> Void) {
+    static func deleteAlarm(alarmId: Int, _ completion: @escaping (DataResponse<Any>) -> Void) {
         let urlString: String = self.url("/destroy/\(alarmId)")
         
-        Alamofire.request(urlString, method: .delete).validate(statusCode: 200 ..< 500).responseJSON { (resp) in
+        Alamofire.request(urlString, method: .delete).responseJSON { (resp) in
+            print(resp)
             switch resp.result {
             case .success:
                 completion(resp)
@@ -139,7 +142,7 @@ struct APIManager: APIService {
         }
     }
     
-    static func getAlarm(deviceId: String, alarmId: String, _ completion: @escaping (DataResponse<AlarmData>) -> Void) {
+    static func getAlarm(deviceId: String, alarmId: Int, _ completion: @escaping (DataResponse<AlarmData>) -> Void) {
         let urlString: String = self.url("/alarm/\(deviceId)/\(alarmId)")
         
         Alamofire.request(urlString, method: .get).validate(statusCode: 200 ..< 500).responseObject { (response: DataResponse<AlarmData>) in

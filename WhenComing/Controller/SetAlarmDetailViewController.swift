@@ -26,8 +26,8 @@ class SetAlarmDetailViewController: UIViewController {
     var busStopList = [BusStop]()
     var busList = [Bus]()
     var busRouteIdList = [String]()
-    var busRouteNameList = [String]()
     var busRouteTypeList = [String]()
+    var busRouteNameList = [String]()
     
     var changedSwitchTag = [Int: Bool]()
     
@@ -50,16 +50,23 @@ class SetAlarmDetailViewController: UIViewController {
             return
         }
         
-        APIManager.cancelRequest()
-        APIManager.getBusStopList(query: query) { (resp) in
-            guard let value = resp.value?.busStopList else {
-                print("Failed request in SetAlarmDetailViewController [getBusStopList] : \(resp)")
-                return
-            }
-            
-            self.busStopList = value
-            self.busStopList = self.busStopList.filter { $0.arsId != "0" }
+        if query == "" {
+            self.busStopList.removeAll()
             self.tableView.reloadData()
+        }
+        
+        else {
+            APIManager.cancelRequest()
+            APIManager.getBusStopList(query: query) { (resp) in
+                guard let value = resp.value?.busStopList else {
+                    print("Failed request in SetAlarmDetailViewController [getBusStopList] : \(resp)")
+                    return
+                }
+                
+                self.busStopList = value
+                self.busStopList = self.busStopList.filter { $0.arsId != "0" }
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -70,11 +77,15 @@ class SetAlarmDetailViewController: UIViewController {
     }
     
     @IBAction func touchedCompleteButton(_ sender: UIButton) {
+        self.busRouteIdList.removeAll()
+        self.busRouteTypeList.removeAll()
+        self.busRouteNameList.removeAll()
+        
         for (key, val) in self.changedSwitchTag.sorted(by: { $0.0 < $1.0 }) {
             if val == true {
                 self.busRouteIdList.append(self.busList[key].busRouteId!)
-                self.busRouteNameList.append(self.busList[key].busRouteNm!)
                 self.busRouteTypeList.append(self.busList[key].busRouteType!)
+                self.busRouteNameList.append(self.busList[key].busRouteNm!)
             }
         }
         
@@ -133,6 +144,33 @@ class SetAlarmDetailViewController: UIViewController {
         }
     }
     
+    func convertBusType(busType: String) -> String {
+        switch busType {
+        case "1":
+            return "공항버스"
+        case "2":
+            return "마을버스"
+        case "3":
+            return "간선버스"
+        case "4":
+            return "지선버스"
+        case "5":
+            return "순환버스"
+        case "6":
+            return "광역버스"
+        case "7":
+            return "인천버스"
+        case "8":
+            return "경기버스"
+        case "9":
+            return "폐지"
+        case "0":
+            return "공용"
+        default:
+            return "버스"
+        }
+    }
+    
 }
 
 extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -150,9 +188,14 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
         cell.indicatorImageView.image = self.isBusStop ? UIImage(named: "stationIconGray") : UIImage(named: "busIconGrayRenew")
         cell.titleLabel.text = self.isBusStop ? self.busStopList[indexPath.row].stNm : self.busList[indexPath.row].busRouteNm
         cell.titleLabel.textColor = self.isBusStop ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : .getBusTextColor(busRouteType: self.busList[indexPath.row].busRouteType ?? "버스")
-        cell.descLabel.text = self.isBusStop ? self.busStopList[indexPath.row].arsId ?? "오류" + " | " + "방면" : self.busList[indexPath.row].busRouteType
+        cell.descLabel.text = self.isBusStop ? self.busStopList[indexPath.row].arsId ?? "오류" + " | " + "방면" : self.convertBusType(busType: self.busList[indexPath.row].busRouteType ?? "")
         cell.busAlarmSwitch.isHidden = self.isBusStop ? true : false
         cell.busAlarmSwitch.tag = indexPath.row
+        
+        if busRouteNameList.contains(cell.titleLabel.text ?? "") {
+            cell.busAlarmSwitch.isOn = true
+            self.changedSwitchTag[indexPath.row] = true
+        }
         
         if isBusStop {
             if indexPath.row == self.busStopList.count - 1 {
