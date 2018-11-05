@@ -41,6 +41,10 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
             
             self.present(alert, animated: true, completion: nil)
         }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: ""), object: nil, queue: OperationQueue.main) { noti in
+            
+        }
     }
     
     @IBAction func touchedAddBtn(_ sender: UIButton) {
@@ -71,20 +75,26 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     func prepareTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
+//        self.tableView.rowHeight = UITableView.automaticDimension
+//        self.tableView.estimatedRowHeight = 140
         self.tableView.separatorStyle = .none
         self.tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
     }
     
     func prepareAlarmData() {
-        APIManager.getAllAlarm(deviceId: uuid) { (resp) in
-            guard let value = resp.value?.alarmList else {
-                print("Failed request in AlarmListViewController [getAllAlarm] : \(resp)")
-                return
+        LoadingIndicator.shared.startIndicator()
+        
+        DispatchQueue.global(qos: .default).async {
+            APIManager.getAllAlarm(deviceId: uuid) { (resp) in
+                guard let value = resp.value?.alarmList else {
+                    print("Failed request in AlarmListViewController [getAllAlarm] : \(resp)")
+                    return
+                }
+                
+                self.alarmList = value
+                self.tableView.reloadData()
+                LoadingIndicator.shared.stopIndicator()
             }
-            
-            self.alarmList = value
-            print(self.alarmList)
-            self.tableView.reloadData()
         }
     }
     
@@ -142,8 +152,8 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.busStopLabel.text = self.alarmList[indexPath.row].ars_name
-            cell.busDirectionLabel.text = ""
-            print(self.alarmList[indexPath.row].busRouteType?.components(separatedBy: ","))
+            cell.busDirectionLabel.text = "구로역 방면"
+            cell.busIdList = self.alarmList[indexPath.row].busRouteId?.components(separatedBy: ",") ?? [String]()
             cell.busTypeList = self.alarmList[indexPath.row].busRouteType?.components(separatedBy: ",") ?? [String]()
             cell.busList = self.alarmList[indexPath.row].bus?.components(separatedBy: ",") ?? [String]()
             cell.dayList = self.alarmList[indexPath.row].day?.components(separatedBy: ",") ?? [String]()
@@ -156,7 +166,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
         if alarmList.isEmpty {
             return tableView.frame.height
         }
-        
+
         else {
             // alarmListView Height (114) + busTableView Height (64 * busList count) + cell bottom insert (16)
             return CGFloat(114 + 62 * (self.alarmList[indexPath.row].bus?.components(separatedBy: ",").count ?? 0) + 16)

@@ -20,6 +20,7 @@
 		CB35613920A219F8005BD367 /* SetAlarmDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB35613720A219F8005BD367 /* SetAlarmDetailTableViewCell.xib */; };
 		CB4C22F720A5789100B429B7 /* AlarmListBusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4C22F520A5789100B429B7 /* AlarmListBusTableViewCell.swift */; };
 		CB4C22F820A5789100B429B7 /* AlarmListBusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4C22F620A5789100B429B7 /* AlarmListBusTableViewCell.xib */; };
+		CB5E72B421907D8E008DD656 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5E72B321907D8E008DD656 /* LoadingIndicator.swift */; };
 		CB68E03A2075C42B00A0E2C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */; };
 		CB68E03F2075C42B00A0E2C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB68E03D2075C42B00A0E2C1 /* Main.storyboard */; };
 		CB68E0412075C42C00A0E2C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB68E0402075C42C00A0E2C1 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		CB35613720A219F8005BD367 /* SetAlarmDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetAlarmDetailTableViewCell.xib; sourceTree = "<group>"; };
 		CB4C22F520A5789100B429B7 /* AlarmListBusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListBusTableViewCell.swift; sourceTree = "<group>"; };
 		CB4C22F620A5789100B429B7 /* AlarmListBusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmListBusTableViewCell.xib; sourceTree = "<group>"; };
+		CB5E72B321907D8E008DD656 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		CB68E0362075C42B00A0E2C1 /* WhenComing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhenComing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB68E03E2075C42B00A0E2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,11 +101,12 @@
 			isa = PBXGroup;
 			children = (
 				CBE17BA2215E498600357C2E /* Cell */,
+				CB5E72B321907D8E008DD656 /* LoadingIndicator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		CB35511C2086F0C4003E0017 /* Controller */ = {
+		CB35511C2086F0C4003E0017 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				CB68E04E207CC16E00A0E2C1 /* AlarmListViewController.swift */,
@@ -111,7 +114,7 @@
 				CB35613220A219AA005BD367 /* SetAlarmDetailViewController.swift */,
 				CBE17BA72166477000357C2E /* BusDetailViewController.swift */,
 			);
-			path = Controller;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		CB35511D2086F0CB003E0017 /* Model */ = {
@@ -150,7 +153,7 @@
 				CB2EA1F6212AB7F500F31904 /* Network */,
 				CB35511D2086F0CB003E0017 /* Model */,
 				CB35511B2086F0BB003E0017 /* View */,
-				CB35511C2086F0C4003E0017 /* Controller */,
+				CB35511C2086F0C4003E0017 /* ViewController */,
 				CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */,
 				CB68E03D2075C42B00A0E2C1 /* Main.storyboard */,
 				CB68E0452075C42C00A0E2C1 /* Info.plist */,
@@ -377,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB5E72B421907D8E008DD656 /* LoadingIndicator.swift in Sources */,
 				CB2EA1FA212AB84B00F31904 /* APIManager.swift in Sources */,
 				CB4C22F720A5789100B429B7 /* AlarmListBusTableViewCell.swift in Sources */,
 				CBE17BA82166477000357C2E /* BusDetailViewController.swift in Sources */,

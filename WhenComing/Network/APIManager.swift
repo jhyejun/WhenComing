@@ -105,7 +105,9 @@ struct APIManager: APIService {
         let parameters: Parameters = [
             "id" : alarmId,
             "arsId" : arsId,
+            "ars_name" : ars_name,
             "busRouteId" : busRouteId,
+            "busRouteType" : busRouteType,
             "bus" : busRouteName,
             "alarm_time" : alarmTime,
             "day" : alarmDay,
@@ -129,7 +131,6 @@ struct APIManager: APIService {
         let urlString: String = self.url("/destroy/\(alarmId)")
         
         Alamofire.request(urlString, method: .delete).responseJSON { (resp) in
-            print(resp)
             switch resp.result {
             case .success:
                 completion(resp)
