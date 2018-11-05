@@ -55,10 +55,14 @@ struct APIManager: APIService {
         }
     }
     
-    static func getArrivalInfo(arsId: String, busRouteName: String, _ completion: @escaping (DataResponse<ArrivalInfo>) -> Void) {
-        let urlString: String = self.url("/seoul/\(arsId)/\(busRouteName)")
+    static func getArrivalInfo(arsId: String, busRouteName: String, _ completion: @escaping (DataResponse<ArrivalInfoData>) -> Void) {
+        guard let encodeString: String = busRouteName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            print("Failed Encode [getArrivalInfo] : \(busRouteName)")
+            return
+        }
+        let urlString: String = self.url("/seoul/\(arsId)/\(encodeString)")
         
-        Alamofire.request(urlString, method: .get).validate(statusCode: 200 ..< 500).responseObject { (response: DataResponse<ArrivalInfo>) in
+        Alamofire.request(urlString, method: .get).validate(statusCode: 200 ..< 500).responseObject { (response: DataResponse<ArrivalInfoData>) in
             switch response.result {
             case .success:
                 completion(response)

@@ -153,7 +153,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
             
             cell.busStopLabel.text = self.alarmList[indexPath.row].ars_name
             cell.busDirectionLabel.text = "구로역 방면"
-            cell.busIdList = self.alarmList[indexPath.row].busRouteId?.components(separatedBy: ",") ?? [String]()
+            cell.arsId = self.alarmList[indexPath.row].arsId ?? ""
             cell.busTypeList = self.alarmList[indexPath.row].busRouteType?.components(separatedBy: ",") ?? [String]()
             cell.busList = self.alarmList[indexPath.row].bus?.components(separatedBy: ",") ?? [String]()
             cell.dayList = self.alarmList[indexPath.row].day?.components(separatedBy: ",") ?? [String]()

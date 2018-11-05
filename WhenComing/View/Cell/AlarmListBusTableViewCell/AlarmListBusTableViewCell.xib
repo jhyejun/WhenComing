@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -111,7 +111,7 @@
                 <outlet property="firstBusCountLabel" destination="q5p-38-CiU" id="X3s-NV-z2S"/>
                 <outlet property="firstBusStackView" destination="XMC-OT-4EK" id="ea7-ST-bK9"/>
                 <outlet property="firstBusStatusImageView" destination="lxu-92-Jdx" id="9xb-1B-fLy"/>
-                <outlet property="fisrtBusTimeLabel" destination="gma-7D-b1d" id="sY3-qt-azK"/>
+                <outlet property="firstBusTimeLabel" destination="gma-7D-b1d" id="c4O-4W-4uy"/>
                 <outlet property="secondBusCountLabel" destination="gSi-MZ-h65" id="Mzc-32-ByU"/>
                 <outlet property="secondBusStackView" destination="KHe-jM-pgB" id="lBV-s6-tUp"/>
                 <outlet property="secondBusStatusImageView" destination="Yh0-Sk-fTy" id="qLT-Ky-EXe"/>

@@ -24,9 +24,12 @@ class AlarmListTableViewCell: UITableViewCell {
     
     var offColor: UIColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1)
     
-    var busTypeList: [String] = [String]()
-    var busList: [String] = [String]()
-    var dayList: [String] = [String]()
+    var arsId: String = ""
+    var busTypeList: [String] = []
+    var busList: [String] = []
+    var dayList: [String] = []
+    
+    var busArrivalInfo: [ArrivalInfo] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,6 +51,8 @@ class AlarmListTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        getArrivalInfoData()
         
         // stackView 셋팅
         if self.dayList.count == 7 {
@@ -99,15 +104,26 @@ class AlarmListTableViewCell: UITableViewCell {
         self.busStopLabel.textColor = self.alarmSwitch.isOn ? UIColor(red: 12, green: 31, blue: 120, alpha: 1) : self.offColor
         self.busDirectionLabel.textColor = self.alarmSwitch.isOn ? UIColor(red: 12, green: 31, blue: 120, alpha: 1) : self.offColor
         
-        self.busTableView.isHidden = !self.busTableView.isHidden
+        self.busTableView.reloadData()
     }
     
     @IBAction func touchedSettingButton(_ sender: UIButton) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "touchedSettingButton"), object: self.tag)
     }
     
-    func setAlarmListCell(data: Bus) {
-        // self.alarmTimeLabel.text = data.time
+    func getArrivalInfoData() {
+        // LoadingIndicator.shared.startIndicator()
+        for i in 0 ..< self.busList.count {
+            APIManager.getArrivalInfo(arsId: self.arsId, busRouteName: self.busList[i]) { (resp) in
+                guard let value = resp.value?.arrivalInfo else {
+                    print("Failed request in AlarmListTableViewCell [getArrivalInfo] : \(resp)")
+                    return
+                }
+                
+                self.busArrivalInfo.append(value)
+                self.busTableView.reloadData()
+            }
+        }
     }
     
 }
@@ -115,16 +131,44 @@ class AlarmListTableViewCell: UITableViewCell {
 extension AlarmListTableViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.busList.count
+        if self.alarmSwitch.isOn == false {
+            return 1
+        }
+        
+        return self.busArrivalInfo.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("AlarmListBusTableViewCell", owner: self, options: nil)?.first as! AlarmListBusTableViewCell
         cell.selectionStyle = .none
         
+        if self.alarmSwitch.isOn == false {
+            cell.busNameLabel.text = self.busList.joined(separator: " ")
+            cell.busNameLabel.textColor = self.offColor
+            cell.firstBusStackView.isHidden = true
+            cell.firstBusStatusImageView.isHidden = true
+            cell.secondBusStackView.isHidden = true
+            cell.secondBusStatusImageView.isHidden = true
+            
+            return cell
+        }
+        
         cell.busNameLabel.text = self.busList[indexPath.row]
         cell.busNameLabel.textColor = UIColor.getBusTextColor(busRouteType: self.busTypeList[indexPath.row])
         cell.busNameLabel.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20)
+        
+        if self.busArrivalInfo[indexPath.row].isLast1 == "0" {
+            
+        }
+        
+        print(self.busArrivalInfo[indexPath.row].arrmsg1?.removeFirst(0))
+        
+        let firstBus = self.busArrivalInfo[indexPath.row].arrmsg1?.components(separatedBy: "[")
+        cell.firstBusTimeLabel.text = firstBus?.first
+        cell.firstBusCountLabel.text = firstBus?.last
+        
+        cell.firstBusTimeLabel.text = self.busArrivalInfo[indexPath.row].arrmsg1
+        cell.secondBusTimeLabel.text = self.busArrivalInfo[indexPath.row].arrmsg2
         
         return cell
     }

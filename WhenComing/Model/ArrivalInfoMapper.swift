@@ -8,6 +8,19 @@
 
 import ObjectMapper
 
+struct ArrivalInfoData: Mappable {
+    
+    var arrivalInfo: ArrivalInfo!
+    
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        self.arrivalInfo <- map["data"]
+    }
+    
+}
+
 struct ArrivalInfo: Mappable {
     
     var adirection: String?
