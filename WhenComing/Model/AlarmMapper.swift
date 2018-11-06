@@ -28,6 +28,7 @@ struct Alarm: Mappable {
     var alarm_time: String?
     var arsId: String?
     var ars_name: String?
+    var next_station: String?
     var busRouteId: String?
     var busRouteType: String?
     var bus: String?
@@ -44,6 +45,7 @@ struct Alarm: Mappable {
         self.alarm_time <- map["alarm_time"]
         self.arsId <- map["arsId"]
         self.ars_name <- map["ars_name"]
+        self.next_station <- map["next_station"]
         self.busRouteId <- map["busRouteId"]
         self.busRouteType <- map["busRouteType"]
         self.bus <- map["bus"]

@@ -76,12 +76,13 @@ struct APIManager: APIService {
     }
     
     
-    static func registerAlarm(arsId: String, ars_name: String, busRouteId: String, busRouteType: String, busRouteName: String, alarmTime: String, alarmDay: String, _ completion: @escaping (DataResponse<Any>) -> Void) {
+    static func registerAlarm(arsId: String, ars_name: String, next_station: String, busRouteId: String, busRouteType: String, busRouteName: String, alarmTime: String, alarmDay: String, _ completion: @escaping (DataResponse<Any>) -> Void) {
         let urlString: String = self.url("/alarm")
         
         let parameters: Parameters = [
             "arsId" : arsId,
             "ars_name" : ars_name,
+            "next_station" : next_station,
             "busRouteId" : busRouteId,
             "busRouteType" : busRouteType,
             "bus" : busRouteName,
@@ -103,13 +104,14 @@ struct APIManager: APIService {
         }
     }
     
-    static func updateAlarm(alarmId: Int, arsId: String, ars_name: String, busRouteId: String, busRouteType: String, busRouteName: String, alarmTime: String, alarmDay: String, _ completion: @escaping (DataResponse<Any>) -> Void) {
+    static func updateAlarm(alarmId: Int, arsId: String, ars_name: String, next_station: String, busRouteId: String, busRouteType: String, busRouteName: String, alarmTime: String, alarmDay: String, _ completion: @escaping (DataResponse<Any>) -> Void) {
         let urlString: String = self.url("/update")
         
         let parameters: Parameters = [
             "id" : alarmId,
             "arsId" : arsId,
             "ars_name" : ars_name,
+            "next_station" : next_station,
             "busRouteId" : busRouteId,
             "busRouteType" : busRouteType,
             "bus" : busRouteName,

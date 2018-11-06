@@ -27,6 +27,7 @@ struct BusStop: Mappable {
     var arsId: String?
     var stId: String?
     var stNm: String?
+    var next_station: String?
     var posX: String?
     var posY: String?
     var tmX: String?
@@ -39,6 +40,7 @@ struct BusStop: Mappable {
         self.arsId <- map["arsId"]
         self.stId <- map["stId"]
         self.stNm <- map["stNm"]
+        self.next_station <- map["next_station"]
         self.posX <- map["posX"]
         self.posY <- map["posY"]
         self.tmX <- map["tmX"]

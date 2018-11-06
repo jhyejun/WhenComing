@@ -29,6 +29,7 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     var alarmId: Int?
     var arsId: String!
     var stName: String!
+    var next_station: String!
     var busRouteIdList = [String]()
     var busRouteTypeList = [String]()
     var busRouteNameList = [String]()
@@ -98,7 +99,7 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
             }
         }
         
-        guard let id = self.arsId, let name = self.stName else {
+        guard let id = self.arsId, let name = self.stName, let nextStation = self.next_station else {
             print("touchedCompleteBtn in SetAlarmViewController [self.arsId is 'nil']")
             return
         }
@@ -109,7 +110,7 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
             let joinBusType = self.busRouteTypeList.joined(separator: ",")
             let joinBusName = self.busRouteNameList.joined(separator: ",")
             
-            delegate?.sendBackAlarmData(alarmId: self.alarmId, arsId: id, ars_name: name, busId: joinBusId, busType: joinBusType, busName: joinBusName, alarmTime: selectTimeString, alarmDay: self.dayString)
+            delegate?.sendBackAlarmData(alarmId: self.alarmId, arsId: id, ars_name: name, next_station: nextStation, busId: joinBusId, busType: joinBusType, busName: joinBusName, alarmTime: selectTimeString, alarmDay: self.dayString)
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -207,9 +208,10 @@ class SetAlarmViewController: UIViewController, SendBackDetailData {
     }
     
     // SendBackDetailData Protocol Function
-    func sendBackBusStopData(id: String, name: String) {
+    func sendBackBusStopData(id: String, name: String, next_station: String) {
         self.arsId = id
         self.stName = name
+        self.next_station = next_station
     }
     
     func sendBackBusData(idList: [String], nameList: [String], typeList: [String]) {

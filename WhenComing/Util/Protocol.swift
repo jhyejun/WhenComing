@@ -13,10 +13,10 @@ protocol APIService {
 }
 
 protocol SendBackDetailData {
-    func sendBackBusStopData(id: String, name: String)
+    func sendBackBusStopData(id: String, name: String, next_station: String)
     func sendBackBusData(idList: [String], nameList: [String], typeList: [String])
 }
 
 protocol SendBackAlarmData {
-    func sendBackAlarmData(alarmId: Int?, arsId: String, ars_name: String, busId: String, busType: String, busName: String, alarmTime: String, alarmDay: String)
+    func sendBackAlarmData(alarmId: Int?, arsId: String, ars_name: String, next_station: String, busId: String, busType: String, busName: String, alarmTime: String, alarmDay: String)
 }

@@ -98,16 +98,16 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
         }
     }
     
-    func sendBackAlarmData(alarmId: Int?, arsId: String, ars_name: String, busId: String, busType: String, busName: String, alarmTime: String, alarmDay: String) {
+    func sendBackAlarmData(alarmId: Int?, arsId: String, ars_name: String, next_station: String, busId: String, busType: String, busName: String, alarmTime: String, alarmDay: String) {
         if alarmId == nil {
-            APIManager.registerAlarm(arsId: arsId, ars_name: ars_name, busRouteId: busId, busRouteType: busType, busRouteName: busName, alarmTime: alarmTime, alarmDay: alarmDay) { (resp) in
+            APIManager.registerAlarm(arsId: arsId, ars_name: ars_name, next_station: next_station, busRouteId: busId, busRouteType: busType, busRouteName: busName, alarmTime: alarmTime, alarmDay: alarmDay) { (resp) in
                 self.prepareAlarmData()
                 print("알람 등록 성공")
             }
         }
         
         else {
-            APIManager.updateAlarm(alarmId: alarmId!, arsId: arsId, ars_name: ars_name, busRouteId: busId, busRouteType: busType, busRouteName: busName, alarmTime: alarmTime, alarmDay: alarmDay) { (resp) in
+            APIManager.updateAlarm(alarmId: alarmId!, arsId: arsId, ars_name: ars_name, next_station: next_station, busRouteId: busId, busRouteType: busType, busRouteName: busName, alarmTime: alarmTime, alarmDay: alarmDay) { (resp) in
                 self.prepareAlarmData()
                 print("알람 업데이트 성공")
             }
@@ -151,8 +151,8 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                 }
             }
             
-            cell.busStopLabel.text = self.alarmList[indexPath.row].ars_name
-            cell.busDirectionLabel.text = "구로역 방면"
+            cell.busStopLabel.text = self.alarmList[indexPath.row].ars_name ?? ""
+            cell.busDirectionLabel.text = (self.alarmList[indexPath.row].next_station ?? "오류") + " 방면"
             cell.arsId = self.alarmList[indexPath.row].arsId ?? ""
             cell.busTypeList = self.alarmList[indexPath.row].busRouteType?.components(separatedBy: ",") ?? [String]()
             cell.busList = self.alarmList[indexPath.row].bus?.components(separatedBy: ",") ?? [String]()

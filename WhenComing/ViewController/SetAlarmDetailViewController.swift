@@ -185,18 +185,34 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor.clear
         
-        cell.indicatorImageView.image = self.isBusStop ? UIImage(named: "stationIconGray") : UIImage(named: "busIconGrayRenew")
-        cell.titleLabel.text = self.isBusStop ? self.busStopList[indexPath.row].stNm : self.busList[indexPath.row].busRouteNm
-        cell.titleLabel.textColor = self.isBusStop ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : .getBusTextColor(busRouteType: self.busList[indexPath.row].busRouteType ?? "버스")
-        cell.descLabel.text = self.isBusStop ? self.busStopList[indexPath.row].arsId ?? "오류" + " | " + "방면" : self.convertBusType(busType: self.busList[indexPath.row].busRouteType ?? "")
-        cell.busAlarmSwitch.isHidden = self.isBusStop ? true : false
-        cell.busAlarmSwitch.tag = indexPath.row
+        if self.isBusStop {
+            let arsId = self.busStopList[indexPath.row].arsId ?? "오류"
+            let nextStation = self.busStopList[indexPath.row].next_station ?? "오류"
+            
+            cell.indicatorImageView.image = UIImage(named: "stationIconGray")
+            cell.titleLabel.text = self.busStopList[indexPath.row].stNm
+            cell.titleLabel.textColor = UIColor(red: 54, green: 80, blue: 206, alpha: 1)
+            cell.descLabel.text = arsId + " | " + nextStation + " 방면"
+            cell.busAlarmSwitch.isHidden = true
+        }
         
+        else {
+            cell.indicatorImageView.image = UIImage(named: "busIconGrayRenew")
+            cell.titleLabel.text = self.busList[indexPath.row].busRouteNm
+            cell.titleLabel.textColor = .getBusTextColor(busRouteType: self.busList[indexPath.row].busRouteType ?? "버스")
+            cell.descLabel.text = self.convertBusType(busType: self.busList[indexPath.row].busRouteType ?? "")
+            cell.busAlarmSwitch.isHidden = false
+            cell.busAlarmSwitch.tag = indexPath.row
+        }
+        
+        // 이미 체크한 버스들의 스위치를 온 시켜놓기
         if busRouteNameList.contains(cell.titleLabel.text ?? "") {
             cell.busAlarmSwitch.isOn = true
             self.changedSwitchTag[indexPath.row] = true
         }
         
+        
+        // 마지막 셀의 하단 구분선은 없애기
         if isBusStop {
             if indexPath.row == self.busStopList.count - 1 {
                 cell.bottomView.isHidden = true
@@ -218,7 +234,7 @@ extension SetAlarmDetailViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isBusStop {
-            delegate?.sendBackBusStopData(id: self.busStopList[indexPath.row].arsId!, name: self.busStopList[indexPath.row].stNm!)
+            delegate?.sendBackBusStopData(id: self.busStopList[indexPath.row].arsId!, name: self.busStopList[indexPath.row].stNm!, next_station: self.busStopList[indexPath.row].next_station!)
             self.navigationController?.popViewController(animated: true)
         }
         
