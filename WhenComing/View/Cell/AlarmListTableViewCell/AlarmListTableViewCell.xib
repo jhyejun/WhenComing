@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,8 +30,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csI-Qs-g2m">
-                                        <rect key="frame" x="46.5" y="0.5" width="94.5" height="43.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csI-Qs-g2m">
+                                        <rect key="frame" x="42" y="0.5" width="100" height="43.5"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="36"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -40,10 +40,9 @@
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.31372549020000001" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Iwr-Xp-hiV" firstAttribute="leading" secondItem="hQQ-jM-Gco" secondAttribute="leading" constant="16" id="JOc-TD-Kgr"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="csI-Qs-g2m" secondAttribute="trailing" constant="13" id="RFR-2w-mvV"/>
+                                    <constraint firstAttribute="trailing" secondItem="csI-Qs-g2m" secondAttribute="trailing" constant="13" id="RFR-2w-mvV"/>
                                     <constraint firstItem="Iwr-Xp-hiV" firstAttribute="centerY" secondItem="hQQ-jM-Gco" secondAttribute="centerY" id="Ux3-yy-6jp"/>
                                     <constraint firstItem="csI-Qs-g2m" firstAttribute="centerY" secondItem="Iwr-Xp-hiV" secondAttribute="centerY" id="WSV-ee-WJ9"/>
-                                    <constraint firstItem="csI-Qs-g2m" firstAttribute="leading" secondItem="Iwr-Xp-hiV" secondAttribute="trailing" constant="6" id="Y2J-7f-TAP"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원자력병원공릉동삼익2차아파트" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBT-W5-aQf">

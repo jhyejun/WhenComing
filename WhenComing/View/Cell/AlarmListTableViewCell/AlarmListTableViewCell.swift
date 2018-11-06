@@ -157,18 +157,36 @@ extension AlarmListTableViewCell: UITableViewDelegate, UITableViewDataSource {
         cell.busNameLabel.textColor = UIColor.getBusTextColor(busRouteType: self.busTypeList[indexPath.row])
         cell.busNameLabel.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20)
         
+        // 첫번째 버스가 막차가 아닐 때
         if self.busArrivalInfo[indexPath.row].isLast1 == "0" {
+            let firstBus = self.busArrivalInfo[indexPath.row].arrmsg1?.components(separatedBy: "[")
+            let firstBusTime = firstBus?.first ?? "오류"
+            let firstBusCount = firstBus?.last ?? "오류?"
+            
+            cell.firstBusTimeLabel.text = firstBusTime
+            cell.firstBusCountLabel.text = firstBusCount != "운행종료" && firstBusCount != "곧 도착" ? String(firstBusCount.dropLast()) : firstBusCount
+            // cell.firstBusStatusImageView
+        }
+        
+        // 첫번째 버스가 막차일 때
+        else {
             
         }
         
-        print(self.busArrivalInfo[indexPath.row].arrmsg1?.removeFirst(0))
+        // 두번째 버스가 막차가 아닐 때
+        if self.busArrivalInfo[indexPath.row].isLast2 == "0" {
+            let secondBus = self.busArrivalInfo[indexPath.row].arrmsg2?.components(separatedBy: "[")
+            let secondBusTime = secondBus?.first ?? "오류"
+            let secondBusCount = secondBus?.last ?? "오류?"
+            
+            cell.secondBusTimeLabel.text = secondBusTime
+            cell.secondBusCountLabel.text = secondBusCount != "운행종료" && secondBusCount != "곧 도착" ? String(secondBusCount.dropLast()) : secondBusCount
+        }
         
-        let firstBus = self.busArrivalInfo[indexPath.row].arrmsg1?.components(separatedBy: "[")
-        cell.firstBusTimeLabel.text = firstBus?.first
-        cell.firstBusCountLabel.text = firstBus?.last
-        
-        cell.firstBusTimeLabel.text = self.busArrivalInfo[indexPath.row].arrmsg1
-        cell.secondBusTimeLabel.text = self.busArrivalInfo[indexPath.row].arrmsg2
+        // 두번째 버스가 막차일 때
+        else {
+            
+        }
         
         return cell
     }
