@@ -13,6 +13,7 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     @IBOutlet weak var tableView: UITableView!
     
     var alarmList = [Alarm]()
+    var busArrivalInfo: [ArrivalInfo] = []
     
     var selectIndex: Int!
     var isUpdate: Bool = false
@@ -94,6 +95,24 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
                 self.alarmList = value
                 self.tableView.reloadData()
                 LoadingIndicator.shared.stopIndicator()
+            }
+        }
+    }
+    
+    func prepareArrivalInfoData() {
+        for i in 0 ..< self.alarmList.count {
+            let busList = self.alarmList[i].busRouteType?.components(separatedBy: ",") ?? [String]()
+            let arsId = self.alarmList[i].arsId ?? ""
+            
+            for j in 0 ..< busList.count {
+                APIManager.getArrivalInfo(arsId: arsId, busRouteName: busList[i]) { (resp) in
+                    guard let value = resp.value?.arrivalInfo else {
+                        print("Failed request in AlarmListTableViewCell [getArrivalInfo] : \(resp)")
+                        return
+                    }
+                    
+                    self.busArrivalInfo.append(value)
+                }
             }
         }
     }

@@ -47,3 +47,22 @@ extension UIColor {
     }
     
 }
+
+extension UIImage {
+    
+    class func getCongestionImage(congetion: String) -> UIImage {
+        switch congetion {
+        case "3":
+           return  #imageLiteral(resourceName: "bus_free_icon")
+        case "4":
+            return #imageLiteral(resourceName: "bus_free_icon")
+        case "5":
+            return #imageLiteral(resourceName: "bus_much_icon")
+        case "6":
+            return #imageLiteral(resourceName: "bus_much_icon")
+        default:
+            return #imageLiteral(resourceName: "bus_free_icon")
+        }
+    }
+    
+}

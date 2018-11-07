@@ -112,7 +112,6 @@ class AlarmListTableViewCell: UITableViewCell {
     }
     
     func getArrivalInfoData() {
-        // LoadingIndicator.shared.startIndicator()
         for i in 0 ..< self.busList.count {
             APIManager.getArrivalInfo(arsId: self.arsId, busRouteName: self.busList[i]) { (resp) in
                 guard let value = resp.value?.arrivalInfo else {
@@ -165,7 +164,7 @@ extension AlarmListTableViewCell: UITableViewDelegate, UITableViewDataSource {
             
             cell.firstBusTimeLabel.text = firstBusTime
             cell.firstBusCountLabel.text = firstBusCount != "운행종료" && firstBusCount != "곧 도착" ? String(firstBusCount.dropLast()) : firstBusCount
-            // cell.firstBusStatusImageView
+            cell.firstBusStatusImageView.image = UIImage.getCongestionImage(congetion: self.busArrivalInfo[indexPath.row].congetion ?? "")
         }
         
         // 첫번째 버스가 막차일 때
@@ -181,6 +180,7 @@ extension AlarmListTableViewCell: UITableViewDelegate, UITableViewDataSource {
             
             cell.secondBusTimeLabel.text = secondBusTime
             cell.secondBusCountLabel.text = secondBusCount != "운행종료" && secondBusCount != "곧 도착" ? String(secondBusCount.dropLast()) : secondBusCount
+            cell.secondBusStatusImageView.image = UIImage.getCongestionImage(congetion: self.busArrivalInfo[indexPath.row].congetion ?? "")
         }
         
         // 두번째 버스가 막차일 때
