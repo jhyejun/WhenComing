@@ -85,17 +85,15 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     func prepareAlarmData() {
         LoadingIndicator.shared.startIndicator()
         
-        DispatchQueue.global(qos: .default).async {
-            APIManager.getAllAlarm(deviceId: uuid) { (resp) in
-                guard let value = resp.value?.alarmList else {
-                    print("Failed request in AlarmListViewController [getAllAlarm] : \(resp)")
-                    LoadingIndicator.shared.stopIndicator()
-                    return
-                }
-                
-                self.alarmList = value
-                self.prepareArrivalInfoData()
+        APIManager.getAllAlarm(deviceId: uuid) { (resp) in
+            guard let value = resp.value?.alarmList else {
+                print("Failed request in AlarmListViewController [getAllAlarm] : \(resp)")
+                LoadingIndicator.shared.stopIndicator()
+                return
             }
+            
+            self.alarmList = value
+            self.prepareArrivalInfoData()
         }
     }
     
@@ -123,10 +121,8 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
         }
         
         prepareDataGroup.notify(queue: prepareDataQueue) {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                LoadingIndicator.shared.stopIndicator()
-            }
+            self.tableView.reloadData()
+            LoadingIndicator.shared.stopIndicator()
         }
     }
     
