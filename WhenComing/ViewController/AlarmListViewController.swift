@@ -13,7 +13,7 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     @IBOutlet weak var tableView: UITableView!
     
     var alarmList = [Alarm]()
-    var busArrivalInfo: [ArrivalInfo] = []
+    var alarmBusArrivalInfoList: [Int: [ArrivalInfo]] = [:]
     
     var selectIndex: Int!
     var isUpdate: Bool = false
@@ -89,30 +89,43 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
             APIManager.getAllAlarm(deviceId: uuid) { (resp) in
                 guard let value = resp.value?.alarmList else {
                     print("Failed request in AlarmListViewController [getAllAlarm] : \(resp)")
+                    LoadingIndicator.shared.stopIndicator()
                     return
                 }
                 
                 self.alarmList = value
-                self.tableView.reloadData()
-                LoadingIndicator.shared.stopIndicator()
+                self.prepareArrivalInfoData()
             }
         }
     }
     
     func prepareArrivalInfoData() {
+        let prepareDataGroup = DispatchGroup()
+        let prepareDataQueue = DispatchQueue.global(qos: .default)
+        
         for i in 0 ..< self.alarmList.count {
-            let busList = self.alarmList[i].busRouteType?.components(separatedBy: ",") ?? [String]()
-            let arsId = self.alarmList[i].arsId ?? ""
-            
-            for j in 0 ..< busList.count {
-                APIManager.getArrivalInfo(arsId: arsId, busRouteName: busList[i]) { (resp) in
-                    guard let value = resp.value?.arrivalInfo else {
-                        print("Failed request in AlarmListTableViewCell [getArrivalInfo] : \(resp)")
-                        return
+            prepareDataQueue.async(group: prepareDataGroup) {
+                let busList = self.alarmList[i].bus?.components(separatedBy: ",") ?? [String]()
+                let arsId = self.alarmList[i].arsId ?? ""
+                
+                for j in 0 ..< busList.count {
+                    APIManager.getArrivalInfo(arsId: arsId, busRouteName: busList[j]) { (resp) in
+                        guard let value = resp.value?.arrivalInfo else {
+                            print("Failed request in AlarmListViewController [getArrivalInfo] : \(resp)")
+                            LoadingIndicator.shared.stopIndicator()
+                            return
+                        }
+                        
+                        self.alarmBusArrivalInfoList[i]?.append(value)
                     }
-                    
-                    self.busArrivalInfo.append(value)
                 }
+            }
+        }
+        
+        prepareDataGroup.notify(queue: prepareDataQueue) {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                LoadingIndicator.shared.stopIndicator()
             }
         }
     }
@@ -176,6 +189,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
             cell.busTypeList = self.alarmList[indexPath.row].busRouteType?.components(separatedBy: ",") ?? [String]()
             cell.busList = self.alarmList[indexPath.row].bus?.components(separatedBy: ",") ?? [String]()
             cell.dayList = self.alarmList[indexPath.row].day?.components(separatedBy: ",") ?? [String]()
+            cell.busArrivalInfo = self.alarmBusArrivalInfoList[indexPath.row] ?? [ArrivalInfo]()
             
             return cell
         }
@@ -186,6 +200,17 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
             return tableView.frame.height
         }
 
+        else {
+            // alarmListView Height (114) + busTableView Height (64 * busList count) + cell bottom insert (16)
+            return CGFloat(114 + 62 * (self.alarmList[indexPath.row].bus?.components(separatedBy: ",").count ?? 0) + 16)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if alarmList.isEmpty {
+            return tableView.frame.height
+        }
+            
         else {
             // alarmListView Height (114) + busTableView Height (64 * busList count) + cell bottom insert (16)
             return CGFloat(114 + 62 * (self.alarmList[indexPath.row].bus?.components(separatedBy: ",").count ?? 0) + 16)

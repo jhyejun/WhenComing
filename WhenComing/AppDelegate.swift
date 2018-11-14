@@ -10,7 +10,8 @@ import UIKit
 import Fabric
 import Crashlytics
 
-let uuid = NSUUID().uuidString
+//let uuid = NSUUID().uuidString
+let uuid = "6C42AC7C-C034-4752-8AF2-6A4F5E5E5E6A"
 let deviceSize = UIScreen.main.bounds
 
 @UIApplicationMain

@@ -39,6 +39,7 @@
 		1464C53D45460507BB3BE01E /* Pods-WhenComing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhenComing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhenComing/Pods-WhenComing.debug.xcconfig"; sourceTree = "<group>"; };
 		7D8A9BD2035B69FCB8C4B068 /* Pods-WhenComing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhenComing.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhenComing/Pods-WhenComing.release.xcconfig"; sourceTree = "<group>"; };
 		AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhenComing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB1F0F5C219C5A8800AB8461 /* WhenComing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhenComing.entitlements; sourceTree = "<group>"; };
 		CB2EA1F7212AB80F00F31904 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		CB2EA1F9212AB84B00F31904 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		CB2EA1FB212AB94200F31904 /* BusStopMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopMapper.swift; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 		CB68E0382075C42B00A0E2C1 /* WhenComing */ = {
 			isa = PBXGroup;
 			children = (
+				CB1F0F5C219C5A8800AB8461 /* WhenComing.entitlements */,
 				CBE17BA5215E8CB800357C2E /* Util */,
 				CB2EA1F6212AB7F500F31904 /* Network */,
 				CB35511D2086F0CB003E0017 /* Model */,
@@ -265,6 +267,11 @@
 					CB68E0352075C42B00A0E2C1 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -542,6 +549,7 @@
 			baseConfigurationReference = 1464C53D45460507BB3BE01E /* Pods-WhenComing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WhenComing/WhenComing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7XZYKQ99YK;
@@ -564,6 +572,7 @@
 			baseConfigurationReference = 7D8A9BD2035B69FCB8C4B068 /* Pods-WhenComing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WhenComing/WhenComing.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7XZYKQ99YK;
