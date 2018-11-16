@@ -99,9 +99,9 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     
     func prepareArrivalInfoData() {
         let prepareDataGroup = DispatchGroup()
-        let prepareDataQueue = DispatchQueue.global(qos: .default)
         
         for i in 0 ..< self.alarmList.count {
+            let prepareDataQueue = DispatchQueue(label: "task\(i)")
             prepareDataQueue.async(group: prepareDataGroup) {
                 let busList = self.alarmList[i].bus?.components(separatedBy: ",") ?? [String]()
                 let arsId = self.alarmList[i].arsId ?? ""
@@ -120,7 +120,7 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
             }
         }
         
-        prepareDataGroup.notify(queue: prepareDataQueue) {
+        prepareDataGroup.notify(queue: DispatchQueue.main) {
             self.tableView.reloadData()
             LoadingIndicator.shared.stopIndicator()
         }
