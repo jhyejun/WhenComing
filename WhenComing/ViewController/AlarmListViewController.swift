@@ -121,8 +121,10 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
         }
         
         prepareDataGroup.notify(queue: prepareDataQueue) {
-            self.tableView.reloadData()
-            LoadingIndicator.shared.stopIndicator()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                LoadingIndicator.shared.stopIndicator()
+            }
         }
     }
     
