@@ -37,6 +37,11 @@ struct Alarm: Mappable {
     var day: String?
     var device_id: String?
     
+    var busTypeList: [String] = []
+    var busList: [String] = []
+    var dayList: [String] = []
+    var busArrivalInfoList: [ArrivalInfo] = []
+    
     init?(map: Map) {
     }
     

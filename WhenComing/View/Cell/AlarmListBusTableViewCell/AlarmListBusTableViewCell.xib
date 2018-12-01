@@ -36,7 +36,7 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMC-OT-4EK">
-                        <rect key="frame" x="161" y="13.5" width="102" height="16"/>
+                        <rect key="frame" x="201" y="13.5" width="102" height="16"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5분 32초" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gma-7D-b1d">
                                 <rect key="frame" x="0.0" y="0.0" width="46.5" height="16"/>
@@ -58,11 +58,11 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bus_much_icon" translatesAutoresizingMaskIntoConstraints="NO" id="lxu-92-Jdx">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bus_much_icon" translatesAutoresizingMaskIntoConstraints="NO" id="lxu-92-Jdx">
                         <rect key="frame" x="273" y="13.5" width="30" height="16"/>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHe-jM-pgB">
-                        <rect key="frame" x="167.5" y="33" width="95.5" height="16"/>
+                        <rect key="frame" x="207.5" y="33" width="95.5" height="16"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8분 2초" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GC-sW-e2O">
                                 <rect key="frame" x="0.0" y="0.0" width="40.5" height="16"/>
@@ -84,12 +84,14 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bus_free_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Yh0-Sk-fTy">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bus_free_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Yh0-Sk-fTy">
                         <rect key="frame" x="273" y="33.5" width="30" height="15"/>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="KHe-jM-pgB" firstAttribute="trailing" secondItem="XMC-OT-4EK" secondAttribute="trailing" id="29A-PD-Iqj"/>
+                    <constraint firstItem="XMC-OT-4EK" firstAttribute="trailing" secondItem="lxu-92-Jdx" secondAttribute="trailing" id="7e2-h5-Xmi"/>
                     <constraint firstItem="2T3-gy-coT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KiQ-9g-PXG"/>
                     <constraint firstItem="Yt4-Tg-msL" firstAttribute="trailing" secondItem="Yh0-Sk-fTy" secondAttribute="trailing" id="QQD-bD-f2i"/>
                     <constraint firstItem="2T3-gy-coT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="SUG-hz-Teu"/>
@@ -98,11 +100,9 @@
                     <constraint firstItem="KHe-jM-pgB" firstAttribute="centerY" secondItem="Yh0-Sk-fTy" secondAttribute="centerY" id="X4y-aJ-XTS"/>
                     <constraint firstItem="Yt4-Tg-msL" firstAttribute="leading" secondItem="2T3-gy-coT" secondAttribute="leading" id="cVR-KZ-RAF"/>
                     <constraint firstItem="Yh0-Sk-fTy" firstAttribute="top" secondItem="lxu-92-Jdx" secondAttribute="bottom" constant="4" id="hCf-1h-Bxy"/>
-                    <constraint firstItem="Yh0-Sk-fTy" firstAttribute="leading" secondItem="KHe-jM-pgB" secondAttribute="trailing" constant="10" id="i7j-g1-RHH"/>
                     <constraint firstItem="lxu-92-Jdx" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-12" id="pkq-b5-RgL"/>
                     <constraint firstAttribute="bottom" secondItem="Yt4-Tg-msL" secondAttribute="bottom" id="sHL-SN-2s9"/>
                     <constraint firstItem="XMC-OT-4EK" firstAttribute="centerY" secondItem="lxu-92-Jdx" secondAttribute="centerY" id="tBQ-nN-Pyi"/>
-                    <constraint firstItem="lxu-92-Jdx" firstAttribute="leading" secondItem="XMC-OT-4EK" secondAttribute="trailing" constant="10" id="wW6-oB-bC8"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -117,7 +117,7 @@
                 <outlet property="secondBusStatusImageView" destination="Yh0-Sk-fTy" id="qLT-Ky-EXe"/>
                 <outlet property="secondBusTimeLabel" destination="0GC-sW-e2O" id="KE2-DR-DCG"/>
             </connections>
-            <point key="canvasLocation" x="34" y="65.5"/>
+            <point key="canvasLocation" x="33.600000000000001" y="65.217391304347828"/>
         </tableViewCell>
     </objects>
     <resources>
