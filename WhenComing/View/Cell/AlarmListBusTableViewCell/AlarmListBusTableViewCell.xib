@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yt4-Tg-msL">
-                        <rect key="frame" x="19" y="65.5" width="284" height="1"/>
+                        <rect key="frame" x="0.0" y="65.5" width="320" height="1"/>
                         <color key="backgroundColor" red="0.83921568627450982" green="0.85098039215686272" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="KTv-ka-48X"/>
@@ -87,22 +87,43 @@
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bus_free_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Yh0-Sk-fTy">
                         <rect key="frame" x="273" y="33.5" width="30" height="15"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMD-Rm-6X4">
+                        <rect key="frame" x="319" y="0.0" width="1" height="66.5"/>
+                        <color key="backgroundColor" red="0.83921568629999999" green="0.85098039219999999" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="3s7-T4-eDN"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="TK0-TJ-WzM"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1i-t4-1cj">
+                        <rect key="frame" x="0.0" y="0.0" width="1" height="66.5"/>
+                        <color key="backgroundColor" red="0.83921568627450982" green="0.85098039215686272" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="80H-TO-PgD"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="KHe-jM-pgB" firstAttribute="trailing" secondItem="XMC-OT-4EK" secondAttribute="trailing" id="29A-PD-Iqj"/>
+                    <constraint firstItem="Yt4-Tg-msL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="64O-9b-U0S"/>
                     <constraint firstItem="XMC-OT-4EK" firstAttribute="trailing" secondItem="lxu-92-Jdx" secondAttribute="trailing" id="7e2-h5-Xmi"/>
                     <constraint firstItem="2T3-gy-coT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KiQ-9g-PXG"/>
-                    <constraint firstItem="Yt4-Tg-msL" firstAttribute="trailing" secondItem="Yh0-Sk-fTy" secondAttribute="trailing" id="QQD-bD-f2i"/>
+                    <constraint firstAttribute="trailing" secondItem="gMD-Rm-6X4" secondAttribute="trailing" id="QFY-lz-9SN"/>
                     <constraint firstItem="2T3-gy-coT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="SUG-hz-Teu"/>
                     <constraint firstItem="Yh0-Sk-fTy" firstAttribute="trailing" secondItem="lxu-92-Jdx" secondAttribute="trailing" id="ULw-xY-Y24"/>
                     <constraint firstAttribute="trailing" secondItem="lxu-92-Jdx" secondAttribute="trailing" constant="17" id="Wak-L3-vMC"/>
                     <constraint firstItem="KHe-jM-pgB" firstAttribute="centerY" secondItem="Yh0-Sk-fTy" secondAttribute="centerY" id="X4y-aJ-XTS"/>
-                    <constraint firstItem="Yt4-Tg-msL" firstAttribute="leading" secondItem="2T3-gy-coT" secondAttribute="leading" id="cVR-KZ-RAF"/>
+                    <constraint firstItem="V1i-t4-1cj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="XbS-qX-BC8"/>
+                    <constraint firstAttribute="bottom" secondItem="V1i-t4-1cj" secondAttribute="bottom" id="eby-85-U58"/>
                     <constraint firstItem="Yh0-Sk-fTy" firstAttribute="top" secondItem="lxu-92-Jdx" secondAttribute="bottom" constant="4" id="hCf-1h-Bxy"/>
                     <constraint firstItem="lxu-92-Jdx" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-12" id="pkq-b5-RgL"/>
+                    <constraint firstItem="gMD-Rm-6X4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="q9C-zs-bfL"/>
                     <constraint firstAttribute="bottom" secondItem="Yt4-Tg-msL" secondAttribute="bottom" id="sHL-SN-2s9"/>
                     <constraint firstItem="XMC-OT-4EK" firstAttribute="centerY" secondItem="lxu-92-Jdx" secondAttribute="centerY" id="tBQ-nN-Pyi"/>
+                    <constraint firstAttribute="bottom" secondItem="gMD-Rm-6X4" secondAttribute="bottom" id="trc-Uy-8OJ"/>
+                    <constraint firstAttribute="trailing" secondItem="Yt4-Tg-msL" secondAttribute="trailing" id="u5M-Ih-umh"/>
+                    <constraint firstItem="V1i-t4-1cj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="w4p-3y-DQd"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

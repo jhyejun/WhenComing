@@ -99,7 +99,7 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
         let prepareDataGroup = DispatchGroup()
         let prepareDataQueue = DispatchQueue.global(qos: .default)
        
-        prepareDataQueue.async {
+        prepareDataQueue.async(group: prepareDataGroup) {
             for i in 0 ..< self.alarmList.count {
                 guard let arsId = self.alarmList[i].arsId else { return }
                 self.alarmList[i].busTypeList = self.alarmList[i].busRouteType?.components(separatedBy: ",") ?? [String]()
@@ -170,9 +170,8 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                 let cell = Bundle.main.loadNibNamed("AlarmListTableViewCell", owner: self, options: nil)?.first as! AlarmListTableViewCell
                 cell.selectionStyle = .none
                 cell.tag = indexPath.row
-                switchIsOn = cell.alarmSwitch.isOn
                 
-                if let alarmTimePieces = self.alarmList[indexPath.row].alarm_time?.components(separatedBy: ":") {
+                if let alarmTimePieces = self.alarmList[indexPath.section].alarm_time?.components(separatedBy: ":") {
                     var hour = Int(alarmTimePieces[0]) ?? 0
                     
                     if hour < 12 && hour >= 0 {
@@ -187,9 +186,9 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                     }
                 }
                 
-                cell.busStopLabel.text = self.alarmList[indexPath.row].ars_name ?? ""
-                cell.busDirectionLabel.text = (self.alarmList[indexPath.row].next_station ?? "오류") + " 방면"
-                cell.arsId = self.alarmList[indexPath.row].arsId ?? ""
+                cell.dayList = self.alarmList[indexPath.section].dayList
+                cell.busStopLabel.text = self.alarmList[indexPath.section].ars_name ?? ""
+                cell.busDirectionLabel.text = (self.alarmList[indexPath.section].next_station ?? "오류 발생") + " 방면"
                 
                 return cell
             }
@@ -198,7 +197,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                 let cell = Bundle.main.loadNibNamed("AlarmListBusTableViewCell", owner: self, options: nil)?.first as! AlarmListBusTableViewCell
                 cell.selectionStyle = .none
                 
-                if self.switchIsOn {
+                if !self.switchIsOn || self.alarmList[indexPath.section].busArrivalInfoList.isEmpty {
                     cell.busNameLabel.text = self.alarmList[indexPath.section].busList.joined(separator: " ")
                     cell.busNameLabel.textColor = offColor
                     cell.firstBusStackView.isHidden = true
@@ -240,7 +239,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                     cell.secondBusStatusImageView.image = .getCongestionImage(congetion: self.alarmList[indexPath.section].busArrivalInfoList[indexPath.row].congetion ?? "")
                 }
                     
-                    // 두번째 버스가 막차일 때
+                // 두번째 버스가 막차일 때
                 else {
                     
                 }
@@ -284,6 +283,10 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 16
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
     
 }

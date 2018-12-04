@@ -23,7 +23,6 @@ class AlarmListTableViewCell: UITableViewCell {
     
     var offColor: UIColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1)
     
-    var arsId: String = ""
     var dayList: [String] = []
     
     override func awakeFromNib() {
@@ -33,6 +32,14 @@ class AlarmListTableViewCell: UITableViewCell {
         self.alarmListView.layer.borderColor = UIColor(red: 221, green: 221, blue: 221, alpha: 1).cgColor
         
         self.alarmTimeView.backgroundColor = alarmSwitch.isOn ? UIColor(red: 54, green: 80, blue: 206, alpha: 1) : self.offColor
+        
+        for _ in 0 ..< 6 {
+            let label = UILabel().then {
+                $0.font = UIFont(name: "AppleSDGothicNeo-Light", size: 13)
+                $0.textColor = UIColor(red: 12, green: 31, blue: 120, alpha: 1)
+            }
+            self.dayStackView?.addArrangedSubview(label)
+        }
         
         self.alarmSwitch.isOn = true
         self.alarmSwitch.tintColor = offColor
@@ -49,39 +56,32 @@ class AlarmListTableViewCell: UITableViewCell {
             self.dayList.append("매일")
         }
         
-        self.dayList.forEach { (value) in
-            let label = UILabel().then {
-                $0.font = UIFont(name: "AppleSDGothicNeo-Light", size: 13)
-                $0.textColor = UIColor(red: 12, green: 31, blue: 120, alpha: 1)
+        for i in 0 ..< self.dayList.count {
+            switch self.dayList[i] {
+            case "1":
+                (self.dayStackView.arrangedSubviews[i] as! UILabel).text = "월"
                 
-                switch value {
-                case "1":
-                    $0.text = "월"
+            case "2":
+                (self.dayStackView.arrangedSubviews[i] as! UILabel).text = "화"
                 
-                case "2":
-                    $0.text = "화"
-                    
-                case "3":
-                    $0.text = "수"
-                    
-                case "4":
-                    $0.text = "목"
-                    
-                case "5":
-                    $0.text = "금"
-                    
-                case "6":
-                    $0.text = "토"
-                    
-                case "7":
-                    $0.text = "일"
-                    
-                default:
-                    $0.text = value
-                }
+            case "3":
+                (self.dayStackView.arrangedSubviews[i] as! UILabel).text = "수"
+                
+            case "4":
+                (self.dayStackView.arrangedSubviews[i] as! UILabel).text = "목"
+                
+            case "5":
+                (self.dayStackView.arrangedSubviews[i] as! UILabel).text = "금"
+                
+            case "6":
+                (self.dayStackView.arrangedSubviews[i] as! UILabel).text = "토"
+                
+            case "7":
+                (self.dayStackView.arrangedSubviews[i] as! UILabel).text = "일"
+                
+            default:
+                (self.dayStackView.arrangedSubviews[i] as! UILabel).text = self.dayList[i]
             }
-            
-            self.dayStackView?.addArrangedSubview(label)
         }
     }
     
