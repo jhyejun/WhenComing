@@ -16,6 +16,7 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     
     var selectIndex: Int!
     var isUpdate: Bool = false
+    var switchIsOn: Bool = false
     
     private var offColor: UIColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1)
     
@@ -73,8 +74,6 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     func prepareTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
-//        self.tableView.rowHeight = UITableView.automaticDimension
-//        self.tableView.estimatedRowHeight = 140
         self.tableView.separatorStyle = .none
         self.tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
     }
@@ -97,35 +96,36 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     }
     
     func prepareArrivalInfoData() {
-//        let prepareDataGroup = DispatchGroup()
-//        let prepareDataQueue = DispatchQueue.global(qos: .default)
-        
-        for i in 0 ..< self.alarmList.count {
-            guard let arsId = self.alarmList[i].arsId else { return }
-            self.alarmList[i].busTypeList = self.alarmList[i].busRouteType?.components(separatedBy: ",") ?? [String]()
-            self.alarmList[i].busList = self.alarmList[i].bus?.components(separatedBy: ",") ?? [String]()
-            self.alarmList[i].dayList = self.alarmList[i].day?.components(separatedBy: ",") ?? [String]()
-            
-            for j in 0 ..< self.alarmList[i].busList.count {
-                APIManager.getArrivalInfo(arsId: arsId, busRouteName: self.alarmList[i].busList[j]) { (resp) in
-                    guard let value = resp.value?.arrivalInfo else {
-                        print("Failed request in AlarmListViewController [getArrivalInfo] : \(resp)")
-                        LoadingIndicator.shared.stopIndicator()
-                        return
+        let prepareDataGroup = DispatchGroup()
+        let prepareDataQueue = DispatchQueue.global(qos: .default)
+       
+        prepareDataQueue.async {
+            for i in 0 ..< self.alarmList.count {
+                guard let arsId = self.alarmList[i].arsId else { return }
+                self.alarmList[i].busTypeList = self.alarmList[i].busRouteType?.components(separatedBy: ",") ?? [String]()
+                self.alarmList[i].busList = self.alarmList[i].bus?.components(separatedBy: ",") ?? [String]()
+                self.alarmList[i].dayList = self.alarmList[i].day?.components(separatedBy: ",") ?? [String]()
+                
+                for j in 0 ..< self.alarmList[i].busList.count {
+                    APIManager.getArrivalInfo(arsId: arsId, busRouteName: self.alarmList[i].busList[j]) { (resp) in
+                        guard let value = resp.value?.arrivalInfo else {
+                            print("Failed request in AlarmListViewController [getArrivalInfo] : \(resp)")
+                            LoadingIndicator.shared.stopIndicator()
+                            return
+                        }
+                        
+                        self.alarmList[i].busArrivalInfoList.append(value)
                     }
-                    
-                    self.alarmList[i].busArrivalInfoList.append(value)
                 }
             }
         }
-        LoadingIndicator.shared.stopIndicator()
         
-//        prepareDataGroup.notify(queue: prepareDataQueue) {
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//                LoadingIndicator.shared.stopIndicator()
-//            }
-//        }
+        prepareDataGroup.notify(queue: prepareDataQueue) {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                LoadingIndicator.shared.stopIndicator()
+            }
+        }
     }
     
     func sendBackAlarmData(alarmId: Int?, arsId: String, ars_name: String, next_station: String, busId: String, busType: String, busName: String, alarmTime: String, alarmDay: String) {
@@ -152,13 +152,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let row = alarmList.isEmpty ? 1 : self.alarmList[section].busList.count
-        
-//        if self.alarmSwitch.isOn == false {
-//            return 1
-//        }
-//        
-//        return self.alarmList[i].busArrivalInfoList.count
+        let row = self.alarmList[section].busList.isEmpty ? 1 : self.alarmList[section].busList.count
         
         return row
     }
@@ -176,6 +170,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                 let cell = Bundle.main.loadNibNamed("AlarmListTableViewCell", owner: self, options: nil)?.first as! AlarmListTableViewCell
                 cell.selectionStyle = .none
                 cell.tag = indexPath.row
+                switchIsOn = cell.alarmSwitch.isOn
                 
                 if let alarmTimePieces = self.alarmList[indexPath.row].alarm_time?.components(separatedBy: ":") {
                     var hour = Int(alarmTimePieces[0]) ?? 0
@@ -203,8 +198,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                 let cell = Bundle.main.loadNibNamed("AlarmListBusTableViewCell", owner: self, options: nil)?.first as! AlarmListBusTableViewCell
                 cell.selectionStyle = .none
                 
-                // cell.alarmSwitch.isOn == false
-                if false {
+                if self.switchIsOn {
                     cell.busNameLabel.text = self.alarmList[indexPath.section].busList.joined(separator: " ")
                     cell.busNameLabel.textColor = offColor
                     cell.firstBusStackView.isHidden = true
@@ -215,7 +209,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                     return cell
                 }
                 
-//                cell.busNameLabel.text = self.busList[indexPath.section]?[indexPath.row]
+                cell.busNameLabel.text = self.alarmList[indexPath.section].busList[indexPath.row]
                 cell.busNameLabel.textColor = .getBusTextColor(busRouteType: self.alarmList[indexPath.section].busTypeList[indexPath.row])
                 cell.busNameLabel.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20)
                 
@@ -262,8 +256,13 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
         }
 
         else {
-            // alarmListView Height (114) + busTableView Height (64 * busList count) + cell bottom insert (16)
-            return CGFloat(114 + (62 * self.alarmList[indexPath.section].busList.count) + 16)
+            if indexPath.row == 0 {
+                return 114
+            }
+                
+            else {
+                return 62
+            }
         }
     }
     
@@ -273,9 +272,18 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
         }
             
         else {
-            // alarmListView Height (114) + busTableView Height (64 * busList count) + cell bottom insert (16)
-            return CGFloat(114 + (62 * self.alarmList[indexPath.section].busList.count) + 16)
+            if indexPath.row == 0 {
+                return 114
+            }
+            
+            else {
+                return 62
+            }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 16
     }
     
 }
