@@ -16,7 +16,7 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     
     var selectIndex: Int!
     var isUpdate: Bool = false
-    var switchIsOn: Bool = false
+    var switchIsOn: [Bool] = []
     
     private var offColor: UIColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1)
     
@@ -49,6 +49,10 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     @IBAction func touchedAddBtn(_ sender: UIButton) {
         self.selectIndex = nil
         self.performSegue(withIdentifier: "goSetAlarmViewController", sender: nil)
+    }
+    
+    @IBAction func touchedRefreshButton(_ sender: UIButton) {
+        prepareAlarmData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -186,6 +190,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                     }
                 }
                 
+                switchIsOn.insert(cell.alarmSwitch.isOn, at: indexPath.section)
                 cell.dayList = self.alarmList[indexPath.section].dayList
                 cell.busStopLabel.text = self.alarmList[indexPath.section].ars_name ?? ""
                 cell.busDirectionLabel.text = (self.alarmList[indexPath.section].next_station ?? "오류 발생") + " 방면"
@@ -197,7 +202,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                 let cell = Bundle.main.loadNibNamed("AlarmListBusTableViewCell", owner: self, options: nil)?.first as! AlarmListBusTableViewCell
                 cell.selectionStyle = .none
                 
-                if !self.switchIsOn || self.alarmList[indexPath.section].busArrivalInfoList.isEmpty {
+                if self.switchIsOn[indexPath.section] || self.alarmList[indexPath.section].busArrivalInfoList.isEmpty {
                     cell.busNameLabel.text = self.alarmList[indexPath.section].busList.joined(separator: " ")
                     cell.busNameLabel.textColor = offColor
                     cell.firstBusStackView.isHidden = true

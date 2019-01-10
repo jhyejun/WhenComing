@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uaO-Oj-vln">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uaO-Oj-vln">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,12 +25,25 @@
                                 <rect key="frame" x="16" y="88" width="343" height="724"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFS-uf-9Jq">
+                                <rect key="frame" x="309" y="702" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="IwE-Ft-vxI"/>
+                                    <constraint firstAttribute="width" secondItem="JFS-uf-9Jq" secondAttribute="height" multiplier="1:1" id="J0e-xE-zsP"/>
+                                </constraints>
+                                <state key="normal" image="refreshIcon"/>
+                                <connections>
+                                    <action selector="touchedRefreshButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ebt-CL-PQG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Mwu-er-0Lj" secondAttribute="bottom" id="3jm-al-13l"/>
                             <constraint firstItem="Mwu-er-0Lj" firstAttribute="top" secondItem="Txy-qc-STP" secondAttribute="bottom" id="Xcu-Zk-bGc"/>
                             <constraint firstAttribute="trailing" secondItem="Mwu-er-0Lj" secondAttribute="trailing" constant="16" id="blV-gm-RsO"/>
+                            <constraint firstItem="NGO-Q1-Qsf" firstAttribute="top" secondItem="JFS-uf-9Jq" secondAttribute="bottom" constant="26" id="pbB-8j-VPE"/>
+                            <constraint firstAttribute="trailing" secondItem="JFS-uf-9Jq" secondAttribute="trailing" constant="16" id="wak-hS-bv4"/>
                             <constraint firstItem="Mwu-er-0Lj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="zE1-CJ-rT1"/>
                         </constraints>
                     </view>
@@ -515,6 +528,7 @@
         <image name="deletIcon" width="16" height="17"/>
         <image name="nav_logo" width="72" height="23"/>
         <image name="nav_plus" width="20" height="20"/>
+        <image name="refreshIcon" width="50" height="50"/>
         <image name="search_icon" width="22" height="22"/>
         <image name="stationIconBlue" width="17" height="18"/>
     </resources>
