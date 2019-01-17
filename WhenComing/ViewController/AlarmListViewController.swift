@@ -46,6 +46,10 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
         }
     }
     
+    @IBAction func touchedSettingBtn(_ sender: UIButton) {
+        
+    }
+    
     @IBAction func touchedAddBtn(_ sender: UIButton) {
         self.selectIndex = nil
         self.performSegue(withIdentifier: "goSetAlarmViewController", sender: nil)
@@ -85,17 +89,15 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     func prepareAlarmData() {
         LoadingIndicator.shared.startIndicator()
         
-        DispatchQueue.main.async {
-            APIManager.getAllAlarm(deviceId: uuid) { (resp) in
-                guard let value = resp.value?.alarmList else {
-                    print("Failed request in AlarmListViewController [getAllAlarm] : \(resp)")
-                    LoadingIndicator.shared.stopIndicator()
-                    return
-                }
-                
-                self.alarmList = value
-                self.prepareArrivalInfoData()
+        APIManager.getAllAlarm(deviceId: uuid) { (resp) in
+            guard let value = resp.value?.alarmList else {
+                print("Failed request in AlarmListViewController [getAllAlarm] : \(resp)")
+                LoadingIndicator.shared.stopIndicator()
+                return
             }
+            
+            self.alarmList = value
+            self.prepareArrivalInfoData()
         }
     }
     
@@ -103,22 +105,26 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
         let prepareDataGroup = DispatchGroup()
         let prepareDataQueue = DispatchQueue.global(qos: .default)
        
-        prepareDataQueue.async(group: prepareDataGroup) {
-            for i in 0 ..< self.alarmList.count {
-                guard let arsId = self.alarmList[i].arsId else { return }
-                self.alarmList[i].busTypeList = self.alarmList[i].busRouteType?.components(separatedBy: ",") ?? [String]()
-                self.alarmList[i].busList = self.alarmList[i].bus?.components(separatedBy: ",") ?? [String]()
-                self.alarmList[i].dayList = self.alarmList[i].day?.components(separatedBy: ",") ?? [String]()
-                
-                for j in 0 ..< self.alarmList[i].busList.count {
+        
+        for i in 0 ..< self.alarmList.count {
+            guard let arsId = self.alarmList[i].arsId else { return }
+            self.alarmList[i].busTypeList = self.alarmList[i].busRouteType?.components(separatedBy: ",") ?? [String]()
+            self.alarmList[i].busList = self.alarmList[i].bus?.components(separatedBy: ",") ?? [String]()
+            self.alarmList[i].dayList = self.alarmList[i].day?.components(separatedBy: ",") ?? [String]()
+            
+            for j in 0 ..< self.alarmList[i].busList.count {
+                prepareDataQueue.async(group: prepareDataGroup) {
+                    prepareDataGroup.enter()
                     APIManager.getArrivalInfo(arsId: arsId, busRouteName: self.alarmList[i].busList[j]) { (resp) in
                         guard let value = resp.value?.arrivalInfo else {
                             print("Failed request in AlarmListViewController [getArrivalInfo] : \(resp)")
                             LoadingIndicator.shared.stopIndicator()
+                            prepareDataGroup.leave()
                             return
                         }
                         
                         self.alarmList[i].busArrivalInfoList.append(value)
+                        prepareDataGroup.leave()
                     }
                 }
             }
@@ -202,7 +208,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                 let cell = Bundle.main.loadNibNamed("AlarmListBusTableViewCell", owner: self, options: nil)?.first as! AlarmListBusTableViewCell
                 cell.selectionStyle = .none
                 
-                if self.switchIsOn[indexPath.section] || self.alarmList[indexPath.section].busArrivalInfoList.isEmpty {
+                if self.switchIsOn[indexPath.section] == false || self.alarmList[indexPath.section].busArrivalInfoList.isEmpty {
                     cell.busNameLabel.text = self.alarmList[indexPath.section].busList.joined(separator: " ")
                     cell.busNameLabel.textColor = offColor
                     cell.firstBusStackView.isHidden = true
@@ -240,7 +246,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
                     let secondBusCount = secondBus?.last ?? "오류?"
                     
                     cell.secondBusTimeLabel.text = secondBusTime
-                    cell.secondBusCountLabel.text = secondBusCount != "운행종료" && secondBusCount != "곧 도착" ? String(secondBusCount.dropLast()) : secondBusCount
+                    cell.secondBusCountLabel.text = secondBusCount != "운행종료" && secondBusCount != "곧 도착" && secondBusCount != "출발대기" ? String(secondBusCount.dropLast()) : secondBusCount
                     cell.secondBusStatusImageView.image = .getCongestionImage(congetion: self.alarmList[indexPath.section].busArrivalInfoList[indexPath.row].congetion ?? "")
                 }
                     

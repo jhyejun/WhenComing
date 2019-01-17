@@ -49,6 +49,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="j6q-3O-Sq9">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="uta-C4-D1K">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ncQ-f1-gnQ">
+                                <rect key="frame" x="16" y="9" width="80" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="blueSettingIcon"/>
+                                <connections>
+                                    <action selector="touchedSettingBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DaC-VM-0zg"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lnC-Qa-nyQ">
                             <rect key="frame" x="151.66666666666666" y="10.666666666666664" width="72" height="23"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -525,6 +535,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="blueSettingIcon" width="26" height="26"/>
         <image name="deletIcon" width="16" height="17"/>
         <image name="nav_logo" width="72" height="23"/>
         <image name="nav_plus" width="20" height="20"/>

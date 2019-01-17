@@ -32,11 +32,15 @@ class LoadingIndicator {
     
     func startIndicator() {
         // containerView.isHidden.
-        actIndicator.startAnimating()
+        DispatchQueue.main.async {
+            self.actIndicator.startAnimating()
+        }
     }
     
     func stopIndicator() {
-        actIndicator.stopAnimating()
-        containerView.removeFromSuperview()
+        DispatchQueue.main.async {
+            self.actIndicator.stopAnimating()
+            self.containerView.removeFromSuperview()
+        }
     }
 }
