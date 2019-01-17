@@ -32,6 +32,8 @@
 		CBA84A3A209177850010F8F0 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA84A39209177850010F8F0 /* Extension.swift */; };
 		CBCEACD42088C59F0036C7A2 /* BusMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCEACD32088C59F0036C7A2 /* BusMapper.swift */; };
 		CBD96A6921F0A8E4007198B1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD96A6821F0A8E4007198B1 /* SettingViewController.swift */; };
+		CBD96A6D21F0DDD0007198B1 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD96A6B21F0DDD0007198B1 /* SettingTableViewCell.swift */; };
+		CBD96A6E21F0DDD0007198B1 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD96A6C21F0DDD0007198B1 /* SettingTableViewCell.xib */; };
 		CBE17BA82166477000357C2E /* BusDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE17BA72166477000357C2E /* BusDetailViewController.swift */; };
 		CBE17BAD216CBFCC00357C2E /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE17BAC216CBFCC00357C2E /* Protocol.swift */; };
 		CBE17BAF216CC2E600357C2E /* ArrivalInfoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE17BAE216CC2E600357C2E /* ArrivalInfoMapper.swift */; };
@@ -68,6 +70,8 @@
 		CBA84A39209177850010F8F0 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		CBCEACD32088C59F0036C7A2 /* BusMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusMapper.swift; sourceTree = "<group>"; };
 		CBD96A6821F0A8E4007198B1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		CBD96A6B21F0DDD0007198B1 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		CBD96A6C21F0DDD0007198B1 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		CBE17BA72166477000357C2E /* BusDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDetailViewController.swift; sourceTree = "<group>"; };
 		CBE17BAC216CBFCC00357C2E /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		CBE17BAE216CC2E600357C2E /* ArrivalInfoMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalInfoMapper.swift; sourceTree = "<group>"; };
@@ -170,6 +174,15 @@
 			path = WhenComing;
 			sourceTree = "<group>";
 		};
+		CBD96A6A21F0DDA6007198B1 /* SettingTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBD96A6B21F0DDD0007198B1 /* SettingTableViewCell.swift */,
+				CBD96A6C21F0DDD0007198B1 /* SettingTableViewCell.xib */,
+			);
+			path = SettingTableViewCell;
+			sourceTree = "<group>";
+		};
 		CBE17B9E215E490A00357C2E /* AlarmListNotSetTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +226,7 @@
 				CBE17B9F215E491800357C2E /* AlarmListTableViewCell */,
 				CBE17BA0215E494A00357C2E /* AlarmListBusTableViewCell */,
 				CBE17BA1215E497100357C2E /* SetAlarmDetailTableViewCell */,
+				CBD96A6A21F0DDA6007198B1 /* SettingTableViewCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -306,6 +320,7 @@
 			files = (
 				CB35511A2086EDC6003E0017 /* AlarmListNotSetTableViewCell.xib in Resources */,
 				CB68E0442075C42C00A0E2C1 /* LaunchScreen.storyboard in Resources */,
+				CBD96A6E21F0DDD0007198B1 /* SettingTableViewCell.xib in Resources */,
 				CB68E0412075C42C00A0E2C1 /* Assets.xcassets in Resources */,
 				CB68E03F2075C42B00A0E2C1 /* Main.storyboard in Resources */,
 				CB4C22F820A5789100B429B7 /* AlarmListBusTableViewCell.xib in Resources */,
@@ -402,6 +417,7 @@
 				CBE17BAF216CC2E600357C2E /* ArrivalInfoMapper.swift in Sources */,
 				CB68E04F207CC16E00A0E2C1 /* AlarmListViewController.swift in Sources */,
 				CB68E03A2075C42B00A0E2C1 /* AppDelegate.swift in Sources */,
+				CBD96A6D21F0DDD0007198B1 /* SettingTableViewCell.swift in Sources */,
 				CB2EA1F8212AB80F00F31904 /* APIService.swift in Sources */,
 				CB3551152086ED3D003E0017 /* AlarmListTableViewCell.swift in Sources */,
 				CBA84A3A209177850010F8F0 /* Extension.swift in Sources */,

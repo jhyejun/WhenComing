@@ -47,7 +47,7 @@ class AlarmListViewController: UIViewController, SendBackAlarmData {
     }
     
     @IBAction func touchedSettingBtn(_ sender: UIButton) {
-        
+        self.performSegue(withIdentifier: "goSettingViewController", sender: nil)
     }
     
     @IBAction func touchedAddBtn(_ sender: UIButton) {
@@ -162,7 +162,7 @@ extension AlarmListViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let row = self.alarmList[section].busList.isEmpty ? 1 : self.alarmList[section].busList.count
+        let row = self.alarmList[section].busArrivalInfoList.isEmpty ? 1 : self.alarmList[section].busArrivalInfoList.count
         
         return row
     }

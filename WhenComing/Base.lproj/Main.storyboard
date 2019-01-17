@@ -79,11 +79,46 @@
                     <connections>
                         <outlet property="tableView" destination="Mwu-er-0Lj" id="G0P-sN-iny"/>
                         <segue destination="gLh-0W-pey" kind="show" identifier="goSetAlarmViewController" id="sn7-DX-IXo"/>
+                        <segue destination="DyF-GL-eTi" kind="show" identifier="goSettingViewController" id="loo-Q6-x5V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1085.5999999999999" y="-564.46776611694156"/>
+        </scene>
+        <!--설정-->
+        <scene sceneID="gaa-7g-qEn">
+            <objects>
+                <viewController id="DyF-GL-eTi" customClass="SettingViewController" customModule="WhenComing" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kSL-Ti-7qY"/>
+                        <viewControllerLayoutGuide type="bottom" id="cXG-1f-lom"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j50-Xv-5n6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bYy-Fp-6K0">
+                                <rect key="frame" x="0.0" y="88" width="375" height="595.33333333333337"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="bYy-Fp-6K0" firstAttribute="leading" secondItem="j50-Xv-5n6" secondAttribute="leading" id="9t2-gg-giE"/>
+                            <constraint firstAttribute="trailing" secondItem="bYy-Fp-6K0" secondAttribute="trailing" id="TJG-hp-DPY"/>
+                            <constraint firstItem="bYy-Fp-6K0" firstAttribute="height" secondItem="j50-Xv-5n6" secondAttribute="height" multiplier="733.1:1000" id="vEJ-5e-K8Q"/>
+                            <constraint firstItem="bYy-Fp-6K0" firstAttribute="top" secondItem="kSL-Ti-7qY" secondAttribute="bottom" id="yCR-MS-htk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="설정" id="Bue-ex-t6l"/>
+                    <connections>
+                        <outlet property="tableView" destination="bYy-Fp-6K0" id="7E1-4n-uHE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HLs-Rn-SbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1085.5999999999999" y="153.69458128078819"/>
         </scene>
         <!--알람설정-->
         <scene sceneID="3N9-xi-3y7">
