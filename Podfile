@@ -11,6 +11,9 @@ target 'WhenComing' do
   pod 'Alamofire'
   pod 'ObjectMapper'
   pod 'AlamofireObjectMapper'
+
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
   pod 'Fabric'
   pod 'Crashlytics'
 
