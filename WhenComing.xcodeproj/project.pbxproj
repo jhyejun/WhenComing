@@ -289,7 +289,7 @@
 				TargetAttributes = {
 					CB68E0352075C42B00A0E2C1 = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -396,7 +396,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nbuildDay=$(/usr/libexec/PlistBuddy -c \"Print buildDay\" \"$INFOPLIST_FILE\")\nbuildCount=$(/usr/libexec/PlistBuddy -c \"Print buildCount\" \"$INFOPLIST_FILE\")\ntoday=$(date +%Y%m%d)\n\nif [ x$buildDay == x ]; then\n    buildDay=${today}\n    buildCount=1\n    buildNumber=${buildDay}${buildCount}\n\n    /usr/libexec/PlistBuddy -c \"Add :buildDay string $buildDay\" \"$INFOPLIST_FILE\"\n    /usr/libexec/PlistBuddy -c \"Add :buildCount string $buildCount\" \"$INFOPLIST_FILE\"\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\nelif [ $buildDay != $today ]; then\n    buildDay=${today}\n    buildCount=1\n    buildNumber=${buildDay}${buildCount}\n\n    /usr/libexec/PlistBuddy -c \"Set :buildDay $buildDay\" \"$INFOPLIST_FILE\"\n    /usr/libexec/PlistBuddy -c \"Set :buildCount $buildCount\" \"$INFOPLIST_FILE\"\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\nelse\n    buildCount=$(($buildCount + 1))\n    buildNumber=${buildDay}${buildCount}\n\n    /usr/libexec/PlistBuddy -c \"Set :buildDay $buildDay\" \"$INFOPLIST_FILE\"\n    /usr/libexec/PlistBuddy -c \"Set :buildCount $buildCount\" \"$INFOPLIST_FILE\"\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\nfi\n";
+			shellScript = "#!/bin/bash\nbuildDay=$(/usr/libexec/PlistBuddy -c \"Print buildDay\" \"$INFOPLIST_FILE\")\nbuildCount=$(/usr/libexec/PlistBuddy -c \"Print buildCount\" \"$INFOPLIST_FILE\")\ntoday=$(date +%Y%m%d)\n\nif [ x$buildDay == x ]; then\nbuildDay=${today}\nbuildCount=1\nprintf -v zeroPadBuildCount \"%03d\" $buildCount\nbuildNumber=${buildDay}${zeroPadBuildCount}\n\n/usr/libexec/PlistBuddy -c \"Add :buildDay string $buildDay\" \"$INFOPLIST_FILE\"\n/usr/libexec/PlistBuddy -c \"Add :buildCount string $buildCount\" \"$INFOPLIST_FILE\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\nelif [ $buildDay != $today ]; then\nbuildDay=${today}\nbuildCount=1\nprintf -v zeroPadBuildCount \"%03d\" $buildCount\nbuildNumber=${buildDay}${zeroPadBuildCount}\n\n/usr/libexec/PlistBuddy -c \"Set :buildDay $buildDay\" \"$INFOPLIST_FILE\"\n/usr/libexec/PlistBuddy -c \"Set :buildCount $buildCount\" \"$INFOPLIST_FILE\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\nelse\nbuildCount=$(($buildCount + 1))\nprintf -v zeroPadBuildCount \"%03d\" $buildCount\nbuildNumber=${buildDay}${zeroPadBuildCount}\n\n/usr/libexec/PlistBuddy -c \"Set :buildDay $buildDay\" \"$INFOPLIST_FILE\"\n/usr/libexec/PlistBuddy -c \"Set :buildCount $buildCount\" \"$INFOPLIST_FILE\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\nfi\n";
 		};
 		CB9A15422091C078009CA25F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -588,7 +588,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 7XZYKQ99YK;
 				INFOPLIST_FILE = WhenComing/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,7 +596,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jhyejun.WhenComing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "WhenComing Development";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -611,7 +611,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 7XZYKQ99YK;
 				INFOPLIST_FILE = WhenComing/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -619,7 +619,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jhyejun.WhenComing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "WhenComing Distribution";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
