@@ -8,12 +8,16 @@ target 'WhenComing' do
 
   # Pods for WhenComing
   pod 'Then'
+  pod 'SnapKit', '~> 4.0.0'
+
   pod 'Alamofire'
   pod 'ObjectMapper'
   pod 'AlamofireObjectMapper'
 
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+
+  pod 'Carte'
   pod 'Fabric'
   pod 'Crashlytics'
 

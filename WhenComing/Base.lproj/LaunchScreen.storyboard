@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,19 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_text" translatesAutoresizingMaskIntoConstraints="NO" id="PqH-LL-43N">
-                                <rect key="frame" x="136" y="362" width="103" height="27"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIconBusWhite" translatesAutoresizingMaskIntoConstraints="NO" id="fZc-ft-G00">
-                                <rect key="frame" x="145" y="264" width="85" height="79"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="zKk-vP-BoA">
+                                <rect key="frame" x="132" y="273" width="111" height="121"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.21176470588235294" green="0.31372549019607843" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.29019607843137252" green="0.38039215686274508" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PqH-LL-43N" firstAttribute="centerX" secondItem="fZc-ft-G00" secondAttribute="centerX" id="Ciu-zF-Tbi"/>
-                            <constraint firstItem="fZc-ft-G00" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cdT-vQ-RUG"/>
-                            <constraint firstItem="fZc-ft-G00" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-30" id="sqe-er-iOT"/>
-                            <constraint firstItem="PqH-LL-43N" firstAttribute="top" secondItem="fZc-ft-G00" secondAttribute="bottom" constant="19" id="xHq-x4-MVm"/>
+                            <constraint firstItem="zKk-vP-BoA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Qcv-3Z-eRQ"/>
+                            <constraint firstItem="zKk-vP-BoA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bHT-Fm-Gs2"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -43,7 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appIconBusWhite" width="85" height="79"/>
-        <image name="logo_text" width="103" height="27"/>
+        <image name="loading" width="111" height="121"/>
     </resources>
 </document>
