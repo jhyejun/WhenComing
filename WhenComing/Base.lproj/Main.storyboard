@@ -434,7 +434,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="57" height="58.333333333333336"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stationIconBlue" translatesAutoresizingMaskIntoConstraints="NO" id="JVu-YA-dc5">
-                                                <rect key="frame" x="20" y="20.333333333333329" width="17" height="18"/>
+                                                <rect key="frame" x="20" y="21.333333333333329" width="16" height="16"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
