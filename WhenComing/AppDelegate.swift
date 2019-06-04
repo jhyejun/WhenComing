@@ -22,6 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
         
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        let vc = AlarmListViewController()
+        vc.view.backgroundColor = .white
+        
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        
         return true
     }
 
