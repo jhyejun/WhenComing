@@ -18,5 +18,6 @@ target 'WhenComing' do
   pod 'Carte'
   pod 'Fabric'
   pod 'Crashlytics'
-
+  
+  pod 'Reveal-SDK', :configurations => ['Debug']
 end
