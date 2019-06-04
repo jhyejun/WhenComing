@@ -10,9 +10,7 @@ target 'WhenComing' do
   pod 'Then'
   pod 'SnapKit', '~> 4.0.0'
 
-  pod 'Alamofire'
-  pod 'ObjectMapper'
-  pod 'AlamofireObjectMapper'
+  pod 'Alamofire', '~> 5.0.0-beta.5'
 
   pod 'Firebase/Core'
   pod 'Firebase/Database'

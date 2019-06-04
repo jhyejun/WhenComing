@@ -1,8 +1,5 @@
 PODS:
   - Alamofire (5.0.0-beta.6)
-  - AlamofireObjectMapper (6.0.0):
-    - Alamofire (~> 5.0.0-beta.2)
-    - ObjectMapper (~> 3.4)
   - Carte (2.2.0)
   - Crashlytics (3.13.1):
     - Fabric (~> 1.10.1)
@@ -66,26 +63,22 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - ObjectMapper (3.4.2)
   - SnapKit (4.0.1)
   - Then (2.4.0)
 
 DEPENDENCIES:
-  - Alamofire
-  - AlamofireObjectMapper
+  - Alamofire (~> 5.0.0-beta.5)
   - Carte
   - Crashlytics
   - Fabric
   - Firebase/Core
   - Firebase/Database
-  - ObjectMapper
   - SnapKit (~> 4.0.0)
   - Then
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - AlamofireObjectMapper
     - Carte
     - Crashlytics
     - Fabric
@@ -99,13 +92,11 @@ SPEC REPOS:
     - GoogleUtilities
     - leveldb-library
     - nanopb
-    - ObjectMapper
     - SnapKit
     - Then
 
 SPEC CHECKSUMS:
   Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
-  AlamofireObjectMapper: 8cf0e01a1b36b485877033f8f6aa733977488da3
   Carte: bca44c5112fac5866c2fa3da9fa018fa54eb8ba7
   Crashlytics: 5aa8e90dcbf2f34898b4f5a0037787531246cca0
   Fabric: f6f21452846788bb44595d73e9909d79d328e617
@@ -119,10 +110,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 996e0db07153674fd1b54b220fda3a3dc3547cba
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
 
-PODFILE CHECKSUM: 1a393ab0b9024f584af8eb2d2fa3bdf063d1c638
+PODFILE CHECKSUM: 2795db8ae11d5c784d3f2a7474ab35153becbb29
 
 COCOAPODS: 1.7.1

@@ -11,9 +11,6 @@ import Fabric
 import Crashlytics
 import Firebase
 
-let uuid = NSUUID().uuidString
-let deviceSize = UIScreen.main.bounds
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
