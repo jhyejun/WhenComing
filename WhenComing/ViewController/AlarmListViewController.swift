@@ -1,5 +1,5 @@
 //
-//  HJViewController.swift
+//  AlarmListViewController.swift
 //  WhenComing
 //
 //  Created by 장혜준 on 05/06/2019.
@@ -8,8 +8,10 @@
 
 import Foundation
 
-class HJViewController: UIViewController {
+class AlarmListViewController: HJViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
 }
