@@ -141,6 +141,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CB41758B22A598650066EC0A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		CB68E02D2075C42B00A0E2C1 = {
 			isa = PBXGroup;
 			children = (
@@ -162,8 +169,7 @@
 		CB68E0382075C42B00A0E2C1 /* WhenComing */ = {
 			isa = PBXGroup;
 			children = (
-				CB9809A7227214BC00539E93 /* WhenComing-Bridging-Header.h */,
-				CB1F0F5C219C5A8800AB8461 /* WhenComing.entitlements */,
+				CB41758B22A598650066EC0A /* Extension */,
 				CBE17BA5215E8CB800357C2E /* Util */,
 				CB2EA1F6212AB7F500F31904 /* Network */,
 				CB35511D2086F0CB003E0017 /* Model */,
@@ -173,6 +179,8 @@
 				CB68E03D2075C42B00A0E2C1 /* Main.storyboard */,
 				CB68E0452075C42C00A0E2C1 /* Info.plist */,
 				CB30F9912212A93800601850 /* GoogleService-Info.plist */,
+				CB9809A7227214BC00539E93 /* WhenComing-Bridging-Header.h */,
+				CB1F0F5C219C5A8800AB8461 /* WhenComing.entitlements */,
 				CB68E0402075C42C00A0E2C1 /* Assets.xcassets */,
 				CB68E0422075C42C00A0E2C1 /* LaunchScreen.storyboard */,
 			);
@@ -361,29 +369,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WhenComing/Pods-WhenComing-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Carte/Carte.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WhenComing/Pods-WhenComing-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Carte.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WhenComing/Pods-WhenComing-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
