@@ -10,9 +10,7 @@ target 'WhenComing' do
   pod 'Then'
   pod 'SnapKit', '~> 4.0.0'
 
-  pod 'Alamofire'
-  pod 'ObjectMapper'
-  pod 'AlamofireObjectMapper'
+  pod 'Alamofire', '~> 5.0.0-beta.5'
 
   pod 'Firebase/Core'
   pod 'Firebase/Database'
@@ -20,5 +18,6 @@ target 'WhenComing' do
   pod 'Carte'
   pod 'Fabric'
   pod 'Crashlytics'
-
+  
+  pod 'Reveal-SDK', :configurations => ['Debug']
 end

@@ -3,41 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2548DA73200ABD07CBCFEB04 /* Pods_WhenComing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */; };
-		CB1F0F6021A4561500AB8461 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1F0F5F21A4561500AB8461 /* Enum.swift */; };
-		CB2EA1F8212AB80F00F31904 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA1F7212AB80F00F31904 /* APIService.swift */; };
-		CB2EA1FA212AB84B00F31904 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA1F9212AB84B00F31904 /* APIManager.swift */; };
-		CB2EA1FC212AB94200F31904 /* BusStopMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA1FB212AB94200F31904 /* BusStopMapper.swift */; };
 		CB30F9922212A93900601850 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB30F9912212A93800601850 /* GoogleService-Info.plist */; };
-		CB3551152086ED3D003E0017 /* AlarmListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3551132086ED3D003E0017 /* AlarmListTableViewCell.swift */; };
-		CB3551162086ED3D003E0017 /* AlarmListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB3551142086ED3D003E0017 /* AlarmListTableViewCell.xib */; };
-		CB3551192086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3551172086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift */; };
-		CB35511A2086EDC6003E0017 /* AlarmListNotSetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB3551182086EDC6003E0017 /* AlarmListNotSetTableViewCell.xib */; };
-		CB35613320A219AA005BD367 /* SetAlarmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB35613220A219AA005BD367 /* SetAlarmDetailViewController.swift */; };
-		CB35613820A219F8005BD367 /* SetAlarmDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB35613620A219F8005BD367 /* SetAlarmDetailTableViewCell.swift */; };
-		CB35613920A219F8005BD367 /* SetAlarmDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB35613720A219F8005BD367 /* SetAlarmDetailTableViewCell.xib */; };
-		CB4C22F720A5789100B429B7 /* AlarmListBusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4C22F520A5789100B429B7 /* AlarmListBusTableViewCell.swift */; };
-		CB4C22F820A5789100B429B7 /* AlarmListBusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4C22F620A5789100B429B7 /* AlarmListBusTableViewCell.xib */; };
-		CB5E72B421907D8E008DD656 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5E72B321907D8E008DD656 /* LoadingIndicator.swift */; };
+		CB41759222A6CF080066EC0A /* Collection+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758C22A6CF070066EC0A /* Collection+ext.swift */; };
+		CB41759322A6CF080066EC0A /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758D22A6CF070066EC0A /* UIColor+ext.swift */; };
+		CB41759422A6CF080066EC0A /* UIViewController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758E22A6CF070066EC0A /* UIViewController+ext.swift */; };
+		CB41759522A6CF080066EC0A /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758F22A6CF070066EC0A /* UIView+ext.swift */; };
+		CB41759622A6CF080066EC0A /* NSObject+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41759022A6CF070066EC0A /* NSObject+ext.swift */; };
+		CB41759722A6CF080066EC0A /* UITextField+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41759122A6CF080066EC0A /* UITextField+ext.swift */; };
+		CB41759A22A6D1130066EC0A /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41759822A6D1130066EC0A /* AlertBuilder.swift */; };
+		CB41759B22A6D1130066EC0A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41759922A6D1130066EC0A /* Log.swift */; };
+		CB4175A122A6D59E0066EC0A /* HJViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4175A022A6D59E0066EC0A /* HJViewController.swift */; };
+		CB4175A422A6D71E0066EC0A /* AlarmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4175A322A6D71E0066EC0A /* AlarmListViewController.swift */; };
+		CB4175A822A6E7270066EC0A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4175A722A6E7270066EC0A /* APIManager.swift */; };
 		CB68E03A2075C42B00A0E2C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */; };
-		CB68E03F2075C42B00A0E2C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB68E03D2075C42B00A0E2C1 /* Main.storyboard */; };
 		CB68E0412075C42C00A0E2C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB68E0402075C42C00A0E2C1 /* Assets.xcassets */; };
 		CB68E0442075C42C00A0E2C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB68E0422075C42C00A0E2C1 /* LaunchScreen.storyboard */; };
-		CB68E04F207CC16E00A0E2C1 /* AlarmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB68E04E207CC16E00A0E2C1 /* AlarmListViewController.swift */; };
-		CB840A4621809BFD008CF70A /* AlarmMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB840A4521809BFD008CF70A /* AlarmMapper.swift */; };
-		CB9A15412091AABC009CA25F /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A15402091AABC009CA25F /* SetAlarmViewController.swift */; };
-		CBA84A3A209177850010F8F0 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA84A39209177850010F8F0 /* Extension.swift */; };
-		CBCEACD42088C59F0036C7A2 /* BusMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCEACD32088C59F0036C7A2 /* BusMapper.swift */; };
-		CBD96A6921F0A8E4007198B1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD96A6821F0A8E4007198B1 /* SettingViewController.swift */; };
-		CBD96A6D21F0DDD0007198B1 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD96A6B21F0DDD0007198B1 /* SettingTableViewCell.swift */; };
-		CBD96A6E21F0DDD0007198B1 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD96A6C21F0DDD0007198B1 /* SettingTableViewCell.xib */; };
-		CBE17BA82166477000357C2E /* BusDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE17BA72166477000357C2E /* BusDetailViewController.swift */; };
-		CBE17BAD216CBFCC00357C2E /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE17BAC216CBFCC00357C2E /* Protocol.swift */; };
-		CBE17BAF216CC2E600357C2E /* ArrivalInfoMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE17BAE216CC2E600357C2E /* ArrivalInfoMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,39 +30,24 @@
 		7D8A9BD2035B69FCB8C4B068 /* Pods-WhenComing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhenComing.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhenComing/Pods-WhenComing.release.xcconfig"; sourceTree = "<group>"; };
 		AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhenComing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1F0F5C219C5A8800AB8461 /* WhenComing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhenComing.entitlements; sourceTree = "<group>"; };
-		CB1F0F5F21A4561500AB8461 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
-		CB2EA1F7212AB80F00F31904 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		CB2EA1F9212AB84B00F31904 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		CB2EA1FB212AB94200F31904 /* BusStopMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopMapper.swift; sourceTree = "<group>"; };
 		CB30F9912212A93800601850 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		CB3551132086ED3D003E0017 /* AlarmListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListTableViewCell.swift; sourceTree = "<group>"; };
-		CB3551142086ED3D003E0017 /* AlarmListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmListTableViewCell.xib; sourceTree = "<group>"; };
-		CB3551172086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListNotSetTableViewCell.swift; sourceTree = "<group>"; };
-		CB3551182086EDC6003E0017 /* AlarmListNotSetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmListNotSetTableViewCell.xib; sourceTree = "<group>"; };
-		CB35613220A219AA005BD367 /* SetAlarmDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmDetailViewController.swift; sourceTree = "<group>"; };
-		CB35613620A219F8005BD367 /* SetAlarmDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmDetailTableViewCell.swift; sourceTree = "<group>"; };
-		CB35613720A219F8005BD367 /* SetAlarmDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetAlarmDetailTableViewCell.xib; sourceTree = "<group>"; };
-		CB4C22F520A5789100B429B7 /* AlarmListBusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListBusTableViewCell.swift; sourceTree = "<group>"; };
-		CB4C22F620A5789100B429B7 /* AlarmListBusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmListBusTableViewCell.xib; sourceTree = "<group>"; };
-		CB5E72B321907D8E008DD656 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		CB41758C22A6CF070066EC0A /* Collection+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+ext.swift"; sourceTree = "<group>"; };
+		CB41758D22A6CF070066EC0A /* UIColor+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
+		CB41758E22A6CF070066EC0A /* UIViewController+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ext.swift"; sourceTree = "<group>"; };
+		CB41758F22A6CF070066EC0A /* UIView+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
+		CB41759022A6CF070066EC0A /* NSObject+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+ext.swift"; sourceTree = "<group>"; };
+		CB41759122A6CF080066EC0A /* UITextField+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ext.swift"; sourceTree = "<group>"; };
+		CB41759822A6D1130066EC0A /* AlertBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
+		CB41759922A6D1130066EC0A /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		CB4175A022A6D59E0066EC0A /* HJViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HJViewController.swift; sourceTree = "<group>"; };
+		CB4175A322A6D71E0066EC0A /* AlarmListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListViewController.swift; sourceTree = "<group>"; };
+		CB4175A722A6E7270066EC0A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		CB68E0362075C42B00A0E2C1 /* WhenComing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhenComing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB68E03E2075C42B00A0E2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB68E0402075C42C00A0E2C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB68E0432075C42C00A0E2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB68E0452075C42C00A0E2C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CB68E04E207CC16E00A0E2C1 /* AlarmListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListViewController.swift; sourceTree = "<group>"; };
-		CB840A4521809BFD008CF70A /* AlarmMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMapper.swift; sourceTree = "<group>"; };
 		CB9809A7227214BC00539E93 /* WhenComing-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhenComing-Bridging-Header.h"; sourceTree = "<group>"; };
-		CB9A15402091AABC009CA25F /* SetAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
-		CBA84A39209177850010F8F0 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		CBCEACD32088C59F0036C7A2 /* BusMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusMapper.swift; sourceTree = "<group>"; };
-		CBD96A6821F0A8E4007198B1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		CBD96A6B21F0DDD0007198B1 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
-		CBD96A6C21F0DDD0007198B1 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
-		CBE17BA72166477000357C2E /* BusDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDetailViewController.swift; sourceTree = "<group>"; };
-		CBE17BAC216CBFCC00357C2E /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
-		CBE17BAE216CC2E600357C2E /* ArrivalInfoMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalInfoMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,45 +70,50 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CB2EA1F6212AB7F500F31904 /* Network */ = {
+		CB41758B22A598650066EC0A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				CB2EA1F7212AB80F00F31904 /* APIService.swift */,
-				CB2EA1F9212AB84B00F31904 /* APIManager.swift */,
+				CB41758C22A6CF070066EC0A /* Collection+ext.swift */,
+				CB41759022A6CF070066EC0A /* NSObject+ext.swift */,
+				CB41758D22A6CF070066EC0A /* UIColor+ext.swift */,
+				CB41759122A6CF080066EC0A /* UITextField+ext.swift */,
+				CB41758F22A6CF070066EC0A /* UIView+ext.swift */,
+				CB41758E22A6CF070066EC0A /* UIViewController+ext.swift */,
 			);
-			path = Network;
+			path = Extension;
 			sourceTree = "<group>";
 		};
-		CB35511B2086F0BB003E0017 /* View */ = {
+		CB41759F22A6D4820066EC0A /* HJ */ = {
 			isa = PBXGroup;
 			children = (
-				CBE17BA2215E498600357C2E /* Cell */,
-				CB5E72B321907D8E008DD656 /* LoadingIndicator.swift */,
+				CB4175A022A6D59E0066EC0A /* HJViewController.swift */,
 			);
-			path = View;
+			path = HJ;
 			sourceTree = "<group>";
 		};
-		CB35511C2086F0C4003E0017 /* ViewController */ = {
+		CB4175A222A6D5D00066EC0A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CB68E04E207CC16E00A0E2C1 /* AlarmListViewController.swift */,
-				CB9A15402091AABC009CA25F /* SetAlarmViewController.swift */,
-				CB35613220A219AA005BD367 /* SetAlarmDetailViewController.swift */,
-				CBE17BA72166477000357C2E /* BusDetailViewController.swift */,
-				CBD96A6821F0A8E4007198B1 /* SettingViewController.swift */,
+				CB4175A322A6D71E0066EC0A /* AlarmListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		CB35511D2086F0CB003E0017 /* Model */ = {
+		CB4175A522A6D7E80066EC0A /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				CB2EA1FB212AB94200F31904 /* BusStopMapper.swift */,
-				CBCEACD32088C59F0036C7A2 /* BusMapper.swift */,
-				CBE17BAE216CC2E600357C2E /* ArrivalInfoMapper.swift */,
-				CB840A4521809BFD008CF70A /* AlarmMapper.swift */,
+				CB41759822A6D1130066EC0A /* AlertBuilder.swift */,
+				CB41759922A6D1130066EC0A /* Log.swift */,
 			);
-			path = Model;
+			path = Util;
+			sourceTree = "<group>";
+		};
+		CB4175A622A6E7180066EC0A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CB4175A722A6E7270066EC0A /* APIManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		CB68E02D2075C42B00A0E2C1 = {
@@ -162,88 +137,20 @@
 		CB68E0382075C42B00A0E2C1 /* WhenComing */ = {
 			isa = PBXGroup;
 			children = (
-				CB9809A7227214BC00539E93 /* WhenComing-Bridging-Header.h */,
-				CB1F0F5C219C5A8800AB8461 /* WhenComing.entitlements */,
-				CBE17BA5215E8CB800357C2E /* Util */,
-				CB2EA1F6212AB7F500F31904 /* Network */,
-				CB35511D2086F0CB003E0017 /* Model */,
-				CB35511B2086F0BB003E0017 /* View */,
-				CB35511C2086F0C4003E0017 /* ViewController */,
+				CB41758B22A598650066EC0A /* Extension */,
+				CB4175A522A6D7E80066EC0A /* Util */,
+				CB4175A622A6E7180066EC0A /* Manager */,
+				CB41759F22A6D4820066EC0A /* HJ */,
+				CB4175A222A6D5D00066EC0A /* ViewController */,
 				CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */,
-				CB68E03D2075C42B00A0E2C1 /* Main.storyboard */,
 				CB68E0452075C42C00A0E2C1 /* Info.plist */,
 				CB30F9912212A93800601850 /* GoogleService-Info.plist */,
+				CB9809A7227214BC00539E93 /* WhenComing-Bridging-Header.h */,
+				CB1F0F5C219C5A8800AB8461 /* WhenComing.entitlements */,
 				CB68E0402075C42C00A0E2C1 /* Assets.xcassets */,
 				CB68E0422075C42C00A0E2C1 /* LaunchScreen.storyboard */,
 			);
 			path = WhenComing;
-			sourceTree = "<group>";
-		};
-		CBD96A6A21F0DDA6007198B1 /* SettingTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				CBD96A6B21F0DDD0007198B1 /* SettingTableViewCell.swift */,
-				CBD96A6C21F0DDD0007198B1 /* SettingTableViewCell.xib */,
-			);
-			path = SettingTableViewCell;
-			sourceTree = "<group>";
-		};
-		CBE17B9E215E490A00357C2E /* AlarmListNotSetTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				CB3551172086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift */,
-				CB3551182086EDC6003E0017 /* AlarmListNotSetTableViewCell.xib */,
-			);
-			path = AlarmListNotSetTableViewCell;
-			sourceTree = "<group>";
-		};
-		CBE17B9F215E491800357C2E /* AlarmListTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				CB3551132086ED3D003E0017 /* AlarmListTableViewCell.swift */,
-				CB3551142086ED3D003E0017 /* AlarmListTableViewCell.xib */,
-			);
-			path = AlarmListTableViewCell;
-			sourceTree = "<group>";
-		};
-		CBE17BA0215E494A00357C2E /* AlarmListBusTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				CB4C22F520A5789100B429B7 /* AlarmListBusTableViewCell.swift */,
-				CB4C22F620A5789100B429B7 /* AlarmListBusTableViewCell.xib */,
-			);
-			path = AlarmListBusTableViewCell;
-			sourceTree = "<group>";
-		};
-		CBE17BA1215E497100357C2E /* SetAlarmDetailTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				CB35613620A219F8005BD367 /* SetAlarmDetailTableViewCell.swift */,
-				CB35613720A219F8005BD367 /* SetAlarmDetailTableViewCell.xib */,
-			);
-			path = SetAlarmDetailTableViewCell;
-			sourceTree = "<group>";
-		};
-		CBE17BA2215E498600357C2E /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				CBE17B9E215E490A00357C2E /* AlarmListNotSetTableViewCell */,
-				CBE17B9F215E491800357C2E /* AlarmListTableViewCell */,
-				CBE17BA0215E494A00357C2E /* AlarmListBusTableViewCell */,
-				CBE17BA1215E497100357C2E /* SetAlarmDetailTableViewCell */,
-				CBD96A6A21F0DDA6007198B1 /* SettingTableViewCell */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		CBE17BA5215E8CB800357C2E /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				CBE17BAC216CBFCC00357C2E /* Protocol.swift */,
-				CBA84A39209177850010F8F0 /* Extension.swift */,
-				CB1F0F5F21A4561500AB8461 /* Enum.swift */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		F6EF812A0A91B622F3A7033B /* Pods */ = {
@@ -323,15 +230,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB35511A2086EDC6003E0017 /* AlarmListNotSetTableViewCell.xib in Resources */,
 				CB68E0442075C42C00A0E2C1 /* LaunchScreen.storyboard in Resources */,
 				CB30F9922212A93900601850 /* GoogleService-Info.plist in Resources */,
-				CBD96A6E21F0DDD0007198B1 /* SettingTableViewCell.xib in Resources */,
 				CB68E0412075C42C00A0E2C1 /* Assets.xcassets in Resources */,
-				CB68E03F2075C42B00A0E2C1 /* Main.storyboard in Resources */,
-				CB4C22F820A5789100B429B7 /* AlarmListBusTableViewCell.xib in Resources */,
-				CB3551162086ED3D003E0017 /* AlarmListTableViewCell.xib in Resources */,
-				CB35613920A219F8005BD367 /* SetAlarmDetailTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,29 +262,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WhenComing/Pods-WhenComing-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Carte/Carte.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WhenComing/Pods-WhenComing-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Carte.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WhenComing/Pods-WhenComing-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -424,41 +308,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB5E72B421907D8E008DD656 /* LoadingIndicator.swift in Sources */,
-				CB2EA1FA212AB84B00F31904 /* APIManager.swift in Sources */,
-				CB4C22F720A5789100B429B7 /* AlarmListBusTableViewCell.swift in Sources */,
-				CBE17BA82166477000357C2E /* BusDetailViewController.swift in Sources */,
-				CB35613320A219AA005BD367 /* SetAlarmDetailViewController.swift in Sources */,
-				CB840A4621809BFD008CF70A /* AlarmMapper.swift in Sources */,
-				CBE17BAF216CC2E600357C2E /* ArrivalInfoMapper.swift in Sources */,
-				CB68E04F207CC16E00A0E2C1 /* AlarmListViewController.swift in Sources */,
+				CB4175A822A6E7270066EC0A /* APIManager.swift in Sources */,
 				CB68E03A2075C42B00A0E2C1 /* AppDelegate.swift in Sources */,
-				CBD96A6D21F0DDD0007198B1 /* SettingTableViewCell.swift in Sources */,
-				CB2EA1F8212AB80F00F31904 /* APIService.swift in Sources */,
-				CB3551152086ED3D003E0017 /* AlarmListTableViewCell.swift in Sources */,
-				CBA84A3A209177850010F8F0 /* Extension.swift in Sources */,
-				CB35613820A219F8005BD367 /* SetAlarmDetailTableViewCell.swift in Sources */,
-				CB2EA1FC212AB94200F31904 /* BusStopMapper.swift in Sources */,
-				CB9A15412091AABC009CA25F /* SetAlarmViewController.swift in Sources */,
-				CBD96A6921F0A8E4007198B1 /* SettingViewController.swift in Sources */,
-				CB3551192086EDC6003E0017 /* AlarmListNotSetTableViewCell.swift in Sources */,
-				CBCEACD42088C59F0036C7A2 /* BusMapper.swift in Sources */,
-				CB1F0F6021A4561500AB8461 /* Enum.swift in Sources */,
-				CBE17BAD216CBFCC00357C2E /* Protocol.swift in Sources */,
+				CB4175A422A6D71E0066EC0A /* AlarmListViewController.swift in Sources */,
+				CB41759722A6CF080066EC0A /* UITextField+ext.swift in Sources */,
+				CB41759B22A6D1130066EC0A /* Log.swift in Sources */,
+				CB41759622A6CF080066EC0A /* NSObject+ext.swift in Sources */,
+				CB41759222A6CF080066EC0A /* Collection+ext.swift in Sources */,
+				CB41759A22A6D1130066EC0A /* AlertBuilder.swift in Sources */,
+				CB4175A122A6D59E0066EC0A /* HJViewController.swift in Sources */,
+				CB41759422A6CF080066EC0A /* UIViewController+ext.swift in Sources */,
+				CB41759322A6CF080066EC0A /* UIColor+ext.swift in Sources */,
+				CB41759522A6CF080066EC0A /* UIView+ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CB68E03D2075C42B00A0E2C1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB68E03E2075C42B00A0E2C1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CB68E0422075C42C00A0E2C1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

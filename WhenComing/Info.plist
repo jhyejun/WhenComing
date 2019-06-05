@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>20190425001</string>
+	<string>20190605008</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -43,8 +43,6 @@
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -61,8 +59,8 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>buildCount</key>
-	<string>1</string>
+	<string>8</string>
 	<key>buildDay</key>
-	<string>20190425</string>
+	<string>20190605</string>
 </dict>
 </plist>

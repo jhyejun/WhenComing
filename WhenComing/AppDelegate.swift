@@ -11,9 +11,6 @@ import Fabric
 import Crashlytics
 import Firebase
 
-let uuid = NSUUID().uuidString
-let deviceSize = UIScreen.main.bounds
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -24,6 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        let vc = AlarmListViewController()
+        vc.view.backgroundColor = .white
+        
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
         
         return true
     }
