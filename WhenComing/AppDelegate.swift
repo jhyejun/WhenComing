@@ -13,16 +13,14 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
         
-        let window = UIWindow(frame: UIScreen.main.bounds)
+        guard let window = window else { return true }
         let vc = AlarmListViewController()
         vc.view.backgroundColor = .white
         
