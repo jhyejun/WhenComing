@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2548DA73200ABD07CBCFEB04 /* Pods_WhenComing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */; };
+		CB17DAB6231D49020026F456 /* AlarmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DAB5231D49020026F456 /* AlarmDetailView.swift */; };
+		CB17DABB231D49AD0026F456 /* AlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DABA231D49AD0026F456 /* AlarmCollectionViewCell.swift */; };
 		CB30F9922212A93900601850 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB30F9912212A93800601850 /* GoogleService-Info.plist */; };
 		CB41759222A6CF080066EC0A /* Collection+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758C22A6CF070066EC0A /* Collection+ext.swift */; };
 		CB41759322A6CF080066EC0A /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758D22A6CF070066EC0A /* UIColor+ext.swift */; };
@@ -29,6 +31,8 @@
 		1464C53D45460507BB3BE01E /* Pods-WhenComing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhenComing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhenComing/Pods-WhenComing.debug.xcconfig"; sourceTree = "<group>"; };
 		7D8A9BD2035B69FCB8C4B068 /* Pods-WhenComing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhenComing.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhenComing/Pods-WhenComing.release.xcconfig"; sourceTree = "<group>"; };
 		AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhenComing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB17DAB5231D49020026F456 /* AlarmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailView.swift; sourceTree = "<group>"; };
+		CB17DABA231D49AD0026F456 /* AlarmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB1F0F5C219C5A8800AB8461 /* WhenComing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhenComing.entitlements; sourceTree = "<group>"; };
 		CB30F9912212A93800601850 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB41758C22A6CF070066EC0A /* Collection+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+ext.swift"; sourceTree = "<group>"; };
@@ -68,6 +72,23 @@
 				AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB17DAB4231D48E80026F456 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB17DAB7231D49820026F456 /* Cell */,
+				CB17DAB5231D49020026F456 /* AlarmDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB17DAB7231D49820026F456 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CB17DABA231D49AD0026F456 /* AlarmCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		CB41758B22A598650066EC0A /* Extension */ = {
@@ -142,6 +163,7 @@
 				CB4175A622A6E7180066EC0A /* Manager */,
 				CB41759F22A6D4820066EC0A /* HJ */,
 				CB4175A222A6D5D00066EC0A /* ViewController */,
+				CB17DAB4231D48E80026F456 /* View */,
 				CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */,
 				CB68E0452075C42C00A0E2C1 /* Info.plist */,
 				CB30F9912212A93800601850 /* GoogleService-Info.plist */,
@@ -313,6 +335,7 @@
 			files = (
 				CB4175A822A6E7270066EC0A /* APIManager.swift in Sources */,
 				CB68E03A2075C42B00A0E2C1 /* AppDelegate.swift in Sources */,
+				CB17DAB6231D49020026F456 /* AlarmDetailView.swift in Sources */,
 				CB4175A422A6D71E0066EC0A /* AlarmListViewController.swift in Sources */,
 				CB41759722A6CF080066EC0A /* UITextField+ext.swift in Sources */,
 				CB41759B22A6D1130066EC0A /* Log.swift in Sources */,
@@ -322,6 +345,7 @@
 				CB4175A122A6D59E0066EC0A /* HJViewController.swift in Sources */,
 				CB41759422A6CF080066EC0A /* UIViewController+ext.swift in Sources */,
 				CB41759322A6CF080066EC0A /* UIColor+ext.swift in Sources */,
+				CB17DABB231D49AD0026F456 /* AlarmCollectionViewCell.swift in Sources */,
 				CB41759522A6CF080066EC0A /* UIView+ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

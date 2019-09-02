@@ -6,7 +6,7 @@
 //  Copyright © 2018년 장혜준. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import UserNotifications
 import Fabric
 import Crashlytics
