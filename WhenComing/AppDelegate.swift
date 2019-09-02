@@ -6,7 +6,8 @@
 //  Copyright © 2018년 장혜준. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import UserNotifications
 import Fabric
 import Crashlytics
 import Firebase
@@ -27,7 +28,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = vc
         window.makeKeyAndVisible()
         
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            if let error = error {
+                errorLog(error.localizedDescription)
+            } else {
+                DispatchQueue.main.async {
+                    application.registerForRemoteNotifications()
+                }
+            }
+        }
+        
         return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        debugLog("APNs device token: \(deviceTokenString)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        errorLog("Failed to register for notifications: \(error.localizedDescription)")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -51,7 +71,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

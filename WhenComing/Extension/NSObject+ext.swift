@@ -13,8 +13,16 @@ extension NSObject {
         return String(describing: self)
     }
     
+    class var reuseIdentifierName: String {
+        return String(describing: self) + "Id"
+    }
+    
     var className: String {
         return type(of: self).className
+    }
+    
+    var reuseIdentifierName: String {
+        return type(of: self).reuseIdentifierName
     }
     
     var propertyNames: [String] {
