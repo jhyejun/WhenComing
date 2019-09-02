@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             if let error = error {
-                ERROR_LOG(error.localizedDescription)
+                errorLog(error.localizedDescription)
             } else {
                 DispatchQueue.main.async {
                     application.registerForRemoteNotifications()
@@ -43,11 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        DEBUG_LOG("APNs device token: \(deviceTokenString)")
+        debugLog("APNs device token: \(deviceTokenString)")
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        ERROR_LOG("Failed to register for notifications: \(error.localizedDescription)")
+        errorLog("Failed to register for notifications: \(error.localizedDescription)")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
