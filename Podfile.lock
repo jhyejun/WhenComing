@@ -12,6 +12,9 @@ PODS:
   - Firebase/Database (6.1.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 6.0.0)
+  - Firebase/Messaging (6.1.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 4.0.1)
   - FirebaseAnalytics (6.0.1):
     - FirebaseCore (~> 6.0)
     - FirebaseInstanceID (~> 4.1)
@@ -21,6 +24,7 @@ PODS:
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 0.3)
+  - FirebaseAnalyticsInterop (1.4.0)
   - FirebaseAuthInterop (1.0.0)
   - FirebaseCore (6.0.1):
     - GoogleUtilities/Environment (~> 6.0)
@@ -33,6 +37,15 @@ PODS:
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
+  - FirebaseMessaging (4.0.2):
+    - FirebaseAnalyticsInterop (~> 1.1)
+    - FirebaseCore (~> 6.0)
+    - FirebaseInstanceID (~> 4.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Reachability (~> 6.2)
+    - GoogleUtilities/UserDefaults (~> 6.2)
+    - Protobuf (~> 3.1)
   - GoogleAppMeasurement (6.0.1):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -63,6 +76,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - Protobuf (3.9.0)
   - Reveal-SDK (22)
   - SnapKit (4.0.1)
   - Then (2.4.0)
@@ -74,12 +88,13 @@ DEPENDENCIES:
   - Fabric
   - Firebase/Core
   - Firebase/Database
+  - Firebase/Messaging
   - Reveal-SDK
   - SnapKit (~> 4.0.0)
   - Then
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Carte
     - Crashlytics
@@ -97,6 +112,10 @@ SPEC REPOS:
     - Reveal-SDK
     - SnapKit
     - Then
+  trunk:
+    - FirebaseAnalyticsInterop
+    - FirebaseMessaging
+    - Protobuf
 
 SPEC CHECKSUMS:
   Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
@@ -105,18 +124,21 @@ SPEC CHECKSUMS:
   Fabric: f6f21452846788bb44595d73e9909d79d328e617
   Firebase: 8d77bb33624ae9b62d745d82ec023de5f70f7e4f
   FirebaseAnalytics: 629301c2b9925f3537d4093a17a72751ae5b7084
+  FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: 66bdef3b310a026880e2a5bc8aa586ab62ce4543
   FirebaseDatabase: f48e067716864be2b855cf716b927ef375d6cfa0
   FirebaseInstanceID: 27bed93a59b6685f5c3e0c028a878a764fd75c33
+  FirebaseMessaging: 20b6626c41be7840aed7a3dd9a14003efae3d588
   GoogleAppMeasurement: 51d8d9ea48f0ca44484d29cfbdef976fbd4fc336
   GoogleUtilities: 996e0db07153674fd1b54b220fda3a3dc3547cba
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   Reveal-SDK: 1385ab77aa15e9a3e21f798c74bd8e94cb54c651
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
 
-PODFILE CHECKSUM: f57655213cdee4ab6bd6d958e9051418777ef0d4
+PODFILE CHECKSUM: 996f984b00ff63833e5a6c1d59a268ce6424e00b
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.8.0.beta.2
