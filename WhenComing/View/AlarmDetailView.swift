@@ -8,6 +8,6 @@
 
 import UIKit
 
-class AlarmDetailView: UIView {
+class AlarmDetailView: HJView {
     
 }
