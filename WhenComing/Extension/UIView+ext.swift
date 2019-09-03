@@ -26,4 +26,10 @@ extension UIView {
         layer.borderColor = color.cgColor
         layer.borderWidth = width
     }
+    
+    func addSubViews(_ views: [UIView]) {
+        views.forEach {
+            addSubview($0)
+        }
+    }
 }

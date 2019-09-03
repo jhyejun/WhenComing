@@ -19,7 +19,7 @@ func debugLog(_ msg: Any, category: LogCategory = .Debug, file: String = #file, 
     #if DEBUG
     let fileName: String.SubSequence = file.split(separator: "/").last ?? "FileName is None"
     let functionName: String.SubSequence = function.split(separator: "(").first ?? "FunctionName is None"
-    let logString: String = "[\(fileName)] \(functionName)(\(line)) : \(msg)"
+    let logString: String = "👻 [\(fileName)] \(functionName)(\(line)) : \(msg)"
     
     if #available(iOS 10.0, *) {
         os_log("%@",
@@ -35,7 +35,7 @@ func debugLog(_ msg: Any, category: LogCategory = .Debug, file: String = #file, 
 func errorLog(_ msg: Any, category: LogCategory = .Error, file: String = #file, function: String = #function, line: Int = #line) {
     let fileName: String.SubSequence = file.split(separator: "/").last ?? "FileName is None"
     let functionName: String.SubSequence = function.split(separator: "(").first ?? "FunctionName is None"
-    let logString: String = "[\(fileName)] \(functionName)(\(line)) : \(msg)"
+    let logString: String = "😡 [\(fileName)] \(functionName)(\(line)) : \(msg)"
     
     if #available(iOS 10.0, *) {
         os_log("%@",

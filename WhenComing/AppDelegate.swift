@@ -7,10 +7,13 @@
 //
 
 import Foundation
+
 import UserNotifications
+import Firebase
+import FirebaseMessaging
+
 import Fabric
 import Crashlytics
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,15 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
         
-        guard let window = window else { return true }
-        let vc = AlarmListViewController()
-        vc.view.backgroundColor = .white
-        
-        window.rootViewController = vc
-        window.makeKeyAndVisible()
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             if let error = error {
@@ -38,11 +36,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        guard let window = window else { return true }
+        let vc = AlarmListViewController()
+        vc.view.backgroundColor = .white
+        
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        
         return true
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        Messaging.messaging().apnsToken = deviceToken
+        
+        let deviceTokenString: String = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         debugLog("APNs device token: \(deviceTokenString)")
     }
     
@@ -70,6 +77,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        debugLog("willPresent Notification")
+    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        debugLog("Firebase registration token: : \(fcmToken)")
+        
+        let dataDict:[String: String] = ["token": fcmToken]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
     }
 }
 

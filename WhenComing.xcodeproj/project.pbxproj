@@ -10,6 +10,10 @@
 		2548DA73200ABD07CBCFEB04 /* Pods_WhenComing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */; };
 		CB17DAB6231D49020026F456 /* AlarmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DAB5231D49020026F456 /* AlarmDetailView.swift */; };
 		CB17DABB231D49AD0026F456 /* AlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DABA231D49AD0026F456 /* AlarmCollectionViewCell.swift */; };
+		CB17DABD231E9A060026F456 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DABC231E9A060026F456 /* Protocol.swift */; };
+		CB17DABF231E9FDB0026F456 /* AlarmEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DABE231E9FDB0026F456 /* AlarmEmptyView.swift */; };
+		CB17DAC1231EA1610026F456 /* HJView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DAC0231EA1610026F456 /* HJView.swift */; };
+		CB19AA66231EA4E90052E120 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19AA65231EA4E90052E120 /* Theme.swift */; };
 		CB30F9922212A93900601850 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB30F9912212A93800601850 /* GoogleService-Info.plist */; };
 		CB41759222A6CF080066EC0A /* Collection+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758C22A6CF070066EC0A /* Collection+ext.swift */; };
 		CB41759322A6CF080066EC0A /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758D22A6CF070066EC0A /* UIColor+ext.swift */; };
@@ -33,6 +37,10 @@
 		AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhenComing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB17DAB5231D49020026F456 /* AlarmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailView.swift; sourceTree = "<group>"; };
 		CB17DABA231D49AD0026F456 /* AlarmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB17DABC231E9A060026F456 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		CB17DABE231E9FDB0026F456 /* AlarmEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmEmptyView.swift; sourceTree = "<group>"; };
+		CB17DAC0231EA1610026F456 /* HJView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HJView.swift; sourceTree = "<group>"; };
+		CB19AA65231EA4E90052E120 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		CB1F0F5C219C5A8800AB8461 /* WhenComing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhenComing.entitlements; sourceTree = "<group>"; };
 		CB30F9912212A93800601850 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB41758C22A6CF070066EC0A /* Collection+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+ext.swift"; sourceTree = "<group>"; };
@@ -79,6 +87,7 @@
 			children = (
 				CB17DAB7231D49820026F456 /* Cell */,
 				CB17DAB5231D49020026F456 /* AlarmDetailView.swift */,
+				CB17DABE231E9FDB0026F456 /* AlarmEmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -108,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				CB4175A022A6D59E0066EC0A /* HJViewController.swift */,
+				CB17DAC0231EA1610026F456 /* HJView.swift */,
 			);
 			path = HJ;
 			sourceTree = "<group>";
@@ -164,6 +174,8 @@
 				CB41759F22A6D4820066EC0A /* HJ */,
 				CB4175A222A6D5D00066EC0A /* ViewController */,
 				CB17DAB4231D48E80026F456 /* View */,
+				CB19AA65231EA4E90052E120 /* Theme.swift */,
+				CB17DABC231E9A060026F456 /* Protocol.swift */,
 				CB68E0392075C42B00A0E2C1 /* AppDelegate.swift */,
 				CB68E0452075C42C00A0E2C1 /* Info.plist */,
 				CB30F9912212A93800601850 /* GoogleService-Info.plist */,
@@ -339,14 +351,18 @@
 				CB4175A422A6D71E0066EC0A /* AlarmListViewController.swift in Sources */,
 				CB41759722A6CF080066EC0A /* UITextField+ext.swift in Sources */,
 				CB41759B22A6D1130066EC0A /* Log.swift in Sources */,
+				CB17DABF231E9FDB0026F456 /* AlarmEmptyView.swift in Sources */,
 				CB41759622A6CF080066EC0A /* NSObject+ext.swift in Sources */,
 				CB41759222A6CF080066EC0A /* Collection+ext.swift in Sources */,
+				CB19AA66231EA4E90052E120 /* Theme.swift in Sources */,
 				CB41759A22A6D1130066EC0A /* AlertBuilder.swift in Sources */,
 				CB4175A122A6D59E0066EC0A /* HJViewController.swift in Sources */,
 				CB41759422A6CF080066EC0A /* UIViewController+ext.swift in Sources */,
 				CB41759322A6CF080066EC0A /* UIColor+ext.swift in Sources */,
 				CB17DABB231D49AD0026F456 /* AlarmCollectionViewCell.swift in Sources */,
 				CB41759522A6CF080066EC0A /* UIView+ext.swift in Sources */,
+				CB17DAC1231EA1610026F456 /* HJView.swift in Sources */,
+				CB17DABD231E9A060026F456 /* Protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

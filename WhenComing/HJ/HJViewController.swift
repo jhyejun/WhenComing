@@ -8,8 +8,15 @@
 
 import Foundation
 
-class HJViewController: UIViewController {
+class HJViewController: UIViewController, PrepareLayout {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        prepareView()
+        prepareConstraints()
     }
+    
+    func prepareView() { }
+    
+    func prepareConstraints() { }
 }
