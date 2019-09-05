@@ -14,6 +14,8 @@
 		CB17DABF231E9FDB0026F456 /* AlarmEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DABE231E9FDB0026F456 /* AlarmEmptyView.swift */; };
 		CB17DAC1231EA1610026F456 /* HJView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DAC0231EA1610026F456 /* HJView.swift */; };
 		CB19AA66231EA4E90052E120 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19AA65231EA4E90052E120 /* Theme.swift */; };
+		CB19AA6823213AAE0052E120 /* AlarmEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19AA6723213AAE0052E120 /* AlarmEmptyCollectionViewCell.swift */; };
+		CB19AA6A23213AD70052E120 /* HJCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19AA6923213AD70052E120 /* HJCollectionViewCell.swift */; };
 		CB30F9922212A93900601850 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB30F9912212A93800601850 /* GoogleService-Info.plist */; };
 		CB41759222A6CF080066EC0A /* Collection+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758C22A6CF070066EC0A /* Collection+ext.swift */; };
 		CB41759322A6CF080066EC0A /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758D22A6CF070066EC0A /* UIColor+ext.swift */; };
@@ -41,6 +43,8 @@
 		CB17DABE231E9FDB0026F456 /* AlarmEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmEmptyView.swift; sourceTree = "<group>"; };
 		CB17DAC0231EA1610026F456 /* HJView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HJView.swift; sourceTree = "<group>"; };
 		CB19AA65231EA4E90052E120 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		CB19AA6723213AAE0052E120 /* AlarmEmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmEmptyCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB19AA6923213AD70052E120 /* HJCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HJCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB1F0F5C219C5A8800AB8461 /* WhenComing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhenComing.entitlements; sourceTree = "<group>"; };
 		CB30F9912212A93800601850 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB41758C22A6CF070066EC0A /* Collection+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+ext.swift"; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				CB17DABA231D49AD0026F456 /* AlarmCollectionViewCell.swift */,
+				CB19AA6723213AAE0052E120 /* AlarmEmptyCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			children = (
 				CB4175A022A6D59E0066EC0A /* HJViewController.swift */,
 				CB17DAC0231EA1610026F456 /* HJView.swift */,
+				CB19AA6923213AD70052E120 /* HJCollectionViewCell.swift */,
 			);
 			path = HJ;
 			sourceTree = "<group>";
@@ -351,7 +357,9 @@
 				CB4175A422A6D71E0066EC0A /* AlarmListViewController.swift in Sources */,
 				CB41759722A6CF080066EC0A /* UITextField+ext.swift in Sources */,
 				CB41759B22A6D1130066EC0A /* Log.swift in Sources */,
+				CB19AA6A23213AD70052E120 /* HJCollectionViewCell.swift in Sources */,
 				CB17DABF231E9FDB0026F456 /* AlarmEmptyView.swift in Sources */,
+				CB19AA6823213AAE0052E120 /* AlarmEmptyCollectionViewCell.swift in Sources */,
 				CB41759622A6CF080066EC0A /* NSObject+ext.swift in Sources */,
 				CB41759222A6CF080066EC0A /* Collection+ext.swift in Sources */,
 				CB19AA66231EA4E90052E120 /* Theme.swift in Sources */,

@@ -77,7 +77,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.9.0)
-  - Reveal-SDK (22)
+  - Reveal-SDK (24)
   - SnapKit (4.0.1)
   - Then (2.4.0)
 
@@ -109,13 +109,13 @@ SPEC REPOS:
     - GoogleUtilities
     - leveldb-library
     - nanopb
-    - Reveal-SDK
     - SnapKit
     - Then
   trunk:
     - FirebaseAnalyticsInterop
     - FirebaseMessaging
     - Protobuf
+    - Reveal-SDK
 
 SPEC CHECKSUMS:
   Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
@@ -135,7 +135,7 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
-  Reveal-SDK: 1385ab77aa15e9a3e21f798c74bd8e94cb54c651
+  Reveal-SDK: 5d7e56b8f018c0a88b3a2c10bf68d598bbd3b071
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
 

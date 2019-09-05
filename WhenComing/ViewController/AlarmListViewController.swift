@@ -11,10 +11,13 @@ import UIKit
 class AlarmListViewController: HJViewController {
     // MARK: - UI Property
     private let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
-        let flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        
-        $0.backgroundColor = .blue
+        $0.contentInset = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
+        $0.backgroundColor = .white
+    }
+    private let collectionLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout().then {
+        $0.scrollDirection = .horizontal
+        $0.minimumInteritemSpacing = 6
+        $0.estimatedItemSize = CGSize(width: 160, height: 180)
     }
     private let alarmEmptyView: AlarmEmptyView = AlarmEmptyView()
     private let alarmDetailView: AlarmDetailView = AlarmDetailView()
@@ -39,7 +42,9 @@ class AlarmListViewController: HJViewController {
     override func prepareView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(AlarmEmptyCollectionViewCell.self, forCellWithReuseIdentifier: AlarmEmptyCollectionViewCell.reuseIdentifierName)
         collectionView.register(AlarmCollectionViewCell.self, forCellWithReuseIdentifier: AlarmCollectionViewCell.reuseIdentifierName)
+        collectionView.setCollectionViewLayout(collectionLayout, animated: true)
         
         view.addSubViews([collectionView, detailView])
     }
@@ -67,13 +72,20 @@ extension AlarmListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: AlarmCollectionViewCell.reuseIdentifierName, for: indexPath) as? AlarmCollectionViewCell else {
-            preconditionFailure("\(AlarmCollectionViewCell.className) optional binding failed")
+        if rowCount == 0 {
+            guard let cell: AlarmEmptyCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: AlarmEmptyCollectionViewCell.reuseIdentifierName, for: indexPath) as? AlarmEmptyCollectionViewCell else {
+                preconditionFailure("\(AlarmEmptyCollectionViewCell.className) optional binding failed")
+            }
+            return cell
+        } else {
+            guard let cell: AlarmCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: AlarmCollectionViewCell.reuseIdentifierName, for: indexPath) as? AlarmCollectionViewCell else {
+                preconditionFailure("\(AlarmCollectionViewCell.className) optional binding failed")
+            }
+            return cell
         }
-        return cell
     }
 }
