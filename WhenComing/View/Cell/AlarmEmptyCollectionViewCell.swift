@@ -9,11 +9,8 @@
 import UIKit
 
 class AlarmEmptyCollectionViewCell: HJCollectionViewCell {
-    private let separatorView: UIView = UIView().then {
-        
-    }
     private let plusImageView: UIImageView = UIImageView().then {
-        
+        $0.image = UIImage(named: "icon_plusLarge")
     }
     private let descLabel: UILabel = UILabel().then {
         $0.text = "알람 추가하기"
@@ -22,29 +19,26 @@ class AlarmEmptyCollectionViewCell: HJCollectionViewCell {
         $0.textAlignment = .center
     }
     
-    override init() {
-        super.init()
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
     }
     
     override func prepareView() {
-        addSubViews([separatorView, plusImageView, descLabel])
+        setBorder(color: .rgba(155, 164, 211, 0.6), width: 1)
+        addSubViews([plusImageView, descLabel])
     }
     
     override func prepareConstraints() {
-        separatorView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-            make.height.equalTo(1)
-        }
-        
         plusImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(36)
-            make.leading.trailing.equalToSuperview().inset(10)
             make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.4625)
+            make.height.equalToSuperview().multipliedBy(0.411)
         }
         
         descLabel.snp.makeConstraints { make in
             make.top.equalTo(plusImageView.snp.bottom).offset(15)
-            make.leading.trailing.equalTo(plusImageView)
+            make.leading.trailing.equalToSuperview().inset(10)
             make.centerX.equalTo(plusImageView)
         }
     }
