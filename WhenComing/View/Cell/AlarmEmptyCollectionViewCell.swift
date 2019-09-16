@@ -21,10 +21,13 @@ class AlarmEmptyCollectionViewCell: HJCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        
+        setBorder(color: .rgba(155, 164, 211, 0.6), width: 1)
+        setCornerRadius(10)
+        makeDashedBorderLine()
     }
     
     override func prepareView() {
-        setBorder(color: .rgba(155, 164, 211, 0.6), width: 1)
         addSubViews([plusImageView, descLabel])
     }
     
