@@ -12,7 +12,7 @@ class AlarmListViewController: HJViewController {
     // MARK: - UI Property
     private let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
         $0.contentInset = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
-        $0.backgroundColor = .white
+        $0.backgroundColor = .blue
     }
     private let collectionLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout().then {
         $0.scrollDirection = .horizontal
@@ -40,6 +40,8 @@ class AlarmListViewController: HJViewController {
     
     // MARK: - PrepareLayout
     override func prepareView() {
+        super.prepareView()
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(AlarmEmptyCollectionViewCell.self, forCellWithReuseIdentifier: AlarmEmptyCollectionViewCell.reuseIdentifierName)
@@ -50,8 +52,11 @@ class AlarmListViewController: HJViewController {
     }
     
     override func prepareConstraints() {
+        super.prepareConstraints()
+        
         collectionView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
+            make.top.equalTo(navigationView.snp.bottom)
+            make.leading.trailing.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.35)
         }
         
