@@ -9,6 +9,7 @@
 import Foundation
 
 class HJViewController: UIViewController, PrepareLayout {
+    // MARK: - View LifeCycle Method
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -16,6 +17,7 @@ class HJViewController: UIViewController, PrepareLayout {
         prepareConstraints()
     }
     
+    // MARK: - PrepareLayout Method
     func prepareView() { }
     
     func prepareConstraints() { }

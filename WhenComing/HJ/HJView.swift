@@ -9,6 +9,7 @@
 import UIKit
 
 class HJView: UIView, PrepareLayout {
+    // MARK: - Initialize Method
     init() {
         super.init(frame: .zero)
         
@@ -22,6 +23,7 @@ class HJView: UIView, PrepareLayout {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - PrepareLayout Method
     func prepareView() { }
     
     func prepareConstraints() { }

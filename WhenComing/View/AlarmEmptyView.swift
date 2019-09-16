@@ -9,6 +9,7 @@
 import UIKit
 
 class AlarmEmptyView: HJView {
+    // MARK: - UI Property
     private let iconImageView: UIImageView = UIImageView().then {
         $0.image = UIImage(named: "icon_empty")
     }
@@ -20,6 +21,7 @@ class AlarmEmptyView: HJView {
         $0.textAlignment = .center
     }
     
+    // MARK: - Initialize Method
     override init() {
         super.init()
     }
@@ -28,6 +30,7 @@ class AlarmEmptyView: HJView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - PrepareLayout Method
     override func prepareView() {
         addSubViews([iconImageView, guideLabel])
     }
