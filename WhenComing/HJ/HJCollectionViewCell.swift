@@ -9,6 +9,7 @@
 import UIKit
 
 class HJCollectionViewCell: UICollectionViewCell, PrepareLayout {
+    // MARK: - Initialize Method
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -22,6 +23,7 @@ class HJCollectionViewCell: UICollectionViewCell, PrepareLayout {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - PrepareLayout Method
     func prepareView() { }
     
     func prepareConstraints() { }

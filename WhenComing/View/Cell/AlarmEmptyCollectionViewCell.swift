@@ -9,6 +9,7 @@
 import UIKit
 
 class AlarmEmptyCollectionViewCell: HJCollectionViewCell {
+    // MARK: - UI Property
     private let plusImageView: UIImageView = UIImageView().then {
         $0.image = UIImage(named: "icon_plusLarge")
     }
@@ -19,12 +20,20 @@ class AlarmEmptyCollectionViewCell: HJCollectionViewCell {
         $0.textAlignment = .center
     }
     
+    // MARK: - Initialize Method
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        
+        setBorder(color: .rgba(155, 164, 211, 0.6), width: 1)
+        setCornerRadius(10)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - PrepareLayout Method
     override func prepareView() {
-        setBorder(color: .rgba(155, 164, 211, 0.6), width: 1)
         addSubViews([plusImageView, descLabel])
     }
     
@@ -41,9 +50,5 @@ class AlarmEmptyCollectionViewCell: HJCollectionViewCell {
             make.leading.trailing.equalToSuperview().inset(10)
             make.centerX.equalTo(plusImageView)
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
