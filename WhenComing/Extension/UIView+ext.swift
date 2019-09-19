@@ -27,9 +27,23 @@ extension UIView {
         layer.borderWidth = width
     }
     
-    func addSubViews(_ views: [UIView]) {
+    func addSubviews(_ views: [UIView]) {
         views.forEach {
             addSubview($0)
+        }
+    }
+    
+    func addSubviewOpt(_ view: UIView?) {
+        if let view = view {
+            addSubview(view)
+        }
+    }
+    
+    func addSubviewsOpt(_ views: [UIView?]) {
+        views.forEach {
+            if let view = $0 {
+                addSubview(view)
+            }
         }
     }
 }
