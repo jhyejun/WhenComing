@@ -17,6 +17,7 @@
 		CB19AA6823213AAE0052E120 /* AlarmEmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19AA6723213AAE0052E120 /* AlarmEmptyCollectionViewCell.swift */; };
 		CB19AA6A23213AD70052E120 /* HJCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB19AA6923213AD70052E120 /* HJCollectionViewCell.swift */; };
 		CB30F9922212A93900601850 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB30F9912212A93800601850 /* GoogleService-Info.plist */; };
+		CB3950692333A466006EDCDA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3950682333A466006EDCDA /* SettingViewController.swift */; };
 		CB41759222A6CF080066EC0A /* Collection+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758C22A6CF070066EC0A /* Collection+ext.swift */; };
 		CB41759322A6CF080066EC0A /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758D22A6CF070066EC0A /* UIColor+ext.swift */; };
 		CB41759422A6CF080066EC0A /* UIViewController+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB41758E22A6CF070066EC0A /* UIViewController+ext.swift */; };
@@ -47,6 +48,7 @@
 		CB19AA6923213AD70052E120 /* HJCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HJCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB1F0F5C219C5A8800AB8461 /* WhenComing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhenComing.entitlements; sourceTree = "<group>"; };
 		CB30F9912212A93800601850 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CB3950682333A466006EDCDA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CB41758C22A6CF070066EC0A /* Collection+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+ext.swift"; sourceTree = "<group>"; };
 		CB41758D22A6CF070066EC0A /* UIColor+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		CB41758E22A6CF070066EC0A /* UIViewController+ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ext.swift"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				CB4175A322A6D71E0066EC0A /* AlarmListViewController.swift */,
+				CB3950682333A466006EDCDA /* SettingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				CB17DAB6231D49020026F456 /* AlarmDetailView.swift in Sources */,
 				CB4175A422A6D71E0066EC0A /* AlarmListViewController.swift in Sources */,
 				CB41759722A6CF080066EC0A /* UITextField+ext.swift in Sources */,
+				CB3950692333A466006EDCDA /* SettingViewController.swift in Sources */,
 				CB41759B22A6D1130066EC0A /* Log.swift in Sources */,
 				CB19AA6A23213AD70052E120 /* HJCollectionViewCell.swift in Sources */,
 				CB17DABF231E9FDB0026F456 /* AlarmEmptyView.swift in Sources */,

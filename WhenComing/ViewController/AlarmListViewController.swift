@@ -48,21 +48,34 @@ class AlarmListViewController: HJViewController {
         collectionView.register(AlarmCollectionViewCell.self, forCellWithReuseIdentifier: AlarmCollectionViewCell.reuseIdentifierName)
         collectionView.setCollectionViewLayout(collectionLayout, animated: true)
         
-        view.addSubViews([collectionView, detailView])
+        view.addSubviews([collectionView, detailView])
     }
     
     override func prepareConstraints() {
         super.prepareConstraints()
         
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(navigationView.snp.bottom)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.35)
-        }
-        
-        detailView.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom)
-            make.leading.trailing.bottom.equalToSuperview()
+        if let navigationView = navigationView {
+            collectionView.snp.makeConstraints { make in
+                make.top.equalTo(navigationView.snp.bottom)
+                make.leading.trailing.equalToSuperview()
+                make.height.equalToSuperview().multipliedBy(0.35)
+            }
+            
+            detailView.snp.makeConstraints { make in
+                make.top.equalTo(collectionView.snp.bottom)
+                make.leading.trailing.bottom.equalToSuperview()
+            }
+        } else {
+            collectionView.snp.makeConstraints { make in
+                make.top.equalTo(view.snp.topMargin)
+                make.leading.trailing.equalToSuperview()
+                make.height.equalToSuperview().multipliedBy(0.35)
+            }
+            
+            detailView.snp.makeConstraints { make in
+                make.top.equalTo(collectionView.snp.bottom)
+                make.leading.trailing.bottom.equalToSuperview()
+            }
         }
     }
 }
