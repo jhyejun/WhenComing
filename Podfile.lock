@@ -78,6 +78,12 @@ PODS:
   - nanopb/encode (0.3.901)
   - Protobuf (3.9.0)
   - Reveal-SDK (24)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
   - SnapKit (4.0.1)
   - Then (2.4.0)
 
@@ -90,6 +96,8 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Messaging
   - Reveal-SDK
+  - RxCocoa
+  - RxSwift
   - SnapKit (~> 4.0.0)
   - Then
 
@@ -116,6 +124,9 @@ SPEC REPOS:
     - FirebaseMessaging
     - Protobuf
     - Reveal-SDK
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
@@ -136,9 +147,12 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   Reveal-SDK: 5d7e56b8f018c0a88b3a2c10bf68d598bbd3b071
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
 
-PODFILE CHECKSUM: 996f984b00ff63833e5a6c1d59a268ce6424e00b
+PODFILE CHECKSUM: 08e5ce61671a8635d788255ac81f2d56938c0a95
 
 COCOAPODS: 1.8.0.beta.2
