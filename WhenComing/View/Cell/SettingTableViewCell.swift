@@ -8,15 +8,68 @@
 
 import UIKit
 
-class SettingTableViewCell: HJTableViewCell {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .default, reuseIdentifier: SettingTableViewCell.reuseIdentifierName)
-        
-        
+class SettingTableViewCell: HJTableViewCell, Updatable {
+    typealias T = Setting
+    
+    let titleLabel: UILabel = UILabel().then {
+        $0.textColor = theme().settingCellTitleTextColor
+        $0.font = $0.font.withSize(theme().defaultTextSize)
+    }
+    let contentLabel: UILabel = UILabel().then {
+        $0.textColor = theme().settingCellContentTextColor
+        $0.font = $0.font.withSize(theme().defaultTextSize)
     }
     
     // MARK: - Initialize Method
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: SettingTableViewCell.reuseIdentifierName)
+        
+        selectionStyle = .none
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        titleLabel.text = nil
+        contentLabel.text = nil
+    }
+    
+    // MARK: - PrepareLayout
+    override func prepareView() {
+        super.prepareView()
+        
+        addSubviews([titleLabel, contentLabel])
+    }
+    
+    override func prepareConstraints() {
+        super.prepareConstraints()
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(16)
+            make.leading.equalToSuperview().inset(20)
+        }
+        
+        contentLabel.snp.makeConstraints { make in
+            make.top.bottom.equalTo(titleLabel)
+            make.trailingMargin.equalToSuperview().inset(20)
+        }
+    }
+    
+    // MARK: - Updatable
+    func update(data: Setting) {
+        titleLabel.text = data.title
+        contentLabel.text = data.content
+        accessoryType = data.isDisclosure ? .disclosureIndicator : .none
+        
+//        if data.isDisclosure {
+//            contentLabel.snp.remakeConstraints { make in
+//                make.top.bottom.equalTo(titleLabel)
+//                make.trailingMargin.equalToSuperview().inset(10)
+//            }
+//        }
     }
 }
