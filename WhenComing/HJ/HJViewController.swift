@@ -7,14 +7,20 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class HJViewController: UIViewController, PrepareLayout {
     // MARK: - UI Property
     var navigationView: UIView?
     
+    private let dpBag: DisposeBag = DisposeBag()
+    
     // MARK: - View LifeCycle Method
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .white
         
         navigationView = getNavigationView()
         
@@ -30,7 +36,7 @@ class HJViewController: UIViewController, PrepareLayout {
     
     // MARK: - return NavigationView Method
     func getNavigationView() -> UIView {
-        return UIView(frame: .zero).then {
+        return UIView(frame: .zero).then { view in
             let settingButton: UIButton = UIButton(type: .custom)
             let searchButton: UIButton = UIButton(type: .custom)
             let plusButton: UIButton = UIButton(type: .custom)
@@ -57,7 +63,18 @@ class HJViewController: UIViewController, PrepareLayout {
             searchButton.setImage(UIImage(named: "icon_search"), for: .normal)
             plusButton.setImage(UIImage(named: "icon_plus"), for: .normal)
             
-            $0.addSubviews([settingButton, searchButton, plusButton, titleView])
+            settingButton.rx.tap.subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                let viewController: UIViewController = SettingViewController()
+                self.push(viewController: viewController)
+            }).disposed(by: dpBag)
+            plusButton.rx.tap.subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                let viewController: UIViewController = SettingViewController()
+                self.push(viewController: viewController)
+            }).disposed(by: dpBag)
+            
+            view.addSubviews([settingButton, searchButton, plusButton, titleView])
             
             settingButton.snp.makeConstraints { make in
                 make.centerY.equalToSuperview()
