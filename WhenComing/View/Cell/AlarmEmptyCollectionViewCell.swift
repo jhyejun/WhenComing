@@ -16,7 +16,7 @@ class AlarmEmptyCollectionViewCell: HJCollectionViewCell {
     private let descLabel: UILabel = UILabel().then {
         $0.text = "알람 추가하기"
         $0.font = $0.font.withSize(theme().defaultTextSize)
-        $0.textColor = theme().textGrayColor
+        $0.textColor = theme().defaultTextGrayColor
         $0.textAlignment = .center
     }
     

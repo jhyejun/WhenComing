@@ -16,4 +16,16 @@ extension UIViewController {
     func present(builder: AlertBuilder, animated: Bool = true, completion: (() -> Void)? = nil) {
         present(builder.controller, animated: animated, completion: completion)
     }
+    
+    func topViewController() -> UIViewController? {
+        guard var topViewController = UIApplication.shared.keyWindow?.rootViewController else {
+            return nil
+        }
+        
+        while let presentedViewController = topViewController.presentedViewController {
+            topViewController = presentedViewController
+        }
+        
+        return topViewController
+    }
 }

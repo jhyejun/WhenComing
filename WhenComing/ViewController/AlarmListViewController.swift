@@ -12,7 +12,7 @@ class AlarmListViewController: HJViewController {
     // MARK: - UI Property
     private let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
         $0.contentInset = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
-        $0.backgroundColor = .blue
+        $0.backgroundColor = theme().defaultBackgroundColor
     }
     private let collectionLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout().then {
         $0.scrollDirection = .horizontal

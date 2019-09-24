@@ -16,7 +16,7 @@ class AlarmEmptyView: HJView {
     private let guideLabel: UILabel = UILabel().then {
         $0.text = "버스 도착시간이 알고싶다면\n알람을 추가해주세요!"
         $0.font = $0.font.withSize(theme().defaultTextSize)
-        $0.textColor = theme().textGrayColor
+        $0.textColor = theme().defaultTextGrayColor
         $0.numberOfLines = 2
         $0.textAlignment = .center
     }
