@@ -9,15 +9,24 @@
 import UIKit
 
 class AlarmListViewController: HJViewController {
+    // MARK: - Constatnt
+    struct Constant {
+        // CollectionView
+        static let collectionViewHeigtRatio: CGFloat = 0.35
+        static let collectionViewDefaultInset: UIEdgeInsets = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
+        
+        static let collectionViewCellSize: CGSize = CGSize(width: 160, height: 180)
+        static let collectionViewSpacing: CGFloat = 7
+    }
+    
     // MARK: - UI Property
     private let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
-        $0.contentInset = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
-        $0.backgroundColor = .blue
+        $0.backgroundColor = theme().defaultBackgroundColor
     }
     private let collectionLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout().then {
         $0.scrollDirection = .horizontal
-        $0.minimumInteritemSpacing = 6
-        $0.estimatedItemSize = CGSize(width: 160, height: 180)
+        $0.minimumInteritemSpacing = AlarmListViewController.Constant.collectionViewSpacing
+        $0.estimatedItemSize = AlarmListViewController.Constant.collectionViewCellSize
     }
     private let alarmEmptyView: AlarmEmptyView = AlarmEmptyView()
     private let alarmDetailView: AlarmDetailView = AlarmDetailView()
@@ -58,7 +67,7 @@ class AlarmListViewController: HJViewController {
             collectionView.snp.makeConstraints { make in
                 make.top.equalTo(navigationView.snp.bottom)
                 make.leading.trailing.equalToSuperview()
-                make.height.equalToSuperview().multipliedBy(0.35)
+                make.height.equalToSuperview().multipliedBy(AlarmListViewController.Constant.collectionViewHeigtRatio)
             }
             
             detailView.snp.makeConstraints { make in
@@ -69,7 +78,7 @@ class AlarmListViewController: HJViewController {
             collectionView.snp.makeConstraints { make in
                 make.top.equalTo(view.snp.topMargin)
                 make.leading.trailing.equalToSuperview()
-                make.height.equalToSuperview().multipliedBy(0.35)
+                make.height.equalToSuperview().multipliedBy(AlarmListViewController.Constant.collectionViewHeigtRatio)
             }
             
             detailView.snp.makeConstraints { make in
@@ -82,6 +91,22 @@ class AlarmListViewController: HJViewController {
 
 extension AlarmListViewController: UICollectionViewDelegate {
     
+}
+
+extension AlarmListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if collectionView.numberOfItems(inSection: 0) == 1 {
+            return AlarmListViewController.Constant.collectionViewDefaultInset
+        } else {
+            let totalCellWidth: CGFloat = AlarmListViewController.Constant.collectionViewCellSize.width * CGFloat(collectionView.numberOfItems(inSection: 0))
+            let totalSpacingWidth: CGFloat = AlarmListViewController.Constant.collectionViewSpacing * CGFloat((collectionView.numberOfItems(inSection: 0) - 1))
+
+            let leftInset: CGFloat = (collectionView.layer.frame.size.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+            let rightInset: CGFloat = leftInset
+
+            return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+        }
+    }
 }
 
 extension AlarmListViewController: UICollectionViewDataSource {

@@ -79,7 +79,7 @@ class SettingViewController: HJViewController {
                 self?.navigationController?.popViewController(animated: true)
             }).disposed(by: dpBag)
             homeButton.rx.tap.subscribe(onNext: { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
+                self?.navigationController?.popToRootViewController(animated: true)
             }).disposed(by: dpBag)
             
             $0.addSubviews([backButton, homeButton])
