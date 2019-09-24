@@ -32,7 +32,7 @@ class AlarmEmptyView: HJView {
     
     // MARK: - PrepareLayout Method
     override func prepareView() {
-        addSubViews([iconImageView, guideLabel])
+        addSubviews([iconImageView, guideLabel])
     }
     
     override func prepareConstraints() {

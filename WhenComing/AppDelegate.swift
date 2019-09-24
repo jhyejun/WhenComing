@@ -38,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         guard let window = window else { return true }
         let vc: UIViewController = AlarmListViewController()
-        vc.view.backgroundColor = .white
         
         window.rootViewController = UINavigationController(rootViewController: vc)
         window.makeKeyAndVisible()

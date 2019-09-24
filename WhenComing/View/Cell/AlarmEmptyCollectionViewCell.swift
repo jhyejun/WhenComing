@@ -34,7 +34,7 @@ class AlarmEmptyCollectionViewCell: HJCollectionViewCell {
     
     // MARK: - PrepareLayout Method
     override func prepareView() {
-        addSubViews([plusImageView, descLabel])
+        addSubviews([plusImageView, descLabel])
     }
     
     override func prepareConstraints() {

@@ -9,6 +9,8 @@ target 'WhenComing' do
   # Pods for WhenComing
   pod 'Then'
   pod 'SnapKit', '~> 4.0.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
   pod 'Alamofire', '~> 5.0.0-beta.5'
 
