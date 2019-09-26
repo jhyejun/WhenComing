@@ -65,12 +65,12 @@ class HJViewController: UIViewController, PrepareLayout {
             
             settingButton.rx.tap.subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                let viewController: UIViewController = SettingViewController()
+                let viewController: SettingViewController = SettingViewController()
                 self.push(viewController: viewController)
             }).disposed(by: dpBag)
             plusButton.rx.tap.subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                let viewController: UIViewController = SettingViewController()
+                let viewController: AlarmSetViewController = AlarmSetViewController()
                 self.push(viewController: viewController)
             }).disposed(by: dpBag)
             

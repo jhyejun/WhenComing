@@ -95,7 +95,7 @@ extension AlarmListViewController: UICollectionViewDelegate {
 
 extension AlarmListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if collectionView.numberOfItems(inSection: 0) == 1 {
+        if rowCount > 0 {
             return AlarmListViewController.Constant.collectionViewDefaultInset
         } else {
             let totalCellWidth: CGFloat = AlarmListViewController.Constant.collectionViewCellSize.width * CGFloat(collectionView.numberOfItems(inSection: 0))
@@ -115,7 +115,7 @@ extension AlarmListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return rowCount == 0 ? 1 : rowCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

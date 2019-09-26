@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2548DA73200ABD07CBCFEB04 /* Pods_WhenComing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */; };
+		CB0EC9C4233CF2D500DB450A /* AlarmSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0EC9C3233CF2D500DB450A /* AlarmSetViewController.swift */; };
 		CB17DAB6231D49020026F456 /* AlarmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DAB5231D49020026F456 /* AlarmDetailView.swift */; };
 		CB17DABB231D49AD0026F456 /* AlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DABA231D49AD0026F456 /* AlarmCollectionViewCell.swift */; };
 		CB17DABD231E9A060026F456 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17DABC231E9A060026F456 /* Protocol.swift */; };
@@ -40,6 +41,7 @@
 		1464C53D45460507BB3BE01E /* Pods-WhenComing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhenComing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhenComing/Pods-WhenComing.debug.xcconfig"; sourceTree = "<group>"; };
 		7D8A9BD2035B69FCB8C4B068 /* Pods-WhenComing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhenComing.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhenComing/Pods-WhenComing.release.xcconfig"; sourceTree = "<group>"; };
 		AE4D6876FF2D683E49273BD6 /* Pods_WhenComing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhenComing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB0EC9C3233CF2D500DB450A /* AlarmSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSetViewController.swift; sourceTree = "<group>"; };
 		CB17DAB5231D49020026F456 /* AlarmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailView.swift; sourceTree = "<group>"; };
 		CB17DABA231D49AD0026F456 /* AlarmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB17DABC231E9A060026F456 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				CB4175A322A6D71E0066EC0A /* AlarmListViewController.swift */,
 				CB3950682333A466006EDCDA /* SettingViewController.swift */,
+				CB0EC9C3233CF2D500DB450A /* AlarmSetViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				CB4175A422A6D71E0066EC0A /* AlarmListViewController.swift in Sources */,
 				CB41759722A6CF080066EC0A /* UITextField+ext.swift in Sources */,
 				CB3950692333A466006EDCDA /* SettingViewController.swift in Sources */,
+				CB0EC9C4233CF2D500DB450A /* AlarmSetViewController.swift in Sources */,
 				CB41759B22A6D1130066EC0A /* Log.swift in Sources */,
 				CB19AA6A23213AD70052E120 /* HJCollectionViewCell.swift in Sources */,
 				CB17DABF231E9FDB0026F456 /* AlarmEmptyView.swift in Sources */,
