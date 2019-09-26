@@ -9,12 +9,29 @@
 import UIKit
 
 class AlarmEmptyCollectionViewCell: HJCollectionViewCell {
+    // MARK: - Constatnt
+    struct Constant {
+        // CollectionViewCell
+        static let cellBorderColor: UIColor = .rgba(155, 164, 211, 0.6)
+        static let cellBorderWidth: CGFloat = 1
+        static let cellCornerRadius: CGFloat = 10
+        
+        static let plusImageName: String = "icon_plusLarge"
+        static let descLabelText: String = "알람 추가하기"
+        
+        static let plusImageViewTopInset: CGFloat = 36
+        static let plusImageViewWidthRatio: CGFloat = 0.4625
+        static let plusImageViewHeightRatio: CGFloat = 0.411
+        static let descLabelTopOffset: CGFloat = 15
+        static let descLabelLeadingInset: CGFloat = 10
+    }
+    
     // MARK: - UI Property
     private let plusImageView: UIImageView = UIImageView().then {
-        $0.image = UIImage(named: "icon_plusLarge")
+        $0.image = UIImage(named: AlarmEmptyCollectionViewCell.Constant.plusImageName)
     }
     private let descLabel: UILabel = UILabel().then {
-        $0.text = "알람 추가하기"
+        $0.text = AlarmEmptyCollectionViewCell.Constant.descLabelText
         $0.font = $0.font.withSize(theme().defaultTextSize)
         $0.textColor = theme().defaultTextGrayColor
         $0.textAlignment = .center
@@ -24,8 +41,8 @@ class AlarmEmptyCollectionViewCell: HJCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
-        setBorder(color: .rgba(155, 164, 211, 0.6), width: 1)
-        setCornerRadius(10)
+        setBorder(color: AlarmEmptyCollectionViewCell.Constant.cellBorderColor, width: AlarmEmptyCollectionViewCell.Constant.cellBorderWidth)
+        setCornerRadius(AlarmEmptyCollectionViewCell.Constant.cellCornerRadius)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,15 +56,15 @@ class AlarmEmptyCollectionViewCell: HJCollectionViewCell {
     
     override func prepareConstraints() {
         plusImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(36)
+            make.top.equalToSuperview().inset(AlarmEmptyCollectionViewCell.Constant.plusImageViewTopInset)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.4625)
-            make.height.equalToSuperview().multipliedBy(0.411)
+            make.width.equalToSuperview().multipliedBy(AlarmEmptyCollectionViewCell.Constant.plusImageViewWidthRatio)
+            make.height.equalToSuperview().multipliedBy(AlarmEmptyCollectionViewCell.Constant.plusImageViewHeightRatio)
         }
         
         descLabel.snp.makeConstraints { make in
-            make.top.equalTo(plusImageView.snp.bottom).offset(15)
-            make.leading.trailing.equalToSuperview().inset(10)
+            make.top.equalTo(plusImageView.snp.bottom).offset(AlarmEmptyCollectionViewCell.Constant.descLabelTopOffset)
+            make.leading.trailing.equalToSuperview().inset(AlarmEmptyCollectionViewCell.Constant.descLabelLeadingInset)
             make.centerX.equalTo(plusImageView)
         }
     }
