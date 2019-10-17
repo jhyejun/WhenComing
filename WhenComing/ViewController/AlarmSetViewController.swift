@@ -14,6 +14,7 @@ class AlarmSetViewController: HJViewController {
     // MARK: - Constatnt
     struct Constant {
         // NavigationView
+        static let backButtonImageName: String = "icon_back"
         static let deleteButtonImageName: String = "icon_delete"
         
         static let backButtonTopInset: CGFloat = 26
@@ -36,10 +37,9 @@ class AlarmSetViewController: HJViewController {
         return UIView(frame: .zero).then {
             let backButton: UIButton = UIButton(type: .custom)
             let deleteButton: UIButton = UIButton(type: .custom)
-            
-            backButton.setTitle("<", for: .normal)
-            backButton.setTitleColor(.black, for: .normal)
-            deleteButton.setImage(UIImage(named: AlarmSetViewController.Constant.deleteButtonImageName), for: .normal)
+
+            backButton.setImage(UIImage(named: Constant.backButtonImageName), for: .normal)
+            deleteButton.setImage(UIImage(named: Constant.deleteButtonImageName), for: .normal)
             
             backButton.sizeToFit()
             
@@ -53,14 +53,14 @@ class AlarmSetViewController: HJViewController {
             $0.addSubviews([backButton, deleteButton])
             
             backButton.snp.makeConstraints { make in
-                make.top.equalToSuperview().inset(AlarmSetViewController.Constant.backButtonTopInset)
-                make.leading.equalToSuperview().offset(AlarmSetViewController.Constant.backButtonLeadingOffset)
-                make.bottom.equalToSuperview().inset(AlarmSetViewController.Constant.backButtonBottomInset)
+                make.top.equalToSuperview().inset(Constant.backButtonTopInset)
+                make.leading.equalToSuperview().offset(Constant.backButtonLeadingOffset)
+                make.bottom.equalToSuperview().inset(Constant.backButtonBottomInset)
             }
             
             deleteButton.snp.makeConstraints { make in
-                make.top.equalToSuperview().inset(AlarmSetViewController.Constant.deleteButtonTopInset)
-                make.trailing.bottom.equalToSuperview().inset(AlarmSetViewController.Constant.deleteButtonTrailingBottomInset)
+                make.top.equalToSuperview().inset(Constant.deleteButtonTopInset)
+                make.trailing.bottom.equalToSuperview().inset(Constant.deleteButtonTrailingBottomInset)
             }
         }
     }

@@ -46,6 +46,13 @@ enum Setting: String, CaseIterable {
 
 // MARK: - SettingViewController
 class SettingViewController: HJViewController {
+    // MARK: - Constatnt
+    struct Constant {
+        // NavigationView
+        static let backButtonImageName: String = "icon_back"
+        static let homeButtonImageName: String = "icon_home"
+    }
+    
     // MARK: - Property
     private let tableView: UITableView = UITableView(frame: .zero).then {
         $0.isScrollEnabled = false
@@ -69,9 +76,8 @@ class SettingViewController: HJViewController {
             let backButton: UIButton = UIButton(type: .custom)
             let homeButton: UIButton = UIButton(type: .custom)
             
-            backButton.setTitle("<", for: .normal)
-            backButton.setTitleColor(.black, for: .normal)
-            homeButton.setImage(UIImage(named: "icon_home"), for: .normal)
+            backButton.setImage(UIImage(named: Constant.backButtonImageName), for: .normal)
+            homeButton.setImage(UIImage(named: Constant.homeButtonImageName), for: .normal)
             
             backButton.sizeToFit()
             
