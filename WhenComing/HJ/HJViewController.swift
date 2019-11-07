@@ -37,6 +37,8 @@ class HJViewController: UIViewController, PrepareLayout {
     // MARK: - return NavigationView Method
     func getNavigationView() -> UIView {
         return UIView(frame: .zero).then { view in
+            view.backgroundColor = .white
+            
             let settingButton: UIButton = UIButton(type: .custom)
             let searchButton: UIButton = UIButton(type: .custom)
             let plusButton: UIButton = UIButton(type: .custom)

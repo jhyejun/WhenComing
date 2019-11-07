@@ -90,12 +90,17 @@ class AlarmListViewController: HJViewController {
 }
 
 extension AlarmListViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView.cellForItem(at: indexPath) as? AlarmEmptyCollectionViewCell != nil {
+            let viewController: AlarmSetViewController = AlarmSetViewController()
+            push(viewController: viewController)
+        }
+    }
 }
 
 extension AlarmListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if rowCount > 0 {
+        if collectionView.numberOfSections > 1 {
             return Constant.collectionViewDefaultInset
         } else {
             let totalCellWidth: CGFloat = Constant.collectionViewCellSize.width * CGFloat(collectionView.numberOfItems(inSection: 0))
