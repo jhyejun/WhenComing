@@ -25,8 +25,8 @@ class AlarmListViewController: HJViewController {
     }
     private let collectionLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout().then {
         $0.scrollDirection = .horizontal
-        $0.minimumInteritemSpacing = AlarmListViewController.Constant.collectionViewSpacing
-        $0.estimatedItemSize = AlarmListViewController.Constant.collectionViewCellSize
+        $0.minimumInteritemSpacing = Constant.collectionViewSpacing
+        $0.estimatedItemSize = Constant.collectionViewCellSize
     }
     private let alarmEmptyView: AlarmEmptyView = AlarmEmptyView()
     private let alarmDetailView: AlarmDetailView = AlarmDetailView()
@@ -67,7 +67,7 @@ class AlarmListViewController: HJViewController {
             collectionView.snp.makeConstraints { make in
                 make.top.equalTo(navigationView.snp.bottom)
                 make.leading.trailing.equalToSuperview()
-                make.height.equalToSuperview().multipliedBy(AlarmListViewController.Constant.collectionViewHeigtRatio)
+                make.height.equalToSuperview().multipliedBy(Constant.collectionViewHeigtRatio)
             }
             
             detailView.snp.makeConstraints { make in
@@ -78,7 +78,7 @@ class AlarmListViewController: HJViewController {
             collectionView.snp.makeConstraints { make in
                 make.top.equalTo(view.snp.topMargin)
                 make.leading.trailing.equalToSuperview()
-                make.height.equalToSuperview().multipliedBy(AlarmListViewController.Constant.collectionViewHeigtRatio)
+                make.height.equalToSuperview().multipliedBy(Constant.collectionViewHeigtRatio)
             }
             
             detailView.snp.makeConstraints { make in
@@ -90,16 +90,21 @@ class AlarmListViewController: HJViewController {
 }
 
 extension AlarmListViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView.cellForItem(at: indexPath) as? AlarmEmptyCollectionViewCell != nil {
+            let viewController: AlarmSetViewController = AlarmSetViewController()
+            push(viewController: viewController)
+        }
+    }
 }
 
 extension AlarmListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if collectionView.numberOfItems(inSection: 0) == 1 {
-            return AlarmListViewController.Constant.collectionViewDefaultInset
+        if collectionView.numberOfSections > 1 {
+            return Constant.collectionViewDefaultInset
         } else {
-            let totalCellWidth: CGFloat = AlarmListViewController.Constant.collectionViewCellSize.width * CGFloat(collectionView.numberOfItems(inSection: 0))
-            let totalSpacingWidth: CGFloat = AlarmListViewController.Constant.collectionViewSpacing * CGFloat((collectionView.numberOfItems(inSection: 0) - 1))
+            let totalCellWidth: CGFloat = Constant.collectionViewCellSize.width * CGFloat(collectionView.numberOfItems(inSection: 0))
+            let totalSpacingWidth: CGFloat = Constant.collectionViewSpacing * CGFloat((collectionView.numberOfItems(inSection: 0) - 1))
 
             let leftInset: CGFloat = (collectionView.layer.frame.size.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
             let rightInset: CGFloat = leftInset
@@ -115,7 +120,7 @@ extension AlarmListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return rowCount == 0 ? 1 : rowCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

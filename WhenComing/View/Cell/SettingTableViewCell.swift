@@ -9,6 +9,13 @@
 import UIKit
 
 class SettingTableViewCell: HJTableViewCell, Updatable {
+    // MARK: - Constatnt
+    struct Constant {
+        // TableViewCell
+        static let cellVerticalInset: CGFloat = 16
+        static let cellHorizontalInset: CGFloat = 20
+    }
+    
     typealias T = Setting
     
     let titleLabel: UILabel = UILabel().then {
@@ -49,13 +56,13 @@ class SettingTableViewCell: HJTableViewCell, Updatable {
         super.prepareConstraints()
         
         titleLabel.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(16)
-            make.leading.equalToSuperview().inset(20)
+            make.top.bottom.equalToSuperview().inset(SettingTableViewCell.Constant.cellVerticalInset)
+            make.leading.equalToSuperview().inset(SettingTableViewCell.Constant.cellHorizontalInset)
         }
         
         contentLabel.snp.makeConstraints { make in
             make.top.bottom.equalTo(titleLabel)
-            make.trailingMargin.equalToSuperview().inset(20)
+            make.trailingMargin.equalToSuperview().inset(SettingTableViewCell.Constant.cellHorizontalInset)
         }
     }
     
